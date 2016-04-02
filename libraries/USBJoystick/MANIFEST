@@ -1,0 +1,9 @@
+USBJoystick/Makefile
+USBJoystick/MANIFEST
+USBJoystick/project.cfg
+USBJoystick/USBJoystick.h
+USBJoystick/doc/*
+USBJoystick/USBJoystick.cpp
+USBJoystick/keywords.txt
+USBJoystick/examples/usbjoystick_test/usbjoystick_test.pde
+USBJoystick/LICENSE

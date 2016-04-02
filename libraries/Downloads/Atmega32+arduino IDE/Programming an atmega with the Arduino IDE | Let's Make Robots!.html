@@ -1,0 +1,441 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html class="js" xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"><head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <title>Programming an atmega with the Arduino IDE | Let's Make Robots!</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="shortcut icon" href="http://letsmakerobots.com/files/favicon.ico" type="image/x-icon">
+<style type="text/css" media="all">@import "/files/css/d0b279a7298240bd3b23316d0f46b761.css";</style>
+<style type="text/css" media="print">@import "/files/css/3237c875190c526d78cd50298962dc63.css";</style>
+<style type="text/css" media="screen">@import "/files/css/ab566047223a165493476748e9c57b88.css";</style>
+<script type="text/javascript" src="Programming%20an%20atmega%20with%20the%20Arduino%20IDE%20%7C%20Let%27s%20Make%20Robots%21_files/jquery_002.js"></script>
+<script type="text/javascript" src="Programming%20an%20atmega%20with%20the%20Arduino%20IDE%20%7C%20Let%27s%20Make%20Robots%21_files/drupal.js"></script>
+<script type="text/javascript" src="Programming%20an%20atmega%20with%20the%20Arduino%20IDE%20%7C%20Let%27s%20Make%20Robots%21_files/compat.js"></script>
+<script type="text/javascript" src="Programming%20an%20atmega%20with%20the%20Arduino%20IDE%20%7C%20Let%27s%20Make%20Robots%21_files/lmr_chill.js"></script>
+<script type="text/javascript" src="Programming%20an%20atmega%20with%20the%20Arduino%20IDE%20%7C%20Let%27s%20Make%20Robots%21_files/lmr_components.js"></script>
+<script type="text/javascript" src="Programming%20an%20atmega%20with%20the%20Arduino%20IDE%20%7C%20Let%27s%20Make%20Robots%21_files/panels.js"></script>
+<script type="text/javascript" src="Programming%20an%20atmega%20with%20the%20Arduino%20IDE%20%7C%20Let%27s%20Make%20Robots%21_files/collapse.js"></script>
+<script type="text/javascript" src="Programming%20an%20atmega%20with%20the%20Arduino%20IDE%20%7C%20Let%27s%20Make%20Robots%21_files/lmr.js"></script>
+<script type="text/javascript" src="Programming%20an%20atmega%20with%20the%20Arduino%20IDE%20%7C%20Let%27s%20Make%20Robots%21_files/openid.js"></script>
+<script type="text/javascript" src="Programming%20an%20atmega%20with%20the%20Arduino%20IDE%20%7C%20Let%27s%20Make%20Robots%21_files/jquery.js"></script>
+<script type="text/javascript">Drupal.extend({ settings: { "googleanalytics": { "trackOutgoing": 1, "trackMailto": 1, "trackDownload": 1, "trackDownloadExtensions": "7z|aac|avi|csv|doc|exe|flv|gif|gz|jpe?g|js|mp(3|4|e?g)|mov|pdf|phps|png|ppt|rar|sit|tar|torrent|txt|wma|wmv|xls|xml|zip", "LegacyVersion": 0 }, "googleCSE": { "locale": [ "en-US" ] } } });</script>
+
+  <script type="text/javascript"> </script>
+    <meta name="description" content="At Let's Make Robots, you can share your homemade robots with the world. Share your cool ideas and stunning designs here or see the clever inventions of others">
+  <meta name="keywords" content="robots, homemade robots, ambient intelligence, ubiquitous computing, internet of things, Everyware, Context-aware computing, Mobile computing, Wearable computing, Embedded computing, Augmented reality, Pervasive computing">
+  <link rel="shortcut icon" href="http://letsmakerobots.com/favicon.ico">
+  </head>
+
+<body id="letsmakerobots.com" class="not-front not-logged-in node-type-forum one-sidebar sidebar-right page-content-programming-atmega-arduino-ide section-content">
+  <div id="doc4" class="yui-t4">
+    <div id="hd">
+      
+
+			      <div class="cz-toplink">
+
+
+
+		      <a href="http://letsmakerobots.com/chill" title="Chillout Zone: "><img src="Programming%20an%20atmega%20with%20the%20Arduino%20IDE%20%7C%20Let%27s%20Make%20Robots%21_files/v3frontchill.png" alt="Chillout Zone"></a>
+			
+
+
+            </div>
+	
+            <div id="site-name">
+         <a href="http://letsmakerobots.com/" title="Let's Make Robots!" rel="home"><img src="Programming%20an%20atmega%20with%20the%20Arduino%20IDE%20%7C%20Let%27s%20Make%20Robots%21_files/LMR3FlashLogo.png" alt="Let's Make Robots!" title="Let's Make Robots!" height="59" width="375"></a>
+      </div>
+
+      <div id="navbar-top"><ul class="links-menu">
+<li><a href="http://letsmakerobots.com/start" title="Are you new to robot building? This may be a good tutorial for you to get started on your first robot.">Start Here</a></li>
+<li><a href="http://letsmakerobots.com/lmr/rules" title="DOs and DONTs on LetsMakeRobots">Rules</a></li>
+<li><a href="http://letsmakerobots.com/view/tip/list" title="LMR's Epic Walk Throughs">TopTips</a></li>
+<li><a href="http://letsmakerobots.com/view/node/list/robot" title="List of all robots">Robots</a></li>
+<li><a href="http://letsmakerobots.com/view/node/list/something_else">Something else</a></li>
+<li><a href="http://letsmakerobots.com/blog" title="Users blogs">Blogs</a></li>
+<li><a href="http://letsmakerobots.com/reviews/components" title="Reviews for components, components for reviews!">Reviews</a></li>
+<li><a href="http://letsmakerobots.com/forums/lmr-3d-print-club/join-lmr-3d-print-club" title="Join the LMR 3D Print Club here">3D print club</a></li>
+<li><a href="http://letsmakerobots.com/view/challenges/list">Challenges</a></li>
+<li><a href="http://letsmakerobots.com/forums">Forums</a></li>
+<li><a href="http://letsmakerobots.com/tracker">Recent</a></li>
+<li><a href="http://letsmakerobots.com/content/together-we-push-evolution" title="About LetsMakeRobots">About</a></li>
+<li><a href="http://letsmakerobots.com/user" title="Lists of your posts">My Account</a></li>
+<li><a href="http://letsmakerobots.com/my" title="Your stuff sorted by recent activity">My stuff</a></li>
+</ul></div>
+      <div class="breadcrumb"><a href="http://letsmakerobots.com/">Home</a> » <a href="http://letsmakerobots.com/forums">Forums</a> » <a href="http://letsmakerobots.com/forums/specific-system-related">Specific system related</a> » <a href="http://letsmakerobots.com/forums/specific-system-related/arduino-/-avr">Arduino / AVR</a></div>    </div>
+    <div id="bd">
+      <div id="yui-main">
+        <div class="yui-b first" id="main-content">
+                          <div id="content-header">
+			                                    <h1 class="title title-link-options" id="links-16014">Programming an atmega with the Arduino IDE</h1>
+            
+                        <!--MCR-->
+          </div> <!-- /#content-header -->
+                  <div id="content-area">
+            
+
+<div class="node node-full node-type-forum" id="node-16014"><div class="node-inner">
+
+      <div class="taxonomy floating-taxonomy"><a href="http://letsmakerobots.com/taxonomy/term/126" rel="tag" title="">Arduino</a>, <a href="http://letsmakerobots.com/taxonomy/term/238" rel="tag" title="">AVR</a>, <a href="http://letsmakerobots.com/taxonomy/term/1746" rel="tag" title="">programmer</a>, <a href="http://letsmakerobots.com/taxonomy/term/2131" rel="tag" title="">atmega</a>, <a href="http://letsmakerobots.com/taxonomy/term/5770" rel="tag" title="">stk500</a>, <a href="http://letsmakerobots.com/taxonomy/term/5771" rel="tag" title="">icsp</a>, <a href="http://letsmakerobots.com/taxonomy/term/5772" rel="tag" title="">isp</a></div>
+  
+  <div class="lmr-nodetype-badge forum"><a href="http://letsmakerobots.com/view/node/list/forum">Forum topic</a></div>
+  
+
+
+
+
+      <div class="links hide" id="hide-links-16014">
+        <ul class="links inline"><li class="first comment_forbidden"><span class="comment_forbidden"><a href="http://letsmakerobots.com/user/login?destination=node/16014%2523comment-form">Login</a> or <a href="http://letsmakerobots.com/user/register?destination=node/16014%2523comment-form">register</a> to post comments</span></li>
+<li class="last bio"><a href="http://letsmakerobots.com/profile/captaintuna" title="View CaptainTuna's Profile." class="bio">by CaptainTuna</a></li>
+</ul>    </div>
+  
+
+
+
+
+      <div class="submitted">
+      By <a href="http://letsmakerobots.com/user/668" title="View user profile.">CaptainTuna</a> <br> January 26, 2010    </div>
+  
+  <div class="picture"><a href="http://letsmakerobots.com/user/668"><img alt="" src="Programming%20an%20atmega%20with%20the%20Arduino%20IDE%20%7C%20Let%27s%20Make%20Robots%21_files/picture-668.jpg"></a></div>
+
+
+
+
+
+
+
+  <div class="content">
+    
+    <div class="content2">
+    <p>Hi guys.</p><p>from this post (<a href="http://letsmakerobots.com/node/5593">http://letsmakerobots.com/node/5593</a>&nbsp;) by Rudolph&nbsp;i learned that you can program an atmega with the arudino IDE even if you haven't got an arduino board.</p><p>What i have here with me now is an atmega328, a serial programmer (precisely this one:&nbsp;<a href="http://www.sparkfun.com/commerce/product_info.php?products_id=14">http://www.sparkfun.com/commerce/product_info.php?products_id=14</a>&nbsp;).</p><p>The
+ point is that I do not know how to connect the programmer to the 
+atmega328. I've seen that arduino boards usually have a 3 by 2 array (6 
+pin total) of male headers while my programmer has a 5 by 2 socket (10 
+pin total). I've arranged the pins this way (<a href="http://www.olimex.com/dev/images/avr-icsp-10.gif">http://www.olimex.com/dev/images/avr-icsp-10.gif</a>&nbsp;) but i'm not totally sure it is correct, since the header "size" is different.&nbsp;</p><p>...and
+ since i'm afraid to screw up the chip i'm asking you if it is correct 
+before trying to make it work. (I'm pretty sure it's right, cause no 
+matter what size it is, connections shouldn't change, but i feel it's 
+safer for the chip to ask you before i do anything).</p><p>&nbsp;</p><hr>Also:
+ i've written "avrisp" in the preferences.txt file under the upload 
+entry (wasn't really upload but something similar, but i guess you got 
+what i mean). I think it should be correct for the type of programmer i 
+have.<p>&nbsp;</p><p>&nbsp;</p><p>Thank you! :=)&nbsp;</p><p>&nbsp;</p><div class="forum-topic-navigation clear-block"><a href="http://letsmakerobots.com/content/calculons-arduino-serial-madness-part-2" class="topic-previous" title="Go to previous forum topic">‹ Calculon's Arduino Serial madness, part 2</a> <a href="http://letsmakerobots.com/content/romeo-arduino-compatable-board-boot-loader" class="topic-next" title="Go to next forum topic"> Romeo arduino compatable board boot loader ›</a></div>
+
+    
+    </div>
+  </div>
+
+
+
+</div></div> <!-- /node-inner, /node -->
+<div id="comments"><form action="/content/programming-atmega-arduino-ide" accept-charset="UTF-8" method="post" id="comment-controls">
+<div><div class="box">
+
+  <h2>Comment viewing options</h2>
+
+  <div class="content"><div class="container-inline"><input name="form_id" id="edit-comment-controls" value="comment_controls" type="hidden">
+<div class="form-item" id="edit-mode-wrapper">
+ <select name="mode" class="form-select" id="edit-mode"><option value="1">Flat list - collapsed</option><option value="2">Flat list - expanded</option><option value="3">Threaded list - collapsed</option><option value="4" selected="selected">Threaded list - expanded</option></select>
+</div>
+<div class="form-item" id="edit-order-wrapper">
+ <select name="order" class="form-select" id="edit-order"><option value="1" selected="selected">Date - newest first</option><option value="2">Date - oldest first</option></select>
+</div>
+<div class="form-item" id="edit-comments-per-page-wrapper">
+ <select name="comments_per_page" class="form-select" id="edit-comments-per-page"><option value="10" selected="selected">10 comments per page</option><option value="30">30 comments per page</option><option value="50">50 comments per page</option><option value="70">70 comments per page</option><option value="90">90 comments per page</option><option value="150">150 comments per page</option><option value="200">200 comments per page</option><option value="250">250 comments per page</option><option value="300">300 comments per page</option></select>
+</div>
+<input name="op" id="edit-submit" value="Save settings" class="form-submit" type="submit">
+</div><div class="description">Select your preferred way to display the comments and click "Save settings" to activate your changes.</div></div>
+</div>
+
+</div></form>
+<a id="comment-40046"></a>
+<div class="comment odd comment-by-author">
+  <div class="comment-inner clear-block">
+    <div class="submitted">
+      By <a href="http://letsmakerobots.com/user/668" title="View user profile.">CaptainTuna</a> @ Wed, 2010-01-27 22:26    </div>
+    <div class="picture"><a href="http://letsmakerobots.com/user/668"><img alt="" src="Programming%20an%20atmega%20with%20the%20Arduino%20IDE%20%7C%20Let%27s%20Make%20Robots%21_files/picture-668.jpg"></a></div>              <h3 class="title title-link-options" id="links-comment-40046"><a href="http://letsmakerobots.com/content/programming-atmega-arduino-ide#comment-40046" class="active">exactly!!! the boards.txt</a></h3>
+    
+          <div class="links hide" id="hide-links-comment-40046">
+      <ul class="links"><li class="first last comment_forbidden"><span class="comment_forbidden"><a href="http://letsmakerobots.com/user/login?destination=node/16014%2523comment-form">Login</a> or <a href="http://letsmakerobots.com/user/register?destination=node/16014%2523comment-form">register</a> to post comments</span></li>
+</ul>    </div>
+  
+    <div class="content">
+      <p>exactly!!! the boards.txt was the key to making it work :D Thank you very much RobotFreak!</p><p>I
+ also found out that blank atmegas come with the "divide clock by 8" 
+option enabled and are by default at 8MHz (so result would be 1MHz), so 
+if build.f_cpu is 16000000L and you write delay(1000) in you sketch, 
+you'll have a pause which lasts 16 seconds. Make sure you either adjust 
+the f_cpu setting or modify the fuses... Just in case some 
+arduino-newbie like me is reading.&nbsp;</p>    </div>
+  </div><!-- /comment-inner -->
+
+</div><!-- /comment -->
+<a id="comment-40044"></a>
+<div class="comment even">
+  <div class="comment-inner clear-block">
+    <div class="submitted">
+      By <a href="http://letsmakerobots.com/user/1433" title="View user profile.">RobotFreak</a> @ Wed, 2010-01-27 21:54    </div>
+    <div class="picture"><a href="http://letsmakerobots.com/user/1433"><img alt="" src="Programming%20an%20atmega%20with%20the%20Arduino%20IDE%20%7C%20Let%27s%20Make%20Robots%21_files/picture-1433.png"></a></div>              <h3 class="title title-link-options" id="links-comment-40044"><a href="http://letsmakerobots.com/content/programming-atmega-arduino-ide#comment-40044" class="active">I have done some tests with</a></h3>
+    
+          <div class="links hide" id="hide-links-comment-40044">
+      <ul class="links"><li class="first last comment_forbidden"><span class="comment_forbidden"><a href="http://letsmakerobots.com/user/login?destination=node/16014%2523comment-form">Login</a> or <a href="http://letsmakerobots.com/user/register?destination=node/16014%2523comment-form">register</a> to post comments</span></li>
+</ul>    </div>
+  
+    <div class="content">
+      <p>I have done some tests with the Arduino IDE. I think I have 
+found a way, that will work. Looking into the avrdude.conf file did not 
+show any differences between ponyser and siprog. Just a different name 
+for the same device.</p><p>&nbsp;</p><p><b>Change the&nbsp; boards.txt file and add a new board similar to this one (depends on the µc used):</b></p><p>&nbsp;</p><p>&nbsp;##############################################################<br><br>arduinoclone328.name=Arduino Clone w/ ATmega328<br><br>arduinoclone328.upload.protocol=ponyser<br>arduinoclone328.upload.maximum_size=30720<br>arduinoclone328.upload.speed=19200<br><br>arduinoclone328.bootloader.low_fuses=0xFF<br>arduinoclone328.bootloader.high_fuses=0xDA<br>arduinoclone328.bootloader.extended_fuses=0x05<br>arduinoclone328.bootloader.path=atmega<br>arduinoclone328.bootloader.file=ATmegaBOOT_168_atmega328.hex<br>arduinoclone328.bootloader.unlock_bits=0x3F<br>arduinoclone328.bootloader.lock_bits=0x0F<br><br>arduinoclone328.build.mcu=atmega328p<br>arduinoclone328.build.f_cpu=16000000L<br>arduinoclone328.build.core=arduino </p><p>&nbsp;############################################################## </p><p><b>When
+ you start the Arduino IDE the new board&nbsp; is visible under Tools | 
+Board. Starting to load a sketch gives the following output:</b> </p><p>C:\Programme\arduino-0017\hardware/tools/avr/bin/avrdude
+ -CC:\Programme\arduino-0017\hardware/tools/avr/etc/avrdude.conf -v -v 
+-v -v -pm328p -cponyser -P\\.\COM1 -b19200 -D 
+-Uflash:w:C:\Programme\arduino-0017\examples\Digital\Blink\applet\Blink.cpp.hex:i
+ <br><br><br>avrdude: Version 5.4-arduino, compiled on Oct 11 2007 at 19:12:32<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Copyright (c) 2000-2005 Brian Dean, <a href="http://www.bdmicro.com/">http://www.bdmicro.com/</a><br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ System wide configuration file is 
+"C:\Programme\arduino-0017\hardware/tools/avr/etc/avrdude.conf"<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ Using 
+Port&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; :
+ \\.\COM1<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Using Programmer&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : ponyser<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Overriding Baud Rate&nbsp; : 19200<br>avrdude: ser_open(): opened comm port "\\.\COM1", handle 0x7b4<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ AVR 
+Part&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ : ATMEGA328P<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Chip Erase delay&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : 9000 us<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ 
+PAGEL&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ : PD7<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+BS2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ : PC2<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; RESET disposition&nbsp;&nbsp;&nbsp;&nbsp; : dedicated<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; RETRY pulse&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : SCK<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; serial program mode&nbsp;&nbsp; : yes<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; parallel program mode : yes<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ 
+Timeout&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ : 200<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+StabDelay&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ : 100<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; CmdexeDelay&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : 25<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ 
+SyncLoops&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ : 32<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+ByteDelay&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ : 0<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+PollIndex&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ : 3<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+PollValue&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ : 0x53<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Memory Detail&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; :<br>&nbsp;</p><p>&nbsp;</p>    </div>
+  </div><!-- /comment-inner -->
+
+</div><!-- /comment -->
+<a id="comment-40040"></a>
+<div class="comment odd">
+  <div class="comment-inner clear-block">
+    <div class="submitted">
+      By <a href="http://letsmakerobots.com/user/747" title="View user profile.">voodoobot</a> @ Wed, 2010-01-27 21:02    </div>
+    <div class="picture"><a href="http://letsmakerobots.com/user/747"><img alt="" src="Programming%20an%20atmega%20with%20the%20Arduino%20IDE%20%7C%20Let%27s%20Make%20Robots%21_files/picture-747.jpg"></a></div>              <h3 class="title title-link-options" id="links-comment-40040"><a href="http://letsmakerobots.com/content/programming-atmega-arduino-ide#comment-40040" class="active">What about just getting avr</a></h3>
+    
+          <div class="links hide" id="hide-links-comment-40040">
+      <ul class="links"><li class="first last comment_forbidden"><span class="comment_forbidden"><a href="http://letsmakerobots.com/user/login?destination=node/16014%2523comment-form">Login</a> or <a href="http://letsmakerobots.com/user/register?destination=node/16014%2523comment-form">register</a> to post comments</span></li>
+</ul>    </div>
+  
+    <div class="content">
+      What about just getting avr studio? that would give you quite a 
+lot more features vs the arduino prog editor. At least in Devopment it 
+would give you a better understanding of whats going on and you could 
+just copy/paste the code into the arduino prog editor when you want to 
+upload...or use the avrdude app...however you do it.    </div>
+  </div><!-- /comment-inner -->
+
+</div><!-- /comment -->
+<div class="indented"><a id="comment-40047"></a>
+<div class="comment even comment-by-author">
+  <div class="comment-inner clear-block">
+    <div class="submitted">
+      By <a href="http://letsmakerobots.com/user/668" title="View user profile.">CaptainTuna</a> @ Wed, 2010-01-27 22:36    </div>
+    <div class="picture"><a href="http://letsmakerobots.com/user/668"><img alt="" src="Programming%20an%20atmega%20with%20the%20Arduino%20IDE%20%7C%20Let%27s%20Make%20Robots%21_files/picture-668.jpg"></a></div>              <h3 class="title title-link-options" id="links-comment-40047"><a href="http://letsmakerobots.com/content/programming-atmega-arduino-ide#comment-40047" class="active">arduino looks quite simple.</a></h3>
+    
+          <div class="links hide" id="hide-links-comment-40047">
+      <ul class="links"><li class="first last comment_forbidden"><span class="comment_forbidden"><a href="http://letsmakerobots.com/user/login?destination=node/16014%2523comment-form">Login</a> or <a href="http://letsmakerobots.com/user/register?destination=node/16014%2523comment-form">register</a> to post comments</span></li>
+</ul>    </div>
+  
+    <div class="content">
+      arduino looks quite simple. Maybe when i can handle atmega chips 
+better i'll move on to avr studio, but for now i'd prefer to stay with a
+ higher level language.    </div>
+  </div><!-- /comment-inner -->
+
+</div><!-- /comment -->
+</div><a id="comment-40030"></a>
+<div class="comment odd comment-by-author">
+  <div class="comment-inner clear-block">
+    <div class="submitted">
+      By <a href="http://letsmakerobots.com/user/668" title="View user profile.">CaptainTuna</a> @ Wed, 2010-01-27 15:05    </div>
+    <div class="picture"><a href="http://letsmakerobots.com/user/668"><img alt="" src="Programming%20an%20atmega%20with%20the%20Arduino%20IDE%20%7C%20Let%27s%20Make%20Robots%21_files/picture-668.jpg"></a></div>              <h3 class="title title-link-options" id="links-comment-40030"><a href="http://letsmakerobots.com/content/programming-atmega-arduino-ide#comment-40030" class="active">I experimented a bit with</a></h3>
+    
+          <div class="links hide" id="hide-links-comment-40030">
+      <ul class="links"><li class="first last comment_forbidden"><span class="comment_forbidden"><a href="http://letsmakerobots.com/user/login?destination=node/16014%2523comment-form">Login</a> or <a href="http://letsmakerobots.com/user/register?destination=node/16014%2523comment-form">register</a> to post comments</span></li>
+</ul>    </div>
+  
+    <div class="content">
+      <p>I experimented a bit with the infos you gave me RFreak, and i 
+found out that the right one for me is "ponyser" (from pony prog i 
+guess). I used AVRdude (alone, not the one that comes with the arduino 
+ide) to upload the code and it works fine. BUT, i still can't upload it 
+with the arduino IDE.</p><p>This is what i found in avrdude's .CONF file:</p><p># serial ponyprog design (dasa2 in uisp)</p><p># reset=!txd sck=rts mosi=dtr miso=cts</p><p>programmer</p><p>&nbsp;&nbsp;id &nbsp; &nbsp;= "ponyser";</p><p>&nbsp;&nbsp;desc &nbsp;= "design ponyprog serial, reset=!txd sck=rts mosi=dtr miso=cts";</p><p>&nbsp;&nbsp;type &nbsp;= serbb;</p><p>&nbsp;&nbsp;reset = ~3;</p><p>&nbsp;&nbsp;sck &nbsp; = 7;</p><p>&nbsp;&nbsp;mosi &nbsp;= 4;</p><p>&nbsp;&nbsp;miso &nbsp;= 8;</p><p>;</p><p>&nbsp;</p><p>I
+ guess i somehow have to insert these information in the hardware.txt 
+file, but do not know how. I tried with siprog and ponyser already the 
+way you wrote it and it doesn't work. Any suggestion?&nbsp;</p>    </div>
+  </div><!-- /comment-inner -->
+
+</div><!-- /comment -->
+<a id="comment-40000"></a>
+<div class="comment even">
+  <div class="comment-inner clear-block">
+    <div class="submitted">
+      By <a href="http://letsmakerobots.com/user/1433" title="View user profile.">RobotFreak</a> @ Wed, 2010-01-27 00:16    </div>
+    <div class="picture"><a href="http://letsmakerobots.com/user/1433"><img alt="" src="Programming%20an%20atmega%20with%20the%20Arduino%20IDE%20%7C%20Let%27s%20Make%20Robots%21_files/picture-1433.png"></a></div>              <h3 class="title title-link-options" id="links-comment-40000"><a href="http://letsmakerobots.com/content/programming-atmega-arduino-ide#comment-40000" class="active">OK, I see, the hardware.txt</a></h3>
+    
+          <div class="links hide" id="hide-links-comment-40000">
+      <ul class="links"><li class="first last comment_forbidden"><span class="comment_forbidden"><a href="http://letsmakerobots.com/user/login?destination=node/16014%2523comment-form">Login</a> or <a href="http://letsmakerobots.com/user/register?destination=node/16014%2523comment-form">register</a> to post comments</span></li>
+</ul>    </div>
+  
+    <div class="content">
+      <p>OK, I see, the hardware.txt file needs to be modified too. 
+Maybe this modification will work. AFAIK The Arduino IDE uses avrdude as
+ programmer and avrdude supports the Lancos SI-Prog.&nbsp; </p><p>siprog.name=LANCOS SI-PROG</p><p>siprog.communication=serial</p><p>siprog.protocol=siprog</p><p>&nbsp;</p>    </div>
+  </div><!-- /comment-inner -->
+
+</div><!-- /comment -->
+<a id="comment-39995"></a>
+<div class="comment odd comment-by-author">
+  <div class="comment-inner clear-block">
+    <div class="submitted">
+      By <a href="http://letsmakerobots.com/user/668" title="View user profile.">CaptainTuna</a> @ Tue, 2010-01-26 23:29    </div>
+    <div class="picture"><a href="http://letsmakerobots.com/user/668"><img alt="" src="Programming%20an%20atmega%20with%20the%20Arduino%20IDE%20%7C%20Let%27s%20Make%20Robots%21_files/picture-668.jpg"></a></div>              <h3 class="title title-link-options" id="links-comment-39995"><a href="http://letsmakerobots.com/content/programming-atmega-arduino-ide#comment-39995" class="active">Hey thank for the answer</a></h3>
+    
+          <div class="links hide" id="hide-links-comment-39995">
+      <ul class="links"><li class="first last comment_forbidden"><span class="comment_forbidden"><a href="http://letsmakerobots.com/user/login?destination=node/16014%2523comment-form">Login</a> or <a href="http://letsmakerobots.com/user/register?destination=node/16014%2523comment-form">register</a> to post comments</span></li>
+</ul>    </div>
+  
+    <div class="content">
+      <p>Hey thank for the answer RobotFreak!</p><p>The guide I read on 
+arduino.cc talked about adding in the preferences.txt file one of the 
+codes found in the hardware.txt file. But in the hardware.txt file i 
+only have 3 programmer codes, so i guess that before adding "siprog" in 
+preferences, i need to add an entry for it in hardware.txt (i am not 
+sure i explained this correctly).</p><p>Just to give you an idea, the hardware file contains this:</p><p>&nbsp;</p><p>&nbsp;avrisp.name=AVR ISP</p><p>avrisp.communication=serial</p><p>avrisp.protocol=stk500</p><p>&nbsp;</p><p>avrispmkii.name=AVRISP mkII</p><p>avrispmkii.communication=usb</p><p>avrispmkii.protocol=stk500v2</p><p>&nbsp;</p><p>usbtinyisp.name=USBtinyISP</p><p>usbtinyisp.protocol=usbtiny</p><p>&nbsp;</p><p>parallel.name=Parallel Programmer</p><p>parallel.protocol=dapa</p><p>&nbsp;</p><p>&nbsp;</p><p>parallel.force=true</p><p># parallel.delay=200</p><p>&nbsp;</p><hr><p>&nbsp;the communication and the protocol of the "avrisp" match those of my programmer already.</p>    </div>
+  </div><!-- /comment-inner -->
+
+</div><!-- /comment -->
+<a id="comment-39992"></a>
+<div class="comment even">
+  <div class="comment-inner clear-block">
+    <div class="submitted">
+      By <a href="http://letsmakerobots.com/user/1433" title="View user profile.">RobotFreak</a> @ Tue, 2010-01-26 22:49    </div>
+    <div class="picture"><a href="http://letsmakerobots.com/user/1433"><img alt="" src="Programming%20an%20atmega%20with%20the%20Arduino%20IDE%20%7C%20Let%27s%20Make%20Robots%21_files/picture-1433.png"></a></div>              <h3 class="title title-link-options" id="links-comment-39992"><a href="http://letsmakerobots.com/content/programming-atmega-arduino-ide#comment-39992" class="active">Hi CaptainTun, This serial</a></h3>
+    
+          <div class="links hide" id="hide-links-comment-39992">
+      <ul class="links"><li class="first last comment_forbidden"><span class="comment_forbidden"><a href="http://letsmakerobots.com/user/login?destination=node/16014%2523comment-form">Login</a> or <a href="http://letsmakerobots.com/user/register?destination=node/16014%2523comment-form">register</a> to post comments</span></li>
+</ul>    </div>
+  
+    <div class="content">
+      <p>Hi CaptainTun, </p><p>This serial programmer looks similar to the <a href="http://www.lancos.com/siprogsch.html">Lancos SI Prog</a>.
+ You should use 'siprog' instead of 'avrisp' in the preference file. The
+ 10pin connector is identical to the 6pin connector, it is only a 
+different pinout.</p><p>&nbsp;</p>    </div>
+  </div><!-- /comment-inner -->
+
+</div><!-- /comment -->
+</div>          </div><!-- /#content-area -->
+                  </div><!-- /.yui-b -->
+      </div><!-- /#yui-main -->
+      <div id="sidebar-right" class="yui-b">
+        <div id="block-google_cse-0" class="block block-google_cse">
+
+  <h2>Search</h2>
+
+  <div class="content"><form action="/search/google" accept-charset="UTF-8" method="get" id="google-cse-searchbox-form">
+<div><input name="cx" id="edit-cx" value="012709226640790061585:0mee3t_1dna" type="hidden">
+<input name="cof" id="edit-cof" value="FORID:11" type="hidden">
+<div class="form-item" id="edit-query-wrapper">
+ <input style="background: url(&quot;http://www.google.com/coop/intl/en-US/images/google_custom_search_watermark.gif&quot;) no-repeat scroll left center rgb(255, 255, 255);" maxlength="128" name="query" id="edit-query" size="15" title="Enter the terms you wish to search for." class="form-text" type="text">
+</div>
+<input name="op" id="edit-sa" value="Search" class="form-submit" type="submit">
+<input name="safe" id="edit-safe" value="off" type="hidden">
+<input name="form_id" id="edit-google-cse-searchbox-form" value="google_cse_searchbox_form" type="hidden">
+
+</div></form>
+</div>
+</div>
+<div id="block-user-0" class="block block-user">
+
+  <h2>User login</h2>
+
+  <div class="content"><form action="/content/programming-atmega-arduino-ide?destination=node%2F16014" accept-charset="UTF-8" method="post" id="user-login-form">
+<div><div class="form-item" id="edit-openid-identifier-wrapper">
+ <label for="edit-openid-identifier">Log in using OpenID: </label>
+ <input maxlength="255" name="openid_identifier" id="edit-openid-identifier" size="13" class="form-text" type="text">
+ <div class="description"><a href="http://openid.net/">What is OpenID?</a></div>
+</div>
+<div id="edit-name-wrapper"><div class="form-item" id="edit-name-wrapper">
+ <label for="edit-name">Username: <span class="form-required" title="This field is required.">*</span></label>
+ <input maxlength="60" name="name" id="edit-name" size="15" class="form-text required" type="text">
+</div>
+</div><div id="edit-pass-wrapper"><div class="form-item" id="edit-pass-wrapper">
+ <label for="edit-pass">Password: <span class="form-required" title="This field is required.">*</span></label>
+ <input name="pass" id="edit-pass" maxlength="60" size="15" class="form-text required" type="password">
+</div>
+</div><input name="op" id="edit-submit" value="Log in" class="form-submit" type="submit">
+<div class="item-list"><ul><li><a href="http://letsmakerobots.com/user/register" title="Create a new user account.">Create new account</a></li><li><a href="http://letsmakerobots.com/user/password" title="Request new password via e-mail.">Request new password</a></li></ul></div><input name="form_id" id="edit-user-login-block" value="user_login_block" type="hidden">
+<a href="http://letsmakerobots.com/%2523" class="openid-link">Log in using OpenID</a><a href="http://letsmakerobots.com/%2523" class="user-link">Cancel OpenID login</a><input name="openid.return_to" id="edit-openid.return-to" value="http://letsmakerobots.com/openid/authenticate?destination=node%2F16014" type="hidden">
+
+</div></form>
+</div>
+</div>
+<div id="block-blog-0" class="block block-blog">
+
+  <h2>Recent blog posts</h2>
+
+  <div class="content"><div class="item-list"><ul><li><a href="http://letsmakerobots.com/blog/jquick2/realbotics-drive-world">RealBotics - Drive the World</a></li><li><a href="http://letsmakerobots.com/blog/gareth/qonix-lipo-blue-smoked">Qonix - Lipo Blue smoked</a></li><li><a href="http://letsmakerobots.com/blog/bdk6/coding">Coding</a></li><li><a href="http://letsmakerobots.com/blog/dipanjan/durga-puja">Durga Puja</a></li><li><a href="http://letsmakerobots.com/blog/bdk6/about-software">About Software</a></li><li><a href="http://letsmakerobots.com/blog/byerley/ccsr-updates">CCSR updates</a></li><li><a href="http://letsmakerobots.com/blog/duane-degn/hex-caster">Hex Caster</a></li><li><a href="http://letsmakerobots.com/blog/maxhirez/clever-fckers">Clever f*ckers...</a></li><li><a href="http://letsmakerobots.com/blog/dickel/mechanical-thoughts">Mechanical Thoughts</a></li><li><a href="http://letsmakerobots.com/blog/markusb/automatic-medical-diagnosis-device-part-1">Automatic medical diagnosis device - Part 1</a></li></ul></div><div class="more-link"><a href="http://letsmakerobots.com/blog" title="Read the latest blog entries.">more</a></div></div>
+</div>
+<div id="block-links_weblink-1" class="block block-links_weblink">
+
+  <h2>Latest weblinks</h2>
+
+  <div class="content"><div class="item-list"><ul><li><a href="http://letsmakerobots.com/content/realbotics-drive-world">RealBotics - Drive the World</a></li><li><a href="http://letsmakerobots.com/content/dead-arduino-clones-and-ftdi-chips">Dead Arduino clones and FTDI chips</a></li><li><a href="http://letsmakerobots.com/content/fly-me-stars">fly me to the stars</a></li><li><a href="http://letsmakerobots.com/content/fuzzy">FUZZY</a></li><li><a href="http://letsmakerobots.com/content/morphex-coolest-hexapod-ever">Morphex ... The coolest hexapod ever?</a></li><li><a href="http://letsmakerobots.com/content/low-friction-fluid-transmission">Low-Friction Fluid Transmission</a></li><li><a href="http://letsmakerobots.com/content/there-are-no-electrons">There Are No Electrons</a></li><li><a href="http://letsmakerobots.com/content/alternative-arduino-ide-codeblocks">Alternative Arduino IDE [CodeBlocks]</a></li><li><a href="http://letsmakerobots.com/content/snake-robot">Snake robot</a></li><li><a href="http://letsmakerobots.com/content/home-poppet">The home of PopPet</a></li></ul></div></div>
+</div>
+<div id="block-user-3" class="block block-user">
+
+  <h2>Who's online</h2>
+
+  <div class="content">There are currently <em>19 users</em> and <em>13 guests</em> online.<div class="item-list"><h3>Online users</h3><ul><li><a href="http://letsmakerobots.com/users/6677" title="View user profile.">6677</a></li><li><a href="http://letsmakerobots.com/user/15907" title="View user profile.">mogul</a></li><li><a href="http://letsmakerobots.com/users/rwinscot" title="View user profile.">rwinscot</a></li><li><a href="http://letsmakerobots.com/user/14887" title="View user profile.">Duane Degn</a></li><li><a href="http://letsmakerobots.com/user/5404" title="View user profile.">lukeyes</a></li><li><a href="http://letsmakerobots.com/user/20275" title="View user profile.">th4nder</a></li><li><a href="http://letsmakerobots.com/user/22059" title="View user profile.">Hackgar</a></li><li><a href="http://letsmakerobots.com/user/13614" title="View user profile.">jinx</a></li><li><a href="http://letsmakerobots.com/user/3022" title="View user profile.">K120189</a></li><li><a href="http://letsmakerobots.com/user/21264" title="View user profile.">unix_guru</a></li><li><a href="http://letsmakerobots.com/users/iainanderson" title="View user profile.">iainanderson</a></li><li><a href="http://letsmakerobots.com/users/bdk6" title="View user profile.">bdk6</a></li><li><a href="http://letsmakerobots.com/users/pixelatedpic" title="View user profile.">pixelatedpic</a></li><li><a href="http://letsmakerobots.com/users/elmashad" title="View user profile.">Elmashad</a></li><li><a href="http://letsmakerobots.com/user/14021" title="View user profile.">birdmun</a></li><li><a href="http://letsmakerobots.com/users/photolong" title="View user profile.">Photolong</a></li><li><a href="http://letsmakerobots.com/user/15874" title="View user profile.">amd5200</a></li><li><a href="http://letsmakerobots.com/users/deshipu" title="View user profile.">deshipu</a></li><li><a href="http://letsmakerobots.com/users/pixelatedpic" title="View user profile.">pixelatedpic</a></li></ul></div></div>
+</div>
+<div id="block-user-1" class="block block-user">
+
+  <h2>Navigation</h2>
+
+  <div class="content">
+<ul class="menu">
+<li class="leaf"><a href="https://plus.google.com/u/0/112079279304962380860/posts" title="LMR on Google+">LMR on Google+</a></li>
+<li class="leaf"><a href="http://www.facebook.com/group.php?gid=52847854131">LMR on Facebook</a></li>
+<li class="leaf"><a href="http://www.flickr.com/groups/letsmakerobots" title="LMR on Flicker">LMR on Flicker</a></li>
+<li class="leaf"><a href="http://twitter.com/LetsMakeRobots" title="Follow LMR on Twitter">LMR on Twitter</a></li>
+<li class="leaf"><a href="http://letsmakerobots.com/content/lmr-scrapbook">LMR Scrapbook</a></li>
+<li class="leaf"><a href="http://letsmakerobots.com/user_list">User list</a></li>
+<li class="leaf"><a href="http://letsmakerobots.com/tracker_unread/all">Unread posts</a></li>
+<li class="leaf"><a href="http://letsmakerobots.com/rss_feeds">RSS feeds</a></li>
+<li class="leaf"><a href="http://letsmakerobots.com/view/admin/spam">Spam Control</a></li>
+
+</ul>
+</div>
+</div>
+      </div>
+    </div>
+    <div id="ft">
+      <div id="footer-message">
+        <div id="bee3-footer">ALL LMR ARE BELONG TO US!</div>
+        Let's make robots!
+      </div>
+      <div id="region_footer"></div>
+    </div>
+  </div>
+  <script type="text/javascript" src="Programming%20an%20atmega%20with%20the%20Arduino%20IDE%20%7C%20Let%27s%20Make%20Robots%21_files/googleanalytics.js"></script>
+<script type="text/javascript" src="Programming%20an%20atmega%20with%20the%20Arduino%20IDE%20%7C%20Let%27s%20Make%20Robots%21_files/google_cse.js"></script>
+<script type="text/javascript">var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));</script><script src="Programming%20an%20atmega%20with%20the%20Arduino%20IDE%20%7C%20Let%27s%20Make%20Robots%21_files/ga.js" type="text/javascript"></script>
+<script type="text/javascript">try{var pageTracker = _gat._getTracker("UA-3749072-1");pageTracker._trackPageview();} catch(err) {}</script>
+
+
+</body></html>

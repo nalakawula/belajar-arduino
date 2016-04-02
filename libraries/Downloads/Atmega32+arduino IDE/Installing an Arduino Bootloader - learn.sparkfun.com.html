@@ -1,0 +1,828 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+          <meta name="viewport" content="width=device-width, initial-scale=1"> <!-- mobile mode if small screen device -->
+    
+    <title>Installing an Arduino Bootloader - learn.sparkfun.com</title>
+
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <link href="Installing%20an%20Arduino%20Bootloader%20-%20learn.sparkfun.com_files/bootstrap.css" rel="stylesheet">
+    <link rel="stylesheet" href="Installing%20an%20Arduino%20Bootloader%20-%20learn.sparkfun.com_files/theme.css" type="text/css" media="screen">    <link rel="alternate" type="application/atom+xml" title="Education Blog" href="https://learn.sparkfun.com/feeds/blog">
+    <link rel="alternate" type="application/atom+xml" title="Tutorials" href="https://learn.sparkfun.com/feeds/tutorials">
+    <link rel="alternate" type="application/atom+xml" title="Education Blog Comments" href="https://learn.sparkfun.com/feeds/blog_comments">
+    <link rel="alternate" type="application/atom+xml" title="Tutorial Comments" href="https://learn.sparkfun.com/feeds/tutorial_comments">
+
+    <script src="Installing%20an%20Arduino%20Bootloader%20-%20learn.sparkfun.com_files/piwik.js" async="" defer="defer" type="text/javascript"></script><script src="Installing%20an%20Arduino%20Bootloader%20-%20learn.sparkfun.com_files/ga.js" async="" type="text/javascript"></script><script type="text/javascript">
+            var SFECONFIG = {
+        currencies: {"USD":{"code":"USD","title":"US Dollar","symbol_left":"$","symbol_right":"","decimal_point":".","thousands_point":",","decimal_places":"2","value":"1.0000"},"CAD":{"code":"CAD","title":"Canadian Dollar","symbol_left":"$","symbol_right":"","decimal_point":".","thousands_point":",","decimal_places":"2","value":"1.1248"},"AUD":{"code":"AUD","title":"Australian Dollar","symbol_left":"$","symbol_right":"","decimal_point":".","thousands_point":",","decimal_places":"2","value":"1.1342"},"GBP":{"code":"GBP","title":"British Pound","symbol_left":"&pound;","symbol_right":"","decimal_point":".","thousands_point":",","decimal_places":"2","value":"0.6201"},"EUR":{"code":"EUR","title":"Euro","symbol_left":"&euro;","symbol_right":"","decimal_point":".","thousands_point":",","decimal_places":"2","value":"0.7873"}},
+        preferred_currency: 'USD',
+        http_server: 'http://www.sparkfun.com',
+        https_server: 'https://www.sparkfun.com',
+        http_static: 'https://cdn.sparkfun.com',
+        base_url: '/',
+        url: '/',
+        controller: 'tutorials',
+        action: 'view',
+        entity_id: '',
+        auth: false,
+        sparkrev: '1414189364',
+        search_key: 'qLqN6uVRKXnjHd2QapGm'      };
+    </script>
+    <script src="Installing%20an%20Arduino%20Bootloader%20-%20learn.sparkfun.com_files/learn-built.js"></script><script src="Installing%20an%20Arduino%20Bootloader%20-%20learn.sparkfun.com_files/jqueryui.html" data-requiremodule="jqueryui" data-requirecontext="_" async="" charset="utf-8" type="text/javascript"></script>
+    <script type="text/javascript">
+      require.config({
+        paths: {
+          'jqueryui': 'https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/jquery-ui.min'
+        },
+        baseUrl: '/js/',
+        urlArgs: "sparkrev=" + SFECONFIG.sparkrev
+      });
+      require(['jqueryui'], function() {
+        $('#learn').learn();
+        $('#learn').trigger('loaded');
+        $('#learn').sfeutil();
+      });
+    </script>
+          <script type="text/javascript">
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', 'UA-3404365-7']);
+        _gaq.push(['_trackPageview']);
+        (function() {
+          var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+          ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+          var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+        })();
+      </script>
+        <script type="text/javascript">
+      var _paq = _paq || [];
+      _paq.push(['setCookieDomain', '.sparkfun.com']);
+      _paq.push(['setDomains', '*.sparkfun.com']);
+      _paq.push(['setDoNotTrack', true]);
+      _paq.push(['trackPageView']);
+      _paq.push(['enableLinkTracking']);
+      _paq.push(['setDocumentTitle', document.domain + "/" + document.title]);
+      (function() {
+        var u=(("https:" == document.location.protocol) ? "https" : "http") + "://analytics.sparkfun.com/piwik/";
+        _paq.push(['setTrackerUrl', u+'piwik.php']);
+        _paq.push(['setSiteId', 1]);
+        var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0]; g.type='text/javascript';
+        g.defer=true; g.async=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s);
+      })();
+    </script>
+    <noscript><p><img src="http://analytics.sparkfun.com/piwik/piwik.php?idsite=1" style="border:0;" alt="" /></p></noscript>
+  <script src="Installing%20an%20Arduino%20Bootloader%20-%20learn.sparkfun.com_files/tutorial.js" data-requiremodule="tutorial" data-requirecontext="_" async="" charset="utf-8" type="text/javascript"></script><script src="Installing%20an%20Arduino%20Bootloader%20-%20learn.sparkfun.com_files/jquery.js" data-requiremodule="jquery.imagesloaded" data-requirecontext="_" async="" charset="utf-8" type="text/javascript"></script></head>
+
+  <body id="learn" class="no-type" ontouchstart="">
+    <div class="wrapper">
+      <div class="wrapper-inner">
+
+    
+<div class="header">
+  <div class="container">
+
+<!-- Mobile Nav Button -->
+<div class="mobile-menu-container left">
+  <a id="nav_toggle" class="mobile-menu-button nav_toggle" href="#"><span>≡</span></a>
+      <a id="search_toggle" class="mobile-menu-button" href="#"><span class="glyphicon glyphicon-search"></span></a>
+  </div>
+
+<nav class="top-links">
+  &nbsp;
+</nav>
+
+<!-- Logo -->
+<div class="logo-container">
+  <a class="logo" href="https://www.sparkfun.com/">
+    <span class="sfe-icon-flame"></span>
+    <span class="sfe-icon-sparkfun" data-icon="🔥">
+      <span class="visuallyhidden">sparkfun.com</span>
+    </span>
+  </a>
+</div>
+
+<!-- Tabs -->
+<!-- also edit mobile tabs in .main-nav -->
+<nav class="tabs-container">
+  <ul>
+    <li class="shop "><a href="https://www.sparkfun.com/">Shop</a></li>
+    <li class="learn active"><a href="https://learn.sparkfun.com/">Learn</a></li>
+    <li class="forum "><a href="https://forum.sparkfun.com/">Forum</a></li>
+    <li class="data "><a href="https://data.sparkfun.com/">Data</a></li>
+  </ul>
+</nav>
+
+<!-- Cart & User -->
+<div class="user-container mobile-menu-container right">
+
+  <a id="account_toggle" class="mobile-menu-button" href="#"><span class="glyphicon glyphicon-user"></span></a>
+
+  
+      <nav class="user">
+      <!-- login form -->
+      <span class="dropdown">
+        <a data-toggle="dropdown" id="login-dropdown-toggle" class="btn btn-default" href="https://www.sparkfun.com/account/login">log in</a>
+
+        <ul class="dropdown-menu pull-right">
+          <li class="login">
+            <form role="form" action="https://www.sparkfun.com/account/login" method="post">
+              <input name="redirect" value="/tutorials/installing-an-arduino-bootloader" type="hidden">
+
+              <div class="form-group">
+                <label for="login-username">Email</label>
+                <input tabindex="1" name="user" id="login-username" class="form-control" type="email">
+              </div>
+
+              <div class="form-group">
+                <label for="login-password">Password</label>
+                <input tabindex="2" name="passwd" id="login-password" class="form-control" type="password">
+              </div>
+
+              <div class="form-group">
+                <input value="Log In" tabindex="3" class="btn btn-action" type="submit">
+              </div>
+            </form>
+
+            <p>
+              <a href="https://www.sparkfun.com/account/forgot_password">Forgot your password</a>?
+              <br>
+              No account? <a id="btn_register_account" href="https://www.sparkfun.com/account/make">Register one</a>!
+            </p>
+          </li>
+        </ul>
+      </span>
+      <a class="btn btn-default" href="https://www.sparkfun.com/account/make">register</a>    </nav>
+  
+</div>
+
+<!-- Navigation / Search -->
+<div class="main-nav-container">
+
+  <nav class="main-nav">
+    <ul>
+      <li class="tab shop ">
+        <a href="https://www.sparkfun.com/">Shop</a>      </li>
+      <li class="tab learn active">
+        <a href="https://learn.sparkfun.com/">Learn</a>      </li>
+      <li class="tab forum ">
+        <a href="https://forum.sparkfun.com/">Forum</a>
+      </li>
+      <li class="tab data ">
+        <a href="https://data.sparkfun.com/">Data</a>
+      </li>
+
+      
+<li class="start-a-project ">
+  <a href="https://learn.sparkfun.com/start_a_project">Start a Project</a></li>
+<li><a href="https://learn.sparkfun.com/blog">EDU Blog</a></li>
+<li><a href="https://learn.sparkfun.com/resources">Resources</a></li>
+<li class="active"><a href="https://learn.sparkfun.com/tutorials">Tutorials</a></li>
+<li><a href="https://learn.sparkfun.com/events">Classes</a></li>
+<li><a href="https://learn.sparkfun.com/calendar">Calendar</a></li>
+<li><a href="https://learn.sparkfun.com/workshops">Workshops</a></li>
+<li><a href="https://learn.sparkfun.com/contact">Contact</a></li>
+
+      <li class="desktop-toggle">
+        <a href="https://www.sparkfun.com/account/mobile_toggle">Desktop Site</a>      </li>
+    </ul>
+  </nav>
+
+      <form id="search_form" class="search" action="https://www.sparkfun.com/search/results" method="get">
+      <div class="ui-widget">
+        <input name="term" id="global-search" class="search-term form-control" results="5" autosave="sfe_product_search" placeholder="search..." type="text">
+      </div>
+    </form>
+  
+</div>
+
+  </div>
+</div>
+
+
+    
+    <div class="content">
+      <div class="container">
+
+        
+        <div class="main-title">
+  <ul class="breadcrumb">
+    <li><a href="https://learn.sparkfun.com/">Home</a></li>
+    <li><a href="https://learn.sparkfun.com/tutorials">Tutorials</a></li>
+    <li>Installing an Arduino Bootloader</li>
+      </ul>
+
+  <h1>
+    Installing an Arduino Bootloader  </h1>
+
+</div>
+
+
+<a id="nav_toggle_pages" class="nav_toggle" href="#"><span>≡</span> Pages</a>
+
+<div id="tutorial" class="row">
+
+  <div class="col-sm-8" id="sections">
+
+    <p class="contributors">
+                      Contributors:
+                <a href="https://www.sparkfun.com/users/150033"><img src="Installing%20an%20Arduino%20Bootloader%20-%20learn.sparkfun.com_files/d82dcdd890b9ef6f6c648dc79e75abf9.png"> M-Short</a>            
+</p><div class="share-link-inline">
+
+  <a class="share-link-toggle" href="#">
+    <span class="share-title">
+      <span class="sfe-icon-share"></span>
+      Share    </span>
+  </a>
+
+  <div class="share-link-inner dialog">
+    Use this URL to share:<br>
+    <input class="form-control input-sm" value="http://sfe.io/t22" onclick="$(this).select();" type="text">
+
+    <div class="share-social">
+
+      <a rel="nofollow" onclick="return $(this).sfeutil('track_link',this,'Share','clicked','googleplus');" href="https://plus.google.com/share?url=http%3A%2F%2Fsfe.io%2Ft22" title="Share on Google+"><span class="sfe-icon-google-plus hidetext"><span>Share on Google+</span></span></a>
+
+      <a rel="nofollow" onclick="return $(this).sfeutil('track_link',this,'Share','clicked','tumblr');" href="https://www.tumblr.com/share/link?url=http%3A%2F%2Fsfe.io%2Ft22&amp;name=Installing+an+Arduino+Bootloader" title="Share on Tumblr"><span class="sfe-icon-tumblr hidetext"><span>Share on Tumblr</span></span></a>
+
+      <a rel="nofollow" onclick="return $(this).sfeutil('track_link',this,'Share','clicked','reddit');" href="https://www.reddit.com/submit?url=http%3A%2F%2Fsfe.io%2Ft22" title="Submit to reddit"><span class="sfe-icon-reddit hidetext"><span>Submit to reddi</span></span></a>
+
+    </div>
+
+    </div>
+  
+  <div class="share-social">
+
+    <a rel="nofollow" onclick="return $(this).sfeutil('track_link',this,'Share','clicked','twitter');" href="https://twitter.com/intent/tweet?text=Installing+an+Arduino+Bootloader&amp;url=http%3A%2F%2Fsfe.io%2Ft22&amp;via=sparkfun" title="Share on Twitter"><span class="sfe-icon-twitter hidetext"><span>Share on Twitter</span></span></a>
+
+    <a rel="nofollow" onclick="return $(this).sfeutil('track_link',this,'Share','clicked','facebook');" href="http://www.facebook.com/sharer.php?u=http%3A%2F%2Fsfe.io%2Ft22&amp;t=Installing+an+Arduino+Bootloader" title="Share on Facebook"><span class="sfe-icon-facebook-nobox hidetext"><span>Share on Facebook</span></span></a>
+
+          <a rel="nofollow" onclick="return $(this).sfeutil('track_link',this,'Share','clicked','pinterest');" href="https://www.pinterest.com/pin/create/button/?url=http%3A%2F%2Fsfe.io%2Ft22&amp;media=https%3A%2F%2Fcdn.sparkfun.com%2F%2Fr%2F500-1000%2Fassets%2Fc%2Fa%2Ff%2Fb%2F7%2F529e2d18757b7f196b8b4567.jpg&amp;description=Installing+an+Arduino+Bootloader" title="Pin It"><span class="sfe-icon-pinterest hidetext"><span>Pin It</span></span></a>
+    
+  </div>
+
+  
+</div>
+    <p></p>
+
+          <div class="section tutorial-page">
+        <h2 id="overview">Overview</h2>
+        <p>Do you have a bricked Arduino that won’t accept code anymore?
+ Or, maybe you wrote your own firmware and would like to upload it to 
+your Arduino? Or, maybe you just want to learn more about the 
+inner-workings of Arduino, AVR, and microcontrollers in general. Well, 
+you’re in luck! This tutorial will teach you what a bootloader is, why 
+you would need to install/reinstall it, and go over the process of doing
+ so.</p>
+
+<h3>Suggested Reading</h3>
+
+<p>You may want to check out these tutorials before continuing down the bootloader path.</p>
+
+<ul>
+<li><a href="https://learn.sparkfun.com/tutorials/integrated-circuits">Integrated Circuits</a></li>
+<li><a href="https://learn.sparkfun.com/tutorials/pcb-basics">PCB Basics</a></li>
+<li><a href="https://learn.sparkfun.com/tutorials/what-is-an-arduino">What is an Arduino</a></li>
+<li><a href="https://learn.sparkfun.com/tutorials/installing-arduino-ide">Installing the Arduino IDE</a></li>
+<li><a href="https://learn.sparkfun.com/tutorials/serial-peripheral-interface-spi">Serial Peripheral Interface(SPI)</a></li>
+</ul>
+      </div>
+          <div class="section tutorial-page">
+        <h2 id="what-is-a-bootloader">What is a Bootloader?</h2>
+        <p><a href="http://en.wikipedia.org/wiki/Atmel_AVR">Atmel AVRs</a>
+ are great little ICs, but they can be a bit tricky to program. You need
+ a special programmer and some fancy .hex files, and its not very 
+beginner friendly. The Arduino has largely done away with these issues. 
+They’ve put a .hex file on their AVR chips that allows you to program 
+the board over the <a href="https://learn.sparkfun.com/tutorials/serial-communication">serial port</a>, meaning all you need to program your Arduino is a USB cable.</p>
+
+<p>The bootloader is basically a .hex file that runs when you turn on the board. It is very similar to the <a href="http://en.wikipedia.org/wiki/BIOS">BIOS</a>
+ that runs on your PC. It does two things. First, it looks around to see
+ if the computer is trying to program it. If it is, it grabs the program
+ from the computer and uploads it into the ICs memory (in a specific 
+location so as not to overwrite the bootloader). That is why when you 
+try to upload code, the Arduino IDE resets the chip. This basically 
+turns the IC off and back on again so the bootloader can start running 
+again. If the computer isn’t trying to upload code, it tells the chip to
+ run the code that’s already stored in memory. Once it locates and runs 
+your program, the Arduino continuously loops through the program and 
+does so as long as the board has power.</p>
+
+<h3>Why Install a Bootloader</h3>
+
+<p>If you are building your own Arduino, or need to replace the IC, you 
+will need to install the bootloader. You may also have a bad bootloader 
+(although this is very rare) and need to reinstall the bootloader. There
+ are also cases where you’ve put your board in a weird setting and 
+reinstalling the bootloader and getting it back to factory settings is 
+the easiest way to fix it. We’ve seen boards where people have turned 
+off the serial port meaning that there is no way to upload code to the 
+board, while there may be other ways to fix this, reinstalling the 
+bootloader is probably the quickest and easiest.
+Like I said, having a bad bootloader is actually very very rare. If you 
+have a new board that isn’t accepting code 99.9% of the time its not the
+ bootloader, but for the 1% of the time it is, this guide will help you 
+fix that problem.</p>      </div>
+          <div class="section tutorial-page">
+        <h2 id="selecting-a-programmer">Selecting a Programmer</h2>
+        <p>We are going to talk about 2 different types of programmers you can use to install or reinstall bootloaders.</p>
+
+<h3>Option 1: Dedicated Programmers</h3>
+
+<p>For a quick easy programmer we recommend looking into the <a href="https://www.sparkfun.com/products/9825">AVR Pocket Programmer</a> (Windows only).</p>
+
+<p style="text-align:center;"> <a href="https://dlnmh9ip6v2uc.cloudfront.net/assets/0/4/7/2/0/523b5848757b7fe8208b4569.jpg"><img src="Installing%20an%20Arduino%20Bootloader%20-%20learn.sparkfun.com_files/523b5848757b7fe8208b4569.jpg" alt="pocket programmer"></a></p>
+
+<p>Or, you can use the official <a href="http://www.atmel.com/tools/AVRISPMKII.aspx">Atmel AVR MKII programmer</a>.</p>
+
+<p style="text-align:center;"> <a href="https://dlnmh9ip6v2uc.cloudfront.net/assets/f/d/c/2/9/523b5a4d757b7f91208b456a.jpg"><img src="Installing%20an%20Arduino%20Bootloader%20-%20learn.sparkfun.com_files/523b5a4d757b7f91208b456a.jpg" alt="AVR MKII"></a></p>
+
+<p>The AVR Pocket Programmer or most cheaper options will work just fine
+ for most applications, but they may have problems with some boards, 
+specifically ones with lots of memory like the ATMega2560 based boards.</p>
+
+<h3>Option 2: Using the Arduino as a Programmer</h3>
+
+<p>The other option is grabbing an Arduino Uno (or Duemilanove). If you 
+go into the Arduino IDE you will see an example sketch called <strong>‘Arduino as ISP.’</strong>
+ If you upload this code to your Arduino, it will basically act as an 
+AVR programmer. This isn’t really recommended for production of boards, 
+or boards with lots of memory, but, in a pinch, it works pretty well. 
+Also as of this writing the code only works on ATmega328 boards. Maybe 
+one day it will work on the Leonardo or Due, but not yet.</p>      </div>
+          <div class="section tutorial-page">
+        <h2 id="connecting-the-programmer">Connecting the Programmer</h2>
+        <h3>In-Circuit Serial Programming (ICSP)</h3>
+
+<p>It’s very uncommon to program ICs before they are soldered onto a 
+PCB. Instead, most microcontrollers have what’s called an in-system 
+programming (<a href="http://en.wikipedia.org/wiki/In-System_Programming">ISP</a>)
+ header. Particularly, some IC manufacturers, such as Atmel and 
+Microchip, have a specialized ISP method for programming their ICs. This
+ is referred to as in-circuit serial programming (<a href="http://en.wikipedia.org/wiki/In-circuit_serial_programming">ICSP</a>)
+ Most Arduino and Arduino compatible boards will have a 2x3 pin ICSP 
+header on them. Some may even have more than one depending on how many 
+ICs live on the PCB. It breaks out three of the <a href="https://learn.sparkfun.com/tutorials/serial-peripheral-interface-spi">SPI</a>
+ pins (MISO, MOSI, SCK), and power, ground, and reset. These are the 
+pins you’ll need to connect your programmer to in order to reflash the 
+firmware on your board.</p>
+
+<p style="text-align:center;"> <a href="https://dlnmh9ip6v2uc.cloudfront.net/assets/c/a/f/b/7/529e2d18757b7f196b8b4567.jpg"><img src="Installing%20an%20Arduino%20Bootloader%20-%20learn.sparkfun.com_files/529e2d18757b7f196b8b4567.jpg" alt="UNO ISP"></a></p>
+
+<p style="text-align:center;"><em>Here we have the Arduino Uno R3. It 
+has two ICSP headers: one for the ATmega16U2 and one for the ATmega328. 
+To reflash the bootloader on this board, you would use just the ICSP 
+header for the ATmega328.</em></p>
+
+<p>On some smaller boards you may not see this connector, but the pins should be broken out elsewhere. Whether you’re using an <a href="https://learn.sparkfun.com/tutorials/integrated-circuits/ic-packages">SMD IC or a DIP IC</a>,
+ the ISP pins should be accessible in one form or another. Some boards 
+might only have test points for the ISP header. If this is the case, you
+ may want to consider getting an <a href="https://www.sparkfun.com/products/11591">ISP Pogo Adapter</a>. This kit allows you to temporarily make a good connection with test test points in order to reprogram your IC.</p>
+
+<p style="text-align:center;"> <a href="https://dlnmh9ip6v2uc.cloudfront.net/assets/6/9/7/e/5/529e250e757b7fc47f8b4567.jpg"><img src="Installing%20an%20Arduino%20Bootloader%20-%20learn.sparkfun.com_files/529e250e757b7fc47f8b4567.jpg" alt="alt text"></a></p>
+
+<p style="text-align:center;"><em>ISP Pogo Adapter Kit Fully Assembled. You can connect any of the programmers we mentioned in the previous section to this board.</em></p>
+
+<p>If you are having trouble finding the ICSP pins on your particular Arduino board, you can consult <a href="http://www.pighixxx.com/">this website</a> for detailed pinouts of most Arduino related ICs and then some.</p>
+
+<p>Once you have located the <strong>six ICSP pins</strong> on your board, it’s time to hook up your programmer to the board. You can use a <a href="https://www.sparkfun.com/products/9215">programming cable</a> to connect the two, or, if you don’t have a cable, you can just use some <a href="https://www.sparkfun.com/products/9140">male-to-female jumper wires</a>.</p>
+
+<p>If you are using a programmer such as the MKII or the Pocket Programmer, your setup should look something like this:</p>
+
+<p style="text-align:center;"> <a href="https://dlnmh9ip6v2uc.cloudfront.net/assets/2/f/9/c/2/523b53bb757b7f12218b456b.jpg"><img src="Installing%20an%20Arduino%20Bootloader%20-%20learn.sparkfun.com_files/523b53bb757b7f12218b456b.jpg" alt="alt text"></a></p>
+
+<p style="text-align:center;"><em>Click for larger image.</em></p>
+
+<p>Or, if you’re using the Arduino as your programmer, it should look like this:</p>
+
+<p style="text-align:center;"> <a href="https://dlnmh9ip6v2uc.cloudfront.net/assets/3/b/d/8/1/523b53bb757b7f01268b456a.jpg"><img src="Installing%20an%20Arduino%20Bootloader%20-%20learn.sparkfun.com_files/523b53bb757b7f01268b456a.jpg" alt="alt text"></a></p>
+
+<p style="text-align:center;"><em>Click for larger image.</em></p>
+
+<p>Here’s a table to help clarify which connections go where.</p>
+
+<center><table border="2px black solid">
+
+            <tbody>
+                <tr>
+                    <td><strong>Arduino as ISP</strong></td>
+                    <td><strong>AVR Programmer</strong></td>
+                    <td><strong>ISP Header</strong></td>
+                    <td><strong>ATmega328</strong></td>
+                    <td><strong>ATmega32U4</strong></td>
+                </tr>
+                <tr style="background-color:red">
+                    <td>Vcc/5V</td>
+                    <td>5V</td>
+                    <td>Pin 2</td>
+                    <td>Vcc</td>
+                    <td>Vcc</td>
+                </tr>
+                <tr style="background-color:#919191">
+                    <td>GND</td>
+                    <td>GND</td>
+                    <td>Pin 6</td>
+                    <td>GND</td>
+                    <td>GND</td>
+                </tr>
+                <tr style="background-color:#64B54E">
+                    <td>MOSI/D11</td>
+                    <td>MOSI</td>
+                    <td>Pin 4</td>
+                    <td>D11</td>
+                    <td>D16</td>
+                </tr>
+                <tr style="background-color:#F7F48D">
+                    <td>MISO/D12</td>
+                    <td>MISO</td>
+                    <td>Pin 1</td>
+                    <td>D12</td>
+                    <td>D14</td>
+                </tr>
+                <tr style="background-color:#8D90F7">
+                    <td>SCK/D13</td>
+                    <td>SCK</td>
+                    <td>Pin 3</td>
+                    <td>D13</td>
+                    <td>D15</td>
+                </tr>
+                <tr style="background-color:#E3E3E3">
+                    <td>D10</td>
+                    <td>Reset</td>
+                    <td>Pin 5</td>
+                    <td>Reset</td>
+                    <td>Reset</td>
+                </tr>
+            </tbody>
+      </table></center>
+      </div>
+          <div class="section tutorial-page">
+        <h2 id="uploading-code---easy-way">Uploading Code - Easy Way</h2>
+        <p>The easy way to upload the bootloader involves using the 
+Arduino IDE. Open your IDE select the board you want to program. Then 
+select the programmer (if you are using the Arduino as ISP you will also
+ need to select the COM port that the Arduino as ISP is connected to). 
+Then select BurnBootloader. This will take the board you selected and 
+look up the associated bootloader in the board.txt file. Then, it will 
+find the bootloader in the bootloader folder and install it. This only 
+works if the board is installed correctly in the IDE and you have the 
+correct bootloader.</p>
+
+<p>If for some reason you want to use a bootloader that isn’t installed 
+in the Arduino IDE, visit the nest section. However, it’s probably 
+easier to just install the bootloader from the Arduino IDE. For those 
+who are curious about settings such as fuse bits, have no fear. Arduino 
+takes care of all the messy details for you when you burn bootloaders 
+through it.</p>
+
+<p style="text-align:center;"> <a href="https://dlnmh9ip6v2uc.cloudfront.net/assets/f/0/3/2/9/529fc1bb757b7f7e518b4568.jpg"><img src="Installing%20an%20Arduino%20Bootloader%20-%20learn.sparkfun.com_files/529fc1bb757b7f7e518b4568.jpg" alt="alt text"></a></p>      </div>
+          <div class="section tutorial-page">
+        <h2 id="uploading-code---hard-way">Uploading Code - Hard Way</h2>
+        <p>The hard way is for those people who want to use the command 
+line. This method may be more preferable if you are modifying and 
+recompiling and don’t want to have to keep updating the IDE, but 
+otherwise its pretty unnecessary. Again you will need to get the 
+programmer, and hook everything up. In this example we are using avrdude
+ on Windows.</p>
+
+<p>There are two steps to this process. The first step involves setting 
+the fusebits. Fusebits are the part of the AVR chip that determine 
+things like whether you are using an external crystal or whether you 
+want brown out detection. The commands listed below are for the Arduino 
+Uno using an ATMega328, they will probably work on some other similar 
+boards such as the Duemilanove, but make sure you know what you are 
+doing before playing with fusebits (NOTE: these fusebits will not work 
+on a 3.3V/8MHz board). All the required fuse bits are listed in the 
+boards.txt file for different boards, but again, if you have a 
+boards.txt file installed then just use the Easy Way.</p>
+
+<p>Arduino as ISP: <code>avrdude -P comport -b 19200 -c avrisp -p m328p -v -e -U efuse:w:0x05:m -U hfuse:w:0xD6:m -U lfuse:w:0xFF:m</code></p>
+
+<p>AVR Pocket Programmer:
+<code>avrdude -b 19200 -c usbtiny -p m328p -v -e -U efuse:w:0x05:m -U hfuse:w:0xD6:m -U lfuse:w:0xFF:m</code></p>
+
+<p>The second step is actually uploading the program.</p>
+
+<p>Arduino as ISP: <code>avrdude -P comport -b 19200 -c avrisp -p m328p -v -e -U flash:w:hexfilename.hex -U lock:w:0x0F:m</code>
+AVR Pocket Programmer: <code>avrdude -b19200 -c usbtiny -p m328p -v -e -U flash:w:hexfilename.hex -U lock:w:0x0F:m</code></p>
+
+<p>One last bit of info. As we stated earlier, a bootloader is 
+essintially a .hex file. Thus, you can use this method to upload and 
+code you wish to your ICs.</p>      </div>
+          <div class="section tutorial-page">
+        <h2 id="resources-and-going-further">Resources and Going Further</h2>
+        <p>For more info on AVRs, bootloaders, and flashing firmware to other boards, check out these other great tutorials.</p>
+
+<ul>
+<li><a href="http://www.nongnu.org/avrdude/">AVRDUDE</a></li>
+<li><a href="http://arduino.cc/en/Hacking/Bootloader?from=Main.Bootloader">Bootloader info from Arduino</a></li>
+<li><a href="http://arduino.cc/en/Tutorial/ArduinoISP">Arduino as ISP</a></li>
+<li><a href="http://www.pighixxx.com/">Pinouts for Various ICs and Development Boards</a></li>
+<li><a href="https://learn.sparkfun.com/tutorials/pocket-avr-programmer-hookup-guide/introduction">Getting started with the Pocket Programmer</a></li>
+</ul>
+
+
+<p>You can also check out our <a href="https://learn.sparkfun.com/tutorials/tiny-avr-programmer-hookup-guide">Tiny AVR Programmer Hookup Guide</a> to learn more about uploading code to AVR chips without using the <a href="https://learn.sparkfun.com/tutorials/installing-arduino-ide">Arduino IDE</a>.</p>      </div>
+    
+        
+<div class="share-link-inline">
+
+  <a class="share-link-toggle" href="#">
+    <span class="share-title">
+      <span class="sfe-icon-share"></span>
+      Share    </span>
+  </a>
+
+  <div class="share-link-inner dialog">
+    Use this URL to share:<br>
+    <input class="form-control input-sm" value="http://sfe.io/t22" onclick="$(this).select();" type="text">
+
+    <div class="share-social">
+
+      <a rel="nofollow" onclick="return $(this).sfeutil('track_link',this,'Share (end of content)','clicked','googleplus');" href="https://plus.google.com/share?url=http%3A%2F%2Fsfe.io%2Ft22" title="Share on Google+"><span class="sfe-icon-google-plus hidetext"><span>Share on Google+</span></span></a>
+
+      <a rel="nofollow" onclick="return $(this).sfeutil('track_link',this,'Share (end of content)','clicked','tumblr');" href="https://www.tumblr.com/share/link?url=http%3A%2F%2Fsfe.io%2Ft22&amp;name=Installing+an+Arduino+Bootloader" title="Share on Tumblr"><span class="sfe-icon-tumblr hidetext"><span>Share on Tumblr</span></span></a>
+
+      <a rel="nofollow" onclick="return $(this).sfeutil('track_link',this,'Share (end of content)','clicked','reddit');" href="https://www.reddit.com/submit?url=http%3A%2F%2Fsfe.io%2Ft22" title="Submit to reddit"><span class="sfe-icon-reddit hidetext"><span>Submit to reddi</span></span></a>
+
+    </div>
+
+    </div>
+  
+  <div class="share-social">
+
+    <a rel="nofollow" onclick="return $(this).sfeutil('track_link',this,'Share (end of content)','clicked','twitter');" href="https://twitter.com/intent/tweet?text=Installing+an+Arduino+Bootloader&amp;url=http%3A%2F%2Fsfe.io%2Ft22&amp;via=sparkfun" title="Share on Twitter"><span class="sfe-icon-twitter hidetext"><span>Share on Twitter</span></span></a>
+
+    <a rel="nofollow" onclick="return $(this).sfeutil('track_link',this,'Share (end of content)','clicked','facebook');" href="http://www.facebook.com/sharer.php?u=http%3A%2F%2Fsfe.io%2Ft22&amp;t=Installing+an+Arduino+Bootloader" title="Share on Facebook"><span class="sfe-icon-facebook-nobox hidetext"><span>Share on Facebook</span></span></a>
+
+          <a rel="nofollow" onclick="return $(this).sfeutil('track_link',this,'Share (end of content)','clicked','pinterest');" href="https://www.pinterest.com/pin/create/button/?url=http%3A%2F%2Fsfe.io%2Ft22&amp;media=https%3A%2F%2Fcdn.sparkfun.com%2F%2Fr%2F500-1000%2Fassets%2Fc%2Fa%2Ff%2Fb%2F7%2F529e2d18757b7f196b8b4567.jpg&amp;description=Installing+an+Arduino+Bootloader" title="Pin It"><span class="sfe-icon-pinterest hidetext"><span>Pin It</span></span></a>
+    
+  </div>
+
+  
+</div>
+
+  </div>
+
+  <div class="col-sm-4" id="nav-pages">
+
+    <div id="tutorial-pages" class="list-group affix" data-spy="affix" data-offset-top="1600" data-offset-bottom="700">
+      <a class="list-group-item"><b>Sections</b></a>
+                    <a data-pagename="overview" class="list-group-item" href="#overview">
+          Overview        </a>
+              <a data-pagename="what-is-a-bootloader" class="list-group-item" href="#what-is-a-bootloader">
+          What is a Bootloader?        </a>
+              <a data-pagename="selecting-a-programmer" class="list-group-item" href="#selecting-a-programmer">
+          Selecting a Programmer        </a>
+              <a data-pagename="connecting-the-programmer" class="list-group-item active" href="#connecting-the-programmer">
+          Connecting the Programmer        </a>
+              <a data-pagename="uploading-code---easy-way" class="list-group-item" href="#uploading-code---easy-way">
+          Uploading Code - Easy Way        </a>
+              <a data-pagename="uploading-code---hard-way" class="list-group-item" href="#uploading-code---hard-way">
+          Uploading Code - Hard Way        </a>
+              <a data-pagename="resources-and-going-further" class="list-group-item" href="#resources-and-going-further">
+          Resources and Going Further        </a>
+          </div>
+
+    <div class="list-group">
+      <a class="list-group-item" href="https://learn.sparkfun.com/tutorials/installing-an-arduino-bootloader/discuss">
+        Comments
+        <span class="badge">1</span>
+      </a>
+      <a class="list-group-item" href="https://learn.sparkfun.com/tutorials/installing-an-arduino-bootloader/overview">
+        View Paginated
+      </a>
+      <a class="list-group-item" href="https://learn.sparkfun.com/tutorials/installing-an-arduino-bootloader/all?print=1" rel="nofollow">
+        Print
+      </a>
+    </div>
+
+    <ul class="list-group">
+      <li class="list-group-item"><b>Tags</b></li>
+      <li class="list-group-item"><ul class="tags-list">
+  <li>
+    <a class="tag" href="https://learn.sparkfun.com/tutorials/tags/arduino">Arduino</a>  </li>
+  <li>
+    <a class="tag" href="https://learn.sparkfun.com/tutorials/tags/programming">Programming</a>  </li>
+  <li>
+    <a class="tag" href="https://learn.sparkfun.com/tutorials/tags/skill">Skill</a>  </li>
+</ul>
+</li>
+    </ul>
+
+    <ul class="list-group">
+      <li class="list-group-item"><b>License</b></li>
+      <li class="list-group-item">
+        <span class="sfe-icon-cc">
+          <span class="visuallyhidden">Creative Commons</span>
+        </span>
+        <small>tutorials are <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/" target="new">CC BY-NC-SA 3.0</a></small>
+      </li>
+    </ul>
+
+  </div>
+
+</div>
+
+<script type="text/javascript">
+  require(['tutorial', 'jquery.imagesloaded'], function() {
+    $('#tutorial').tutorial();
+  });
+</script>
+
+      </div> <!-- /container -->
+    </div> <!-- /content -->
+
+    
+<footer>
+
+<div class="social">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12 col-sm-12 col-md-12">
+        <div class="sharing-ingenuity">
+          <span class="sfe-icon-flame"></span>
+          <span class="text"><span class="text-top">Sharing<br></span>Ingenuity</span>
+        </div>
+        <ul class="spew">
+          <li><a href="http://www.github.com/sparkfun" target="_blank" class="sfe-icon-github"><span class="visuallyhidden">GitHub</span></a></li>
+          <li><a href="http://www.youtube.com/sparkfun" target="_blank" class="sfe-icon-youtube"><span class="visuallyhidden">YouTube</span></a></li>
+          <li><a href="http://www.vimeo.com/sparkfun" target="_blank" class="sfe-icon-vimeo"><span class="visuallyhidden">Vimeo</span></a></li>
+          <li><a href="http://www.facebook.com/SparkFun" target="_blank" class="sfe-icon-facebook"><span class="visuallyhidden">Facebook</span></a></li>
+          <li><a href="https://plus.google.com/106084846822083498483/" target="_blank" class="sfe-icon-google-plus"><span class="visuallyhidden">Google Plus</span></a></li>
+          <li><a href="http://www.flickr.com/photos/sparkfun/" target="_blank" class="sfe-icon-flickr"><span class="visuallyhidden">Flickr</span></a></li>
+          <li><a href="https://twitter.com/#%21/sparkfun" target="_blank" class="sfe-icon-twitter"><span class="visuallyhidden">Twitter</span></a></li>
+          <li><a href="https://www.sparkfun.com/feeds" class="sfe-icon-feed"><span class="visuallyhidden">RSS</span></a></li>
+        </ul>
+        <div class="newsletter">
+          <form action="https://learn.sparkfun.com/newsletter/subscribe_email" method="post" class="form-inline" id="js-newsletter_subscribe">
+            <div class="form-group">
+              <input class="form-control" name="newsletter_email" placeholder="Email Address" type="email">
+            </div>
+            <div class="form-group">
+              <input class="btn btn-default" value="Subscribe to Education Newsletter" type="submit">
+            </div>
+          </form>
+        </div>
+      </div>
+    </div><!-- end .row -->
+  </div><!-- end .container -->
+</div><!-- end .social -->
+
+<div class="container">
+
+    <div class="row">
+
+    <div class="subfooter subfooter-about">
+      <p>
+        <b>SparkFun</b> is an online retail store that sells the bits and pieces to
+        make your electronics projects possible. Whether it's a robot that can
+        cook your breakfast or a GPS cat tracking device, our products and
+        resources are designed to make the world of electronics more accessible.
+      </p>
+      <p>
+        In addition to products, SparkFun also offers
+        classes and online tutorials to help educate
+        individuals in the wonderful world of embedded electronics.
+      </p>
+
+      <div class="row">
+
+        <div class="col-sm-6">
+          <ul>
+            <li><b>About Us</b>
+            </li><li><a href="https://www.sparkfun.com/static/about">About SparkFun</a></li>
+            <li><a href="https://learn.sparkfun.com/about">SparkFun Education</a></li>
+            <li><a title="RSS Feeds" href="https://www.sparkfun.com/feeds">Feeds <span class="sfe-icon-feed"></span></a></li>
+            <li><a href="https://www.sparkfun.com/jobs">Jobs</a></li>
+            <li><a href="https://www.sparkfun.com/static/contact">Contact</a></li>
+          </ul>
+        </div>
+
+        <div class="col-sm-6">
+          <ul>
+            <li><b>Help</b></li>
+            <li><a href="https://www.sparkfun.com/static/customer_service">Customer Service</a></li>
+            <li><a href="https://www.sparkfun.com/static/customer_service#ShippingPolicy">Shipping</a></li>
+            <li><a href="https://www.sparkfun.com/static/38">Return Policy</a></li>
+            <li><a href="https://www.sparkfun.com/static/faq">FAQ</a></li>
+                      </ul>
+        </div>
+
+      </div>
+
+      <div class="row">
+
+        <div class="col-sm-6">
+          <ul>
+            <li><b>Programs</b></li>
+            <li><a href="https://learn.sparkfun.com/educator_discount">Educator Discount</a></li>
+            <li><a href="https://www.sparkfun.com/sponsor">Request SparkFun Sponsorship</a></li>
+            <li><a href="https://www.sparkfun.com/project_calls">Tell Us About Your Project</a></li>
+            <li><a href="https://learn.sparkfun.com/tutorials/how-to-sell-your-widget-on-sparkfun">Sell Your Widget on SparkFun</a></li>
+            <li><a href="https://www.sparkfun.com/distributors/apply">Become a SparkFun Distributor</a></li>
+          </ul>
+        </div>
+
+        <div class="col-sm-6">
+          <ul>
+            <li><b>Community</b></li>
+            <li><a href="https://forum.sparkfun.com/">Forum</a></li>
+            <li><a href="https://www.sparkfun.com/news/263">SparkFun IRC Channel</a></li>
+            <li><a href="https://www.sparkfun.com/quiz">Take the SparkFun Quiz</a></li>
+            <li><a href="https://www.kickstarter.com/pages/sparkfun">SparkFun Kickstarter Projects</a></li>
+            <li><a href="https://www.sparkfun.com/distributors">Distributors</a></li>
+          </ul>
+        </div>
+
+      </div><!-- end .row -->
+
+    </div>
+
+    <div id="feedback" class="subfooter subfooter-woym">
+      <form id="woym_form" class="feedback" action="https://learn.sparkfun.com/feedback/mind.json" method="POST">
+        <div class="error" id="error_feedback" style="display: none"></div>
+        <input name="sparkaptcha" id="sparkaptcha" value="0" type="hidden">
+
+        <div class="form-group">
+          <label for="feedback_textarea" class="control-label">What's on your mind?</label>
+          <div class="controls">
+            <textarea id="feedback_textarea" class="form-control" name="feedback_text" required=""></textarea>
+            <div class="error" id="error_feedback_text" style="display: none"></div>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="feedback_dest" class="control-label">For which department?</label>
+          <select name="dest" class="form-control" id="feedback_dest">
+            <option selected="selected" value="general">General</option>
+            <option value="cust">Customer Service</option>
+            <option value="tech">Tech Support</option>
+                          <option value="edu">Education Department</option>
+                      </select>
+        </div>
+
+        <div class="form-group">
+          <label for="feedback_email" class="control-label">
+            Please include your email address if you'd like us to respond to a specific question.
+          </label>
+
+          <div class="input-group">
+            <span class="input-group-addon"><span class="glyphicon glyphicon-envelope"></span></span>
+            <input class="form-control" id="feedback_email" name="email" placeholder="email address" type="text">
+          </div>
+          <div class="error" id="error_feedback_email" style="display: none"></div>
+
+        </div>
+
+        <button type="submit">Submit</button>
+      </form>
+
+      <script>
+        $(document).bind('loaded', function() {
+          $('#woym_form').submit(function() {
+            $(this).sfeutil('mind_feedback');
+            return false;
+          });
+          $('#sparkaptcha').val(1);
+        });
+      </script>
+
+    </div>
+
+  </div><!-- end .row -->
+  
+  <ul class="copyleft">
+    <li>SparkFun Electronics <a href="https://www.sparkfun.com/news/300">®</a></li>
+    <li><a href="http://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=6333+Dry+Creek+Parkway,+Niwot,+CO+80503">Niwot, Colorado</a></li>
+    <li><a href="https://www.sparkfun.com/static/customer_service">Customer Service</a></li>
+    <li><a href="https://www.sparkfun.com/sitemap">Site Map</a></li>
+    <li><a href="https://www.sparkfun.com/terms_of_service">Terms of Service</a></li>
+    <li><a href="https://www.sparkfun.com/privacy_policy">Privacy Policy</a></li>
+    <li class="desktop-toggle">
+              <a href="https://www.sparkfun.com/account/mobile_toggle">Desktop Site</a>          </li>
+  </ul>
+
+</div><!-- end .container -->
+
+</footer>
+
+    <div class="nav-account">
+  <ul class="nav nav-tabs">
+    <li class="visible-xs">
+      <a class="nav-toggle-account back" href="#">Your Account</a>
+    </li>
+          <li class="">
+        <a href="https://www.sparkfun.com/account/login?redirect=%2Ftutorials%2Finstalling-an-arduino-bootloader">Log In</a>
+      </li>
+      </ul>
+</div>
+
+      </div><!-- end .wrapper-inner -->
+    </div><!-- end .wrapper -->
+  
+
+
+</body></html>

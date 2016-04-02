@@ -1,0 +1,34 @@
+#######################################
+# Syntax Coloring Map For USBJoystick
+#######################################
+
+#######################################
+# Datatypes (KEYWORD1)
+#######################################
+
+USBJoystick    KEYWORD1
+
+#######################################
+# Methods and Functions (KEYWORD2)
+#######################################
+init	KEYWORD2
+task	KEYWORD2
+stickValue	KEYWORD2
+buttonValue	KEYWORD2
+hatValue	KEYWORD2
+setStickNewValueCallback	KEYWORD2
+setButtonNewValueCallback	KEYWORD2
+setHatNewValueCallback	KEYWORD2
+setStickValueDidChangeCallback	KEYWORD2
+setButtonValueDidChangeCallback	KEYWORD2
+setHatValueDidChangeCallback	KEYWORD2
+
+######################################
+# Instances (KEYWORD2)
+#######################################
+
+joy KEYWORD2
+
+#######################################
+# Constants (LITERAL1)
+######################################

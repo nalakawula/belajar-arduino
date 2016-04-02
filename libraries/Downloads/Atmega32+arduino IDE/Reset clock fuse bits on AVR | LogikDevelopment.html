@@ -1,0 +1,788 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head profile="http://gmpg.org/xfn/11">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="keywords" content="ATtiny13A, AVR, fuse bytes, low-frequency oscillator, microcontrollers, ">
+<meta name="description" content="" executives="" who="" get="" there="" and="" stay="" suggest="" solutions="" when="" they="" present="" the="" problems."="" malcolm="" forbes"="">
+
+<title>Reset clock fuse bits on AVR | LogikDevelopment</title>
+
+<link rel="alternate" type="application/rss+xml" title="LogikDevelopment RSS Feed" href="http://www.logikdev.com/feed/">
+<link rel="alternate" type="application/atom+xml" title="LogikDevelopment Atom Feed" href="http://www.logikdev.com/feed/atom/">
+<link rel="pingback" href="http://www.logikdev.com/xmlrpc.php">
+
+<style type="text/css" media="all">
+@import "http://www.logikdev.com/wp-content/themes/fusion/style.css";
+</style>
+
+
+<!--[if lte IE 6]>
+<script type="text/javascript">
+/* <![CDATA[ */
+   blankimgpath = 'http://www.logikdev.com/wp-content/themes/fusion/images/blank.gif';
+ /* ]]> */
+</script>
+<style type="text/css" media="screen">
+  @import "http://www.logikdev.com/wp-content/themes/fusion/ie6.css";
+  body{ behavior:url("http://www.logikdev.com/wp-content/themes/fusion/js/ie6hoverfix.htc"); }
+  img{ behavior: url("http://www.logikdev.com/wp-content/themes/fusion/js/ie6pngfix.htc"); }
+</style>
+<![endif]-->
+
+
+  
+<link rel="alternate" type="application/rss+xml" title="LogikDevelopment » Reset clock fuse bits on AVR Comments Feed" href="http://www.logikdev.com/2011/02/15/reset-clock-fuse-bits-on-avr/feed/">
+<link rel="stylesheet" id="contact-form-7-css" href="Reset%20clock%20fuse%20bits%20on%20AVR%20%7C%20LogikDevelopment_files/styles.css" type="text/css" media="all">
+<link rel="stylesheet" id="slb_core-css" href="Reset%20clock%20fuse%20bits%20on%20AVR%20%7C%20LogikDevelopment_files/app.css" type="text/css" media="all">
+<!-- This site uses the Yoast Google Analytics plugin v5.0.7 - Universal disabled - https://yoast.com/wordpress/plugins/google-analytics/ -->
+<script src="Reset%20clock%20fuse%20bits%20on%20AVR%20%7C%20LogikDevelopment_files/ga.js" async="" type="text/javascript"></script><script type="text/javascript">
+
+	var _gaq = _gaq || [];
+	_gaq.push(['_setAccount', 'UA-9516364-1']);
+	_gaq.push(['_gat._forceSSL']);
+	_gaq.push(['_trackPageview']);
+
+	(function () {
+		var ga = document.createElement('script');
+		ga.type = 'text/javascript';
+		ga.async = true;
+		ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+		var s = document.getElementsByTagName('script')[0];
+		s.parentNode.insertBefore(ga, s);
+	})();
+
+</script>
+<!-- / Yoast Google Analytics -->
+<script type="text/javascript" src="Reset%20clock%20fuse%20bits%20on%20AVR%20%7C%20LogikDevelopment_files/jquery_002.js"></script>
+<script type="text/javascript" src="Reset%20clock%20fuse%20bits%20on%20AVR%20%7C%20LogikDevelopment_files/jquery-migrate.js"></script>
+<script type="text/javascript" src="Reset%20clock%20fuse%20bits%20on%20AVR%20%7C%20LogikDevelopment_files/fusion.js"></script>
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="http://www.logikdev.com/xmlrpc.php?rsd">
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="http://www.logikdev.com/wp-includes/wlwmanifest.xml"> 
+<link rel="prev" title="JDBC and the “zero” date" href="http://www.logikdev.com/2011/02/06/jdbc-and-the-zero-date/">
+<link rel="next" title="How to dump MySQL functions and stored procedures" href="http://www.logikdev.com/2011/03/01/how-to-dump-mysql-functions-and-stored-procedures/">
+<meta name="generator" content="WordPress 4.0">
+<link rel="shortlink" href="http://www.logikdev.com/?p=1061">
+<style type="text/css"></style>
+<meta name="google-site-verification" content="aVAaBwtSP5m7p1Uw_jxRI6rI8HMgIeyNoVINALJ6-nk"><!-- All in one Favicon 4.3 --><link rel="shortcut icon" href="http://www.logikdev.com/favicon.ico">
+
+<!-- All in One SEO Pack 2.2.3.1 by Michael Torbert of Semper Fi Web Design[511,571] -->
+<meta name="description" content="I am just starting to learn about AVR programming and I really enjoy myself! :D Except maybe when I play with the fuse bytes and I screw things">
+
+<meta name="keywords" content="attiny13a,avr,fuse bytes,low-frequency oscillator,microcontrollers">
+
+<link rel="canonical" href="http://www.logikdev.com/2011/02/15/reset-clock-fuse-bits-on-avr/">
+<!-- /all in one seo pack -->
+<link href="Reset%20clock%20fuse%20bits%20on%20AVR%20%7C%20LogikDevelopment_files/shCore.css" type="text/css" rel="stylesheet"><link href="Reset%20clock%20fuse%20bits%20on%20AVR%20%7C%20LogikDevelopment_files/shThemeDefault.css" type="text/css" rel="stylesheet"><style type="text/css" id="syntaxhighlighteranchor"></style>
+
+<script type="text/javascript">
+/* <![CDATA[ */
+ jQuery(document).ready(function(){
+  // body .safari class
+  if (jQuery.browser.safari) jQuery('body').addClass('safari');
+
+  // layout controls
+     jQuery("#layoutcontrol a").click(function() {
+     switch (jQuery(this).attr("class")) {
+	   case 'setFont' : setFontSize();	break;
+	   case 'setLiquid'	: setPageWidth();	break;
+	 }
+	 return false;
+    });
+   // set the font size from cookie
+   var font_size = jQuery.cookie('fontSize');
+   if (font_size == '.70em') { jQuery('body').css("font-size",".70em"); }
+   if (font_size == '.95em') { jQuery('body').css("font-size",".95em"); }
+   if (font_size == '.75em') { jQuery('body').css("font-size",".75em"); }
+
+   // set the page width from cookie
+   var page_width = jQuery.cookie('pageWidth');
+   if (page_width) jQuery('#page').css('width', page_width);
+  
+  jQuery('#post-extra-content').minitabs(333, 'slide');
+
+  if (document.all && !window.opera && !window.XMLHttpRequest && jQuery.browser.msie) { var isIE6 = true; }
+  else { var isIE6 = false;} ;
+  jQuery.browser.msie6 = isIE6;
+  if (!isIE6) {
+    initTooltips({
+		timeout: 6000
+   });
+  }
+  tabmenudropdowns();
+
+  // some jquery effects...
+  jQuery('#sidebar ul.nav li ul li a').mouseover(function () {
+   	jQuery(this).animate({ marginLeft: "4px" }, 100 );
+  });
+  jQuery('#sidebar ul.nav li ul li a').mouseout(function () {
+    jQuery(this).animate({ marginLeft: "0px" }, 100 );
+  });
+  // scroll to top
+  jQuery("a#toplink").click(function(){
+    jQuery('html').animate({scrollTop:0}, 'slow');
+  });
+
+  // set roles on some elements (for accessibility)
+  jQuery("#tabs").attr("role","navigation");
+  jQuery("#mid-content").attr("role","main");
+  jQuery("#sidebar").attr("role","complementary");
+  jQuery("#searchform").attr("role","search");
+
+ });
+
+ /* ]]> */
+</script>
+
+<link media="all" href="Reset%20clock%20fuse%20bits%20on%20AVR%20%7C%20LogikDevelopment_files/widget007.css" type="text/css" rel="stylesheet"></head>
+<body class="reset-clock-fuse-bits-on-avr">
+  <!-- page wrappers (100% width) -->
+  <div id="page-wrap1">
+    <div id="page-wrap2">
+      <!-- page (actual site content, custom width) -->
+      <div id="page" class="with-sidebar">
+
+       <!-- main wrapper (side & main) -->
+       <div id="main-wrap">
+        <!-- mid column wrap -->
+    	<div id="mid-wrap">
+          <!-- sidebar wrap -->
+          <div id="side-wrap">
+            <!-- mid column -->
+    	    <div id="mid">
+              <!-- header -->
+              <div id="header">
+                <div id="topnav" class="description"> "But, rather than 
+moan and complain, look beyond the issue and strive for the solution. In
+ each problem lies an opportunity to make better, to resolve, or to 
+commence positive change." Byron Pulsifer</div>
+
+                                <h1 id="title"><a href="http://www.logikdev.com/">LogikDevelopment</a></h1>
+                
+                <!-- top tab navigation -->
+                <div role="navigation" id="tabs">
+                 <ul>
+                                     <li id="nav-homelink"><a href="http://www.logikdev.com/" title="Click for Home"><span><span>Home</span></span></a></li>
+                                   <li class="page_item page-item-2"><a href="http://www.logikdev.com/about/"><span><span>About</span></span></a></li>
+<li class="page_item page-item-78"><a href="http://www.logikdev.com/contact/"><span><span>Contact Us</span></span></a></li>
+                 </ul>
+                </div>
+                <!-- /top tabs -->
+
+              </div><!-- /header -->
+
+  <!-- mid content -->
+  <div role="main" id="mid-content">
+      <div class="navigation">
+      <div class="alignleft">« <a href="http://www.logikdev.com/2011/02/06/jdbc-and-the-zero-date/" rel="prev">JDBC and the “zero” date</a></div>
+      <div class="alignright"><a href="http://www.logikdev.com/2011/03/01/how-to-dump-mysql-functions-and-stored-procedures/" rel="next">How to dump MySQL functions and stored procedures</a> »</div>
+      <div class="clear"></div>
+    </div>
+
+    <div id="post-1061" class="post-1061 post type-post status-publish format-standard hentry category-avr tag-attiny13a tag-avr tag-fuse-bytes tag-low-frequency-oscillator tag-microcontrollers">
+       <h2 class="title">Reset clock fuse bits on AVR</h2>       <br>
+	    <div class="entry">
+          <div class="postbody entry clearfix">
+	       <p>I am just starting to learn about AVR programming and I really enjoy myself! <img src="Reset%20clock%20fuse%20bits%20on%20AVR%20%7C%20LogikDevelopment_files/icon_biggrin.gif" alt=":D" class="wp-smiley"><br>
+Except maybe when I play with the fuse bytes and I screw things up…</p>
+<p>Basically, I was using a <a href="http://www.atmel.com/dyn/products/product_card.asp?part_id=4347" onclick="_gaq.push(['_trackEvent', 'outbound-article', 'http://www.atmel.com/dyn/products/product_card.asp?part_id=4347', 'ATtiny13A']);"><strong>ATtiny13A</strong></a>
+ microcontroller and I configured the fuse bytes to use the internal 
+low-frequency oscillator running at 128kHz. I thought it would be a good
+ idea to check if my simple blinking LED program was still working with 
+this internal oscillator.<br>
+The good news is the LED was still blinking. But the bad news is I wasn’t able to reprogram the chip anymore… <img src="Reset%20clock%20fuse%20bits%20on%20AVR%20%7C%20LogikDevelopment_files/icon_sad.gif" alt=":(" class="wp-smiley">
+ After some research, I figure it out: the ISP interface needs to run 
+slower than the microcontroller in order to flash it! And obviously, my 
+ISP interface was running faster than 128kHz…</p>
+<p>These microcontrollers are very cheap so I could just throw it away. 
+But I am not the kind of person to give up without a fight! <img src="Reset%20clock%20fuse%20bits%20on%20AVR%20%7C%20LogikDevelopment_files/icon_wink.gif" alt=";)" class="wp-smiley"><br>
+So I talked to my friend Google and he suggested me to read the following article: <a href="http://www.evilmadscientist.com/article.php?story=avrclockbits" onclick="_gaq.push(['_trackEvent', 'outbound-article', 'http://www.evilmadscientist.com/article.php?story=avrclockbits', 'Fixing a bad frequency fuse bit on an AVR']);">Fixing a bad frequency fuse bit on an AVR</a>.<br>
+I followed the instructions and here is the output:</p>
+<div class="syntaxhighlighter nogutter  " id="highlighter_852110"><div class="lines"><div class="line alt1"><table><tbody><tr><td class="content"><code class="plain">C:\AVR&gt;avrdude -p attiny13 -P usb -c usbtiny -tuF</code></td></tr></tbody></table></div><div class="line alt2"><table><tbody><tr><td class="content">&nbsp;</td></tr></tbody></table></div><div class="line alt1"><table><tbody><tr><td class="content"><code class="plain">avrdude: initialization failed, rc=-1</code></td></tr></tbody></table></div><div class="line alt2"><table><tbody><tr><td class="content"><code class="plain">avrdude: AVR device initialized and ready to accept instructions</code></td></tr></tbody></table></div><div class="line alt1"><table><tbody><tr><td class="content">&nbsp;</td></tr></tbody></table></div><div class="line alt2"><table><tbody><tr><td class="content"><code class="plain">Reading | </code><code class="comments">################################################## | 100% 0.00s</code></td></tr></tbody></table></div><div class="line alt1"><table><tbody><tr><td class="content">&nbsp;</td></tr></tbody></table></div><div class="line alt2"><table><tbody><tr><td class="content"><code class="plain">avrdude: Device signature = 0x000000</code></td></tr></tbody></table></div><div class="line alt1"><table><tbody><tr><td class="content"><code class="plain">avrdude: Yikes! Invalid device signature.</code></td></tr></tbody></table></div><div class="line alt2"><table><tbody><tr><td class="content"><code class="plain">avrdude: Expected signature </code><code class="keyword">for</code> <code class="plain">ATtiny13 is 1E 90 07</code></td></tr></tbody></table></div><div class="line alt1"><table><tbody><tr><td class="content"><code class="plain">avrdude&gt; sck 1000</code></td></tr></tbody></table></div><div class="line alt2"><table><tbody><tr><td class="content"><code class="plain">&gt;&gt;&gt; sck 1000</code></td></tr></tbody></table></div><div class="line alt1"><table><tbody><tr><td class="content"><code class="plain">avrdude: Setting SCK period to 250 usec</code></td></tr></tbody></table></div><div class="line alt2"><table><tbody><tr><td class="content"><code class="plain">avrdude&gt; e</code></td></tr></tbody></table></div><div class="line alt1"><table><tbody><tr><td class="content"><code class="plain">&gt;&gt;&gt; e</code></td></tr></tbody></table></div><div class="line alt2"><table><tbody><tr><td class="content"><code class="plain">avrdude: erasing chip</code></td></tr></tbody></table></div><div class="line alt1"><table><tbody><tr><td class="content"><code class="plain">avrdude&gt; sck 10</code></td></tr></tbody></table></div><div class="line alt2"><table><tbody><tr><td class="content"><code class="plain">&gt;&gt;&gt; sck 10</code></td></tr></tbody></table></div><div class="line alt1"><table><tbody><tr><td class="content"><code class="plain">avrdude: Setting SCK period to 10 usec</code></td></tr></tbody></table></div><div class="line alt2"><table><tbody><tr><td class="content"><code class="plain">avrdude&gt; quit</code></td></tr></tbody></table></div><div class="line alt1"><table><tbody><tr><td class="content"><code class="plain">&gt;&gt;&gt; quit</code></td></tr></tbody></table></div><div class="line alt2"><table><tbody><tr><td class="content">&nbsp;</td></tr></tbody></table></div><div class="line alt1"><table><tbody><tr><td class="content"><code class="plain">avrdude </code><code class="keyword">done</code><code class="plain">. Thank you.</code></td></tr></tbody></table></div></div></div>
+<p>However, there is a missing instruction in this article. Indeed, 
+these instructions erased the chip but didn’t fix the fuses, so now it’s
+ blank but the fuses are still wrong!<br>
+In order to reprogram the fuses, you need to use the ‘-B250′ in the command line:</p>
+<div class="syntaxhighlighter nogutter  " id="highlighter_257717"><div class="lines"><div class="line alt1"><table><tbody><tr><td class="content"><code class="plain">avrdude -p attiny13 -P usb -c usbtiny -U lfuse:w:0x6A:m -U hfuse:w:0xFF:m -B250</code></td></tr></tbody></table></div></div></div>
+          </div>
+                                <p class="tags"><a href="http://www.logikdev.com/tag/attiny13a/" rel="tag">ATtiny13A</a>, <a href="http://www.logikdev.com/tag/avr/" rel="tag">AVR</a>, <a href="http://www.logikdev.com/tag/fuse-bytes/" rel="tag">fuse bytes</a>, <a href="http://www.logikdev.com/tag/low-frequency-oscillator/" rel="tag">low-frequency oscillator</a>, <a href="http://www.logikdev.com/tag/microcontrollers/" rel="tag">microcontrollers</a></p>
+                    <br>
+          <p class="postmetadata alt">
+			<small>
+                This entry was posted on 15 Feb 2011, 21:39 and is filed under <a href="http://www.logikdev.com/category/avr/" rel="category tag">AVR</a>. You can follow any responses to this entry through <a href="http://www.logikdev.com/2011/02/15/reset-clock-fuse-bits-on-avr/feed/" title="RSS 2.0">RSS 2.0</a>.
+                You can <a href="#respond">leave a response</a>, or <a href="http://www.logikdev.com/2011/02/15/reset-clock-fuse-bits-on-avr/trackback/" rel="trackback">trackback</a> from your own site.                            </small>
+		  </p>
+	   </div>
+    </div>
+	
+
+<div id="post-extra-content">
+      <!-- comments and trackback tabs -->
+    <ul class="secondary-tabs">
+      <li><a class="current" href="#tab-1"><span><span>Comments (9)</span></span></a></li>
+                </ul>
+    <!-- /comments and trackback tabs -->
+    <!-- comments -->
+  <div id="tab-1">
+   <ol id="comments">
+     <!-- comment entry -->
+	<li class="comment even thread-even depth-1 with-avatars" id="comment-8509">
+      <div class="wrap tiptrigger">
+              <div class="avatar">
+         <a class="gravatar"><img alt="" src="Reset%20clock%20fuse%20bits%20on%20AVR%20%7C%20LogikDevelopment_files/1919bfc4fa95c7f6b231e583da677a17.jpeg" class="avatar avatar-64 photo" height="64" width="64"></a>
+       </div>
+              <div class="details regularcomment">
+        <p class="head">
+         <span class="info">
+          <a href="#comment-8509">#1</a> by <b id="commentauthor-8509">Paul</b> on 05 Feb 2012 - 20:51         </span>
+        </p>
+        <!-- comment contents -->
+        <div class="text">
+		 		 <div id="commentbody-8509">
+          <p>This worked! THANKS!</p>
+         </div>
+       </div>
+       <!-- /comment contents -->
+       </div>
+   	   <div style="display: none; opacity: 0; top: -21px;" class="act tip">
+                 	     <span class="button reply"></span>
+                  <span class="button quote"><a title="Quote" href="javascript:void(0);" onclick="MGJS_CMT.quote('commentauthor-8509', 'comment-8509', 'commentbody-8509', 'comment');"><span><span>Quote</span></span></a></span>
+                	   </div>
+
+      </div>
+</li><!-- #comment-## -->
+ <!-- comment entry -->
+	<li class="comment odd alt thread-odd thread-alt depth-1 with-avatars" id="comment-9076">
+      <div class="wrap tiptrigger">
+              <div class="avatar">
+         <a class="gravatar"><img alt="" src="Reset%20clock%20fuse%20bits%20on%20AVR%20%7C%20LogikDevelopment_files/8cfb7f8eb0b5042345a9078ad0f3dd6d.png" class="avatar avatar-64 photo" height="64" width="64"></a>
+       </div>
+              <div class="details regularcomment">
+        <p class="head">
+         <span class="info">
+          <a href="#comment-9076">#2</a> by <a id="commentauthor-9076" href="http://elabz.com/">ElectroNick</a> on 29 Feb 2012 - 19:35         </span>
+        </p>
+        <!-- comment contents -->
+        <div class="text">
+		 		 <div id="commentbody-9076">
+          <p>Thank you! You saved my day. Burnt fuses on two ATtiny13s 
+last night only to see them both play dead. That was *not* a good 
+feeling <img src="Reset%20clock%20fuse%20bits%20on%20AVR%20%7C%20LogikDevelopment_files/icon_smile.gif" alt=":)" class="wp-smiley"></p>
+<p>128kHz did not work for my application anyhow, had to re-burn the 
+fuses differently and your instructions had explain the issue of speed 
+incompatibility very well and got me on my merry way.</p>
+<p>Thanks again!</p>
+         </div>
+       </div>
+       <!-- /comment contents -->
+       </div>
+   	   <div style="display: none; opacity: 0; top: -21px;" class="act tip">
+                 	     <span class="button reply"></span>
+                  <span class="button quote"><a title="Quote" href="javascript:void(0);" onclick="MGJS_CMT.quote('commentauthor-9076', 'comment-9076', 'commentbody-9076', 'comment');"><span><span>Quote</span></span></a></span>
+                	   </div>
+
+      </div>
+</li><!-- #comment-## -->
+ <!-- comment entry -->
+	<li class="comment byuser comment-author-smoreau bypostauthor even thread-even depth-1 with-avatars" id="comment-9077">
+      <div class="wrap tiptrigger">
+              <div class="avatar">
+         <a class="gravatar"><img alt="" src="Reset%20clock%20fuse%20bits%20on%20AVR%20%7C%20LogikDevelopment_files/aba81468d8ae54d3a02330377e252ca7.jpeg" class="avatar avatar-64 photo" height="64" width="64"></a>
+       </div>
+              <div class="details admincomment">
+        <p class="head">
+         <span class="info">
+          <a href="#comment-9077">#3</a> by <b id="commentauthor-9077">smoreau</b> on 29 Feb 2012 - 19:40         </span>
+        </p>
+        <!-- comment contents -->
+        <div class="text">
+		 		 <div id="commentbody-9077">
+          <p>Happy that I’ve been able to help. <img src="Reset%20clock%20fuse%20bits%20on%20AVR%20%7C%20LogikDevelopment_files/icon_smile.gif" alt=":)" class="wp-smiley"></p>
+         </div>
+       </div>
+       <!-- /comment contents -->
+       </div>
+   	   <div style="display: none; opacity: 0; top: -21px;" class="act tip">
+                 	     <span class="button reply"></span>
+                  <span class="button quote"><a title="Quote" href="javascript:void(0);" onclick="MGJS_CMT.quote('commentauthor-9077', 'comment-9077', 'commentbody-9077', 'comment');"><span><span>Quote</span></span></a></span>
+                	   </div>
+
+      </div>
+</li><!-- #comment-## -->
+ <!-- comment entry -->
+	<li class="comment odd alt thread-odd thread-alt depth-1 with-avatars" id="comment-11818">
+      <div class="wrap tiptrigger">
+              <div class="avatar">
+         <a class="gravatar"><img alt="" src="Reset%20clock%20fuse%20bits%20on%20AVR%20%7C%20LogikDevelopment_files/e710f8008ec4bb66a3082740bf84eee2.png" class="avatar avatar-64 photo" height="64" width="64"></a>
+       </div>
+              <div class="details regularcomment">
+        <p class="head">
+         <span class="info">
+          <a href="#comment-11818">#4</a> by <b id="commentauthor-11818">JJ</b> on 22 Apr 2012 - 09:34         </span>
+        </p>
+        <!-- comment contents -->
+        <div class="text">
+		 		 <div id="commentbody-11818">
+          <p>I just ‘bricked’ my ATTiny85 by setting the clock fuses to 
+select the 128KHz RC oscillator.  Well, not bricked, but I certainly 
+lost the ability to program it.  Found your post useful, but it wasn’t 
+the answer for me.  I’m using an Aurduino Uno (rev3) as an ISP, and the 
+sketch that runs it (the example that comes with 1.0) sets the SPI 
+hardware to talk at it’s lowest possible speed with the highest 
+prescaler of 128.  With the 16Mhz clock speed of the Uno that’s 125KHz ,
+ well beyond the maximum speed of 32KHz (target’s clock speed /4), so no
+ amount of fiddling with avrdude options could remedy the situation.</p>
+<p>I stumbled across a modified version of that example sketch at <a href="http://pastebin.com/Aw5BD0zy" onclick="_gaq.push(['_trackEvent', 'outbound-comment', 'http://pastebin.com/Aw5BD0zy', 'http://pastebin.com/Aw5BD0zy']);" rel="nofollow">http://pastebin.com/Aw5BD0zy</a> that implements slow software SPI, overcoming the problem of the original sketch.  It worked perfectly.</p>
+<p>I made some changes to allow it to be used in both modes.  I’ve posted the modified sketch at <a href="http://pastebin.com/Mngw3UH9" onclick="_gaq.push(['_trackEvent', 'outbound-comment', 'http://pastebin.com/Mngw3UH9', 'http://pastebin.com/Mngw3UH9']);" rel="nofollow">http://pastebin.com/Mngw3UH9</a></p>
+         </div>
+       </div>
+       <!-- /comment contents -->
+       </div>
+   	   <div style="display: none; opacity: 0; top: -21px;" class="act tip">
+                 	     <span class="button reply"></span>
+                  <span class="button quote"><a title="Quote" href="javascript:void(0);" onclick="MGJS_CMT.quote('commentauthor-11818', 'comment-11818', 'commentbody-11818', 'comment');"><span><span>Quote</span></span></a></span>
+                	   </div>
+
+      </div>
+</li><!-- #comment-## -->
+ <!-- comment entry -->
+	<li class="comment even thread-even depth-1 with-avatars" id="comment-11911">
+      <div class="wrap tiptrigger">
+              <div class="avatar">
+         <a class="gravatar"><img alt="" src="Reset%20clock%20fuse%20bits%20on%20AVR%20%7C%20LogikDevelopment_files/e710f8008ec4bb66a3082740bf84eee2.png" class="avatar avatar-64 photo" height="64" width="64"></a>
+       </div>
+              <div class="details regularcomment">
+        <p class="head">
+         <span class="info">
+          <a href="#comment-11911">#5</a> by <b id="commentauthor-11911">JJ</b> on 24 Apr 2012 - 03:02         </span>
+        </p>
+        <!-- comment contents -->
+        <div class="text">
+		 		 <div id="commentbody-11911">
+          <p>Made a few more changes to the sketch:<br>
+<a href="http://pastebin.com/60xYhyq0" onclick="_gaq.push(['_trackEvent', 'outbound-comment', 'http://pastebin.com/60xYhyq0', 'http://pastebin.com/60xYhyq0']);" rel="nofollow">http://pastebin.com/60xYhyq0</a></p>
+         </div>
+       </div>
+       <!-- /comment contents -->
+       </div>
+   	   <div class="act tip">
+                 	     <span class="button reply"></span>
+                  <span class="button quote"><a title="Quote" href="javascript:void(0);" onclick="MGJS_CMT.quote('commentauthor-11911', 'comment-11911', 'commentbody-11911', 'comment');"><span><span>Quote</span></span></a></span>
+                	   </div>
+
+      </div>
+</li><!-- #comment-## -->
+ <!-- comment entry -->
+	<li class="comment odd alt thread-odd thread-alt depth-1 with-avatars" id="comment-18575">
+      <div class="wrap tiptrigger">
+              <div class="avatar">
+         <a class="gravatar"><img alt="" src="Reset%20clock%20fuse%20bits%20on%20AVR%20%7C%20LogikDevelopment_files/6d9173a7c3aaf8a006bd5c08cee7890b.png" class="avatar avatar-64 photo" height="64" width="64"></a>
+       </div>
+              <div class="details regularcomment">
+        <p class="head">
+         <span class="info">
+          <a href="#comment-18575">#6</a> by <b id="commentauthor-18575">weller</b> on 27 Jun 2012 - 16:00         </span>
+        </p>
+        <!-- comment contents -->
+        <div class="text">
+		 		 <div id="commentbody-18575">
+          <p>Thanks, this works for me!</p>
+         </div>
+       </div>
+       <!-- /comment contents -->
+       </div>
+   	   <div style="display: none; opacity: 0; top: -21px;" class="act tip">
+                 	     <span class="button reply"></span>
+                  <span class="button quote"><a title="Quote" href="javascript:void(0);" onclick="MGJS_CMT.quote('commentauthor-18575', 'comment-18575', 'commentbody-18575', 'comment');"><span><span>Quote</span></span></a></span>
+                	   </div>
+
+      </div>
+</li><!-- #comment-## -->
+ <!-- comment entry -->
+	<li class="comment even thread-even depth-1 with-avatars" id="comment-21001">
+      <div class="wrap tiptrigger">
+              <div class="avatar">
+         <a class="gravatar"><img alt="" src="Reset%20clock%20fuse%20bits%20on%20AVR%20%7C%20LogikDevelopment_files/afaa4356c806a2092b7e2ee38f18b09c.png" class="avatar avatar-64 photo" height="64" width="64"></a>
+       </div>
+              <div class="details regularcomment">
+        <p class="head">
+         <span class="info">
+          <a href="#comment-21001">#7</a> by <a id="commentauthor-21001" href="http://none/">Sebastian</a> on 22 Jul 2012 - 01:18         </span>
+        </p>
+        <!-- comment contents -->
+        <div class="text">
+		 		 <div id="commentbody-21001">
+          <p>I LOVE YOU =D</p>
+<p>trust me, i had 6 “bricked” chips lying arround, and THIS worked =D</p>
+<p>You have my entire enternal gratitude, i hope that a gigant brick of gold hits your window by this years end =D</p>
+         </div>
+       </div>
+       <!-- /comment contents -->
+       </div>
+   	   <div class="act tip">
+                 	     <span class="button reply"></span>
+                  <span class="button quote"><a title="Quote" href="javascript:void(0);" onclick="MGJS_CMT.quote('commentauthor-21001', 'comment-21001', 'commentbody-21001', 'comment');"><span><span>Quote</span></span></a></span>
+                	   </div>
+
+      </div>
+</li><!-- #comment-## -->
+ <!-- comment entry -->
+	<li class="comment odd alt thread-odd thread-alt depth-1 with-avatars" id="comment-138661">
+      <div class="wrap tiptrigger">
+              <div class="avatar">
+         <a class="gravatar"><img alt="" src="Reset%20clock%20fuse%20bits%20on%20AVR%20%7C%20LogikDevelopment_files/22511b802e9ee820e9b3335e8ba210b1.png" class="avatar avatar-64 photo" height="64" width="64"></a>
+       </div>
+              <div class="details regularcomment">
+        <p class="head">
+         <span class="info">
+          <a href="#comment-138661">#8</a> by <b id="commentauthor-138661">Milind</b> on 30 Jan 2014 - 13:25         </span>
+        </p>
+        <!-- comment contents -->
+        <div class="text">
+		 		 <div id="commentbody-138661">
+          <p>I just recovered half dead m128… Thanks a lot..</p>
+         </div>
+       </div>
+       <!-- /comment contents -->
+       </div>
+   	   <div style="display: none; opacity: 0; top: -21px;" class="act tip">
+                 	     <span class="button reply"></span>
+                  <span class="button quote"><a title="Quote" href="javascript:void(0);" onclick="MGJS_CMT.quote('commentauthor-138661', 'comment-138661', 'commentbody-138661', 'comment');"><span><span>Quote</span></span></a></span>
+                	   </div>
+
+      </div>
+</li><!-- #comment-## -->
+ <!-- comment entry -->
+	<li class="comment even thread-even depth-1 with-avatars" id="comment-141848">
+      <div class="wrap tiptrigger">
+              <div class="avatar">
+         <a class="gravatar"><img alt="" src="Reset%20clock%20fuse%20bits%20on%20AVR%20%7C%20LogikDevelopment_files/c61fc9a8c325fcdb2b343133459a3b17.png" class="avatar avatar-64 photo" height="64" width="64"></a>
+       </div>
+              <div class="details regularcomment">
+        <p class="head">
+         <span class="info">
+          <a href="#comment-141848">#9</a> by <b id="commentauthor-141848">w32blaster</b> on 26 Mar 2014 - 21:31         </span>
+        </p>
+        <!-- comment contents -->
+        <div class="text">
+		 		 <div id="commentbody-141848">
+          <p>Only this tutorial helped me! Thanks a lot!</p>
+         </div>
+       </div>
+       <!-- /comment contents -->
+       </div>
+   	   <div style="display: none; opacity: 0; top: -21px;" class="act tip">
+                 	     <span class="button reply"></span>
+                  <span class="button quote"><a title="Quote" href="javascript:void(0);" onclick="MGJS_CMT.quote('commentauthor-141848', 'comment-141848', 'commentbody-141848', 'comment');"><span><span>Quote</span></span></a></span>
+                	   </div>
+
+      </div>
+</li><!-- #comment-## -->
+    </ol>
+        
+      <div id="respond">
+      <form action="http://www.logikdev.com/wp-comments-post.php" method="post" id="commentform">
+        <div class="cancel-comment-reply"><a rel="nofollow" id="cancel-comment-reply-link" href="http://www.logikdev.com/2011/02/15/reset-clock-fuse-bits-on-avr/#respond" style="display:none;">Cancel Reply</a></div>          	                <div id="author_info">
+            <div class="row">
+              <input name="author" id="author" class="textfield" size="24" tabindex="1" type="text">
+              <label for="author" class="small">Name (required)</label>
+            </div>
+            <div class="row">
+              <input name="email" id="email" class="textfield" size="24" tabindex="2" type="text">
+              <label for="email" class="small">E-Mail (required)</label> <em>(will not be published)</em>
+            </div>
+            <div class="row">
+              <input name="url" id="url" class="textfield" size="24" tabindex="3" type="text">
+              <label for="url" class="small">Website</label>
+            </div>
+  		  </div>
+                  
+        <!-- comment input -->
+        <div class="row">
+        	<textarea name="comment" id="comment" tabindex="4" rows="8" cols="50"></textarea>
+        	        	<input name="comment_post_ID" value="1061" id="comment_post_ID" type="hidden">
+<input name="comment_parent" id="comment_parent" value="0" type="hidden">
+<p style="display: none;"><input id="akismet_comment_nonce" name="akismet_comment_nonce" value="76bd6e94a7" type="hidden"></p><p style="display: none;"></p>
+                 <br>
+        </div>
+        <!-- /comment input -->
+
+        <!-- comment submit and rss -->
+        <div id="submitbox" class="left">
+         <span class="button submit"><a title="Submit Comment" href="javascript:jQuery('#commentform').submit();"><span><span>Submit Comment</span></span></a></span>
+         <input name="formInput" type="hidden">
+        </div>
+        <div class="clear"></div>
+      <input id="ak_js" name="ak_js" value="1414582906927" type="hidden"></form>
+    </div>
+          </div>
+  <!-- /comments -->
+
+  <!-- trackbacks -->
+    <!-- /trackbacks -->
+
+  <!-- related posts -->
+    <!-- /related posts -->
+
+</div>
+
+
+
+   </div>
+    <!-- mid content -->
+   </div>
+   <!-- /mid -->
+
+   
+<!-- sidebar -->
+<div role="complementary" id="sidebar">
+ <!-- sidebar 1st container -->
+ <div id="sidebar-wrap1">
+  <!-- sidebar 2nd container -->
+  <div id="sidebar-wrap2">
+     <ul id="sidelist">
+     	
+        <li><div id="fusion-search" class="widget fusion_SearchWidget">         <!-- wp search form -->
+          <div id="searchtab">
+            <div class="inside">
+              <form role="search" method="get" id="searchform" action="http://www.logikdev.com/">
+              <fieldset>
+                <input name="s" id="searchbox" class="searchfield" value="Search" onfocus="if(this.value == 'Search') {this.value = '';}" onblur="if (this.value == '') {this.value = 'Search';}" type="text">
+                 <input value="Go" class="searchbutton" type="submit">
+              </fieldset>
+              </form>
+            </div>
+          </div>
+         <!-- /wp search form -->
+  </div></li><li><div id="fusion-categories" class="widget fusion_CategoryWidget"> <!-- sidebar menu (categories) -->
+ <ul class="nav">
+   	<li class="cat-item cat-item-226"><a href="http://www.logikdev.com/category/android/"><span>Android <em>(1)</em></span></a><a class="rss tip" href="http://www.logikdev.com/category/android/feed/"></a>
+</li>
+	<li class="cat-item cat-item-121"><a href="http://www.logikdev.com/category/avr/"><span>AVR <em>(1)</em></span></a><a class="rss tip" href="http://www.logikdev.com/category/avr/feed/"></a>
+</li>
+	<li class="cat-item cat-item-216"><a href="http://www.logikdev.com/category/big-data/"><span>Big Data <em>(1)</em></span></a><a style="display: none; opacity: 0; top: -3px;" class="rss tip" href="http://www.logikdev.com/category/big-data/feed/"></a>
+</li>
+	<li class="cat-item cat-item-1"><a href="http://www.logikdev.com/category/blog/"><span>Blog <em>(1)</em></span></a><a style="display: none; opacity: 0; top: -3px;" class="rss tip" href="http://www.logikdev.com/category/blog/feed/"></a>
+</li>
+	<li class="cat-item cat-item-24"><a href="http://www.logikdev.com/category/html/"><span>Html <em>(6)</em></span></a><a class="rss tip" href="http://www.logikdev.com/category/html/feed/"></a>
+</li>
+	<li class="cat-item cat-item-6"><a href="http://www.logikdev.com/category/java/"><span>Java <em>(24)</em></span></a><a style="display: none; opacity: 0; top: -3px;" class="rss tip" href="http://www.logikdev.com/category/java/feed/"></a>
+</li>
+	<li class="cat-item cat-item-41"><a href="http://www.logikdev.com/category/linux/"><span>Linux <em>(23)</em></span></a><a style="display: none; opacity: 0; top: -3px;" class="rss tip" href="http://www.logikdev.com/category/linux/feed/"></a>
+</li>
+	<li class="cat-item cat-item-47"><a href="http://www.logikdev.com/category/mysql/"><span>MySQL <em>(5)</em></span></a><a style="display: none; opacity: 0; top: -3px;" class="rss tip" href="http://www.logikdev.com/category/mysql/feed/"></a>
+</li>
+	<li class="cat-item cat-item-94"><a href="http://www.logikdev.com/category/php/"><span>PHP <em>(3)</em></span></a><a class="rss tip" href="http://www.logikdev.com/category/php/feed/"></a>
+</li>
+	<li class="cat-item cat-item-160"><a href="http://www.logikdev.com/category/python/"><span>Python <em>(1)</em></span></a><a class="rss tip" href="http://www.logikdev.com/category/python/feed/"></a>
+</li>
+	<li class="cat-item cat-item-23"><a href="http://www.logikdev.com/category/tricks/"><span>Tricks <em>(7)</em></span></a><a class="rss tip" href="http://www.logikdev.com/category/tricks/feed/"></a>
+</li>
+	<li class="cat-item cat-item-68"><a href="http://www.logikdev.com/category/vbscript/"><span>VBScript <em>(2)</em></span></a><a class="rss tip" href="http://www.logikdev.com/category/vbscript/feed/"></a>
+</li>
+	<li class="cat-item cat-item-52"><a href="http://www.logikdev.com/category/windows/"><span>Windows <em>(1)</em></span></a><a style="display: none; opacity: 0; top: -3px;" class="rss tip" href="http://www.logikdev.com/category/windows/feed/"></a>
+</li>
+     </ul>
+  <!-- /sidebar menu -->
+ </div></li><li><div id="text-3" class="widget widget_text"><h2 class="title">Share this</h2>			<div class="textwidget"><!-- AddThis Button BEGIN -->
+<div><div class="addthis_toolbox addthis_default_style">
+<a href="#" title="Facebook" class="addthis_button_facebook at300b"><span class="at16nc at300bs at15nc at15t_facebook at16t_facebook"><span class="at_a11y">Share on facebook</span></span></a>
+<a href="#" title="Tweet" class="addthis_button_twitter at300b"><span class="at16nc at300bs at15nc at15t_twitter at16t_twitter"><span class="at_a11y">Share on twitter</span></span></a>
+<a class="addthis_button_googlereader"></a>
+<a href="#" title="Email" target="_blank" class="addthis_button_email at300b"><span class="at16nc at300bs at15nc at15t_email at16t_email"><span class="at_a11y">Share on email</span></span></a>
+<a href="#" title="Favorites" class="addthis_button_favorites at300b"><span class="at16nc at300bs at15nc at15t_favorites at16t_favorites"><span class="at_a11y">Share on favorites</span></span></a>
+<a href="#" title="Print" class="addthis_button_print at300b"><span class="at16nc at300bs at15nc at15t_print at16t_print"><span class="at_a11y">Share on print</span></span></a>
+<span class="addthis_separator">|</span>
+<a title="View more services" target="_blank" href="http://www.addthis.com/bookmark.php?v=250&amp;pub=cstefkivoila" onclick="_gaq.push(['_trackEvent', 'outbound-widget', 'http://www.addthis.com/bookmark.php?v=250&amp;pub=cstefkivoila', 'More']);" class="addthis_button_expanded at300m"><span class="at16nc at300bs at15nc at15t_expanded at16t_expanded"><span class="at_a11y">More Sharing Services</span></span>More</a>
+<div class="atclear"></div></div>
+<script type="text/javascript" src="Reset%20clock%20fuse%20bits%20on%20AVR%20%7C%20LogikDevelopment_files/addthis_widget.js"></script><div id="_atssh" style="visibility: hidden; height: 1px; width: 1px; position: absolute; z-index: 100000;"><iframe src="Reset%20clock%20fuse%20bits%20on%20AVR%20%7C%20LogikDevelopment_files/sh177.html" style="height: 1px; width: 1px; position: absolute; z-index: 100000; border: 0px none; left: 0px; top: 0px;" title="AddThis utility frame" id="_atssh719"></iframe></div><script src="Reset%20clock%20fuse%20bits%20on%20AVR%20%7C%20LogikDevelopment_files/core160.js" type="text/javascript"></script></div>
+<!-- AddThis Button END --></div>
+		</div></li><li><div id="text-4" class="widget widget_text"><h2 class="title">WWF – Help us</h2>			<div class="textwidget"><div style="text-align:center">
+<a href="http://www.wwf.org.uk/tigers/?pc=VBC001002" onclick="_gaq.push(['_trackEvent', 'outbound-widget', 'http://www.wwf.org.uk/tigers/?pc=VBC001002', '']);" target="_blank"><img src="Reset%20clock%20fuse%20bits%20on%20AVR%20%7C%20LogikDevelopment_files/wwf_tigers_totb.gif" alt="Tigers on the brink" style="border:0px;"></a>
+<a href="http://www.wwf.org.uk/virunga/?pc=VBC001002" onclick="_gaq.push(['_trackEvent', 'outbound-widget', 'http://www.wwf.org.uk/virunga/?pc=VBC001002', '']);" target="_blank"><img src="Reset%20clock%20fuse%20bits%20on%20AVR%20%7C%20LogikDevelopment_files/save-virunga.png" alt="Save Virunga" style="border:0px;"></a>
+</div></div>
+		</div></li><li><div id="archives-3" class="widget widget_archive"><h2 class="title">Archives</h2>		<ul>
+	<li><a href="http://www.logikdev.com/2014/03/">March 2014</a>&nbsp;(2)</li>
+	<li><a href="http://www.logikdev.com/2013/09/">September 2013</a>&nbsp;(1)</li>
+	<li><a href="http://www.logikdev.com/2013/08/">August 2013</a>&nbsp;(1)</li>
+	<li><a href="http://www.logikdev.com/2013/07/">July 2013</a>&nbsp;(1)</li>
+	<li><a href="http://www.logikdev.com/2013/06/">June 2013</a>&nbsp;(1)</li>
+	<li><a href="http://www.logikdev.com/2013/02/">February 2013</a>&nbsp;(1)</li>
+	<li><a href="http://www.logikdev.com/2013/01/">January 2013</a>&nbsp;(1)</li>
+	<li><a href="http://www.logikdev.com/2012/12/">December 2012</a>&nbsp;(1)</li>
+	<li><a href="http://www.logikdev.com/2012/09/">September 2012</a>&nbsp;(1)</li>
+	<li><a href="http://www.logikdev.com/2012/08/">August 2012</a>&nbsp;(1)</li>
+	<li><a href="http://www.logikdev.com/2012/06/">June 2012</a>&nbsp;(1)</li>
+	<li><a href="http://www.logikdev.com/2012/05/">May 2012</a>&nbsp;(1)</li>
+	<li><a href="http://www.logikdev.com/2012/04/">April 2012</a>&nbsp;(3)</li>
+	<li><a href="http://www.logikdev.com/2012/02/">February 2012</a>&nbsp;(1)</li>
+	<li><a href="http://www.logikdev.com/2011/12/">December 2011</a>&nbsp;(3)</li>
+	<li><a href="http://www.logikdev.com/2011/11/">November 2011</a>&nbsp;(2)</li>
+	<li><a href="http://www.logikdev.com/2011/10/">October 2011</a>&nbsp;(2)</li>
+	<li><a href="http://www.logikdev.com/2011/09/">September 2011</a>&nbsp;(2)</li>
+	<li><a href="http://www.logikdev.com/2011/07/">July 2011</a>&nbsp;(1)</li>
+	<li><a href="http://www.logikdev.com/2011/06/">June 2011</a>&nbsp;(2)</li>
+	<li><a href="http://www.logikdev.com/2011/05/">May 2011</a>&nbsp;(2)</li>
+	<li><a href="http://www.logikdev.com/2011/04/">April 2011</a>&nbsp;(2)</li>
+	<li><a href="http://www.logikdev.com/2011/03/">March 2011</a>&nbsp;(2)</li>
+	<li><a href="http://www.logikdev.com/2011/02/">February 2011</a>&nbsp;(2)</li>
+	<li><a href="http://www.logikdev.com/2011/01/">January 2011</a>&nbsp;(2)</li>
+	<li><a href="http://www.logikdev.com/2010/12/">December 2010</a>&nbsp;(1)</li>
+	<li><a href="http://www.logikdev.com/2010/11/">November 2010</a>&nbsp;(2)</li>
+	<li><a href="http://www.logikdev.com/2010/10/">October 2010</a>&nbsp;(3)</li>
+	<li><a href="http://www.logikdev.com/2010/09/">September 2010</a>&nbsp;(1)</li>
+	<li><a href="http://www.logikdev.com/2010/08/">August 2010</a>&nbsp;(2)</li>
+	<li><a href="http://www.logikdev.com/2010/07/">July 2010</a>&nbsp;(1)</li>
+	<li><a href="http://www.logikdev.com/2010/06/">June 2010</a>&nbsp;(2)</li>
+	<li><a href="http://www.logikdev.com/2010/05/">May 2010</a>&nbsp;(3)</li>
+	<li><a href="http://www.logikdev.com/2010/03/">March 2010</a>&nbsp;(2)</li>
+	<li><a href="http://www.logikdev.com/2010/02/">February 2010</a>&nbsp;(3)</li>
+	<li><a href="http://www.logikdev.com/2010/01/">January 2010</a>&nbsp;(2)</li>
+	<li><a href="http://www.logikdev.com/2009/12/">December 2009</a>&nbsp;(3)</li>
+	<li><a href="http://www.logikdev.com/2009/11/">November 2009</a>&nbsp;(3)</li>
+		</ul>
+</div></li><li><div id="tag_cloud-3" class="widget widget_tag_cloud"><h2 class="title">Tags</h2><div class="tagcloud"><a href="http://www.logikdev.com/tag/ajax/" class="tag-link-4" title="6 topics" style="font-size: 14.641025641pt;">Ajax</a>
+<a href="http://www.logikdev.com/tag/amazon-s3/" class="tag-link-169" title="3 topics" style="font-size: 10.1538461538pt;">Amazon S3</a>
+<a href="http://www.logikdev.com/tag/arch-linux/" class="tag-link-239" title="2 topics" style="font-size: 8pt;">Arch Linux</a>
+<a href="http://www.logikdev.com/tag/backup/" class="tag-link-171" title="3 topics" style="font-size: 10.1538461538pt;">backup</a>
+<a href="http://www.logikdev.com/tag/bash/" class="tag-link-44" title="12 topics" style="font-size: 19.3076923077pt;">bash</a>
+<a href="http://www.logikdev.com/tag/benchmarking/" class="tag-link-246" title="2 topics" style="font-size: 8pt;">benchmarking</a>
+<a href="http://www.logikdev.com/tag/bug/" class="tag-link-27" title="3 topics" style="font-size: 10.1538461538pt;">Bug</a>
+<a href="http://www.logikdev.com/tag/cron/" class="tag-link-42" title="4 topics" style="font-size: 11.9487179487pt;">cron</a>
+<a href="http://www.logikdev.com/tag/d-link/" class="tag-link-107" title="4 topics" style="font-size: 11.9487179487pt;">D-Link</a>
+<a href="http://www.logikdev.com/tag/decryption/" class="tag-link-98" title="3 topics" style="font-size: 10.1538461538pt;">decryption</a>
+<a href="http://www.logikdev.com/tag/dns-313/" class="tag-link-108" title="4 topics" style="font-size: 11.9487179487pt;">DNS-313</a>
+<a href="http://www.logikdev.com/tag/dns-323/" class="tag-link-109" title="2 topics" style="font-size: 8pt;">DNS-323</a>
+<a href="http://www.logikdev.com/tag/encryption/" class="tag-link-97" title="2 topics" style="font-size: 8pt;">encryption</a>
+<a href="http://www.logikdev.com/tag/html/" class="tag-link-24" title="6 topics" style="font-size: 14.641025641pt;">Html</a>
+<a href="http://www.logikdev.com/tag/internet-explorer/" class="tag-link-26" title="2 topics" style="font-size: 8pt;">Internet Explorer</a>
+<a href="http://www.logikdev.com/tag/iozone/" class="tag-link-238" title="3 topics" style="font-size: 10.1538461538pt;">IOzone</a>
+<a href="http://www.logikdev.com/tag/java/" class="tag-link-6" title="15 topics" style="font-size: 20.9230769231pt;">Java</a>
+<a href="http://www.logikdev.com/tag/javascript/" class="tag-link-21" title="8 topics" style="font-size: 16.4358974359pt;">JavaScript</a>
+<a href="http://www.logikdev.com/tag/javax-crypto/" class="tag-link-96" title="2 topics" style="font-size: 8pt;">javax.crypto</a>
+<a href="http://www.logikdev.com/tag/jsf/" class="tag-link-5" title="9 topics" style="font-size: 17.3333333333pt;">JSF</a>
+<a href="http://www.logikdev.com/tag/linux/" class="tag-link-41" title="17 topics" style="font-size: 22pt;">Linux</a>
+<a href="http://www.logikdev.com/tag/locale/" class="tag-link-46" title="2 topics" style="font-size: 8pt;">locale</a>
+<a href="http://www.logikdev.com/tag/mac-os-x/" class="tag-link-117" title="4 topics" style="font-size: 11.9487179487pt;">Mac OS X</a>
+<a href="http://www.logikdev.com/tag/monitoring/" class="tag-link-29" title="2 topics" style="font-size: 8pt;">Monitoring</a>
+<a href="http://www.logikdev.com/tag/myfaces/" class="tag-link-63" title="4 topics" style="font-size: 11.9487179487pt;">MyFaces</a>
+<a href="http://www.logikdev.com/tag/mysql/" class="tag-link-47" title="6 topics" style="font-size: 14.641025641pt;">MySQL</a>
+<a href="http://www.logikdev.com/tag/oauth/" class="tag-link-103" title="2 topics" style="font-size: 8pt;">OAuth</a>
+<a href="http://www.logikdev.com/tag/onclick/" class="tag-link-25" title="2 topics" style="font-size: 8pt;">onclick</a>
+<a href="http://www.logikdev.com/tag/opensolaris/" class="tag-link-249" title="2 topics" style="font-size: 8pt;">OpenSolaris</a>
+<a href="http://www.logikdev.com/tag/php/" class="tag-link-94" title="3 topics" style="font-size: 10.1538461538pt;">PHP</a>
+<a href="http://www.logikdev.com/tag/raspberry-pi/" class="tag-link-244" title="2 topics" style="font-size: 8pt;">Raspberry Pi</a>
+<a href="http://www.logikdev.com/tag/richfaces/" class="tag-link-3" title="10 topics" style="font-size: 18.0512820513pt;">RichFaces</a>
+<a href="http://www.logikdev.com/tag/s3sync/" class="tag-link-170" title="2 topics" style="font-size: 8pt;">s3sync</a>
+<a href="http://www.logikdev.com/tag/samba/" class="tag-link-114" title="3 topics" style="font-size: 10.1538461538pt;">Samba</a>
+<a href="http://www.logikdev.com/tag/shell/" class="tag-link-43" title="12 topics" style="font-size: 19.3076923077pt;">shell</a>
+<a href="http://www.logikdev.com/tag/sql-server/" class="tag-link-161" title="2 topics" style="font-size: 8pt;">SQL Server</a>
+<a href="http://www.logikdev.com/tag/tomcat/" class="tag-link-31" title="3 topics" style="font-size: 10.1538461538pt;">Tomcat</a>
+<a href="http://www.logikdev.com/tag/twitter/" class="tag-link-102" title="2 topics" style="font-size: 8pt;">Twitter</a>
+<a href="http://www.logikdev.com/tag/twitter4j/" class="tag-link-106" title="2 topics" style="font-size: 8pt;">Twitter4J</a>
+<a href="http://www.logikdev.com/tag/utf-8/" class="tag-link-45" title="2 topics" style="font-size: 8pt;">UTF-8</a>
+<a href="http://www.logikdev.com/tag/vbscript/" class="tag-link-68" title="2 topics" style="font-size: 8pt;">VBScript</a>
+<a href="http://www.logikdev.com/tag/virtual-storage-pool/" class="tag-link-252" title="2 topics" style="font-size: 8pt;">virtual storage pool</a>
+<a href="http://www.logikdev.com/tag/windows/" class="tag-link-52" title="3 topics" style="font-size: 10.1538461538pt;">Windows</a>
+<a href="http://www.logikdev.com/tag/zabbix/" class="tag-link-30" title="2 topics" style="font-size: 8pt;">Zabbix</a>
+<a href="http://www.logikdev.com/tag/zpool/" class="tag-link-254" title="2 topics" style="font-size: 8pt;">zpool</a></div>
+</div></li>     </ul>
+  </div>
+  <!-- /sidebar 2nd container -->
+ </div>
+ <!-- /sidebar 1st container -->
+</div>
+<!-- /sidebar -->
+
+
+
+  </div>
+  <!-- /side wrap -->
+ </div>
+ <!-- /mid column wrap -->
+</div>
+<!-- /main wrapper -->
+
+<!-- clear main & sidebar sections -->
+<div class="clearcontent"></div>
+<!-- /clear main & sidebar sections -->
+
+ 
+<!-- footer -->
+ <div id="footer">
+
+      <div class="add-content">
+    Copyright © 2009-<script language="javascript">document.write(new Date().getFullYear());</script>2014 Stéphane Moreau   </div>
+   
+   <!-- please do not remove this. respect the authors :) -->
+   <p>
+    Fusion theme by <a href="http://digitalnature.ro/projects/fusion">digitalnature</a> | powered by <a href="http://wordpress.org/">WordPress</a>    <br>
+   <a class="rss" href="http://www.logikdev.com/feed/">Entries (RSS)</a> and <a href="http://www.logikdev.com/comments/feed/">Comments (RSS)</a> <a href="javascript:void(0);" id="toplink">^</a>
+   <!-- 27 queries. 0.653 seconds. -->
+   </p>
+ </div>
+ <!-- /footer -->
+   <div id="layoutcontrol">
+   <a href="javascript:void(0);" class="setFont" title="Increase/Decrease text size"><span>SetTextSize</span></a>
+   <a href="javascript:void(0);" class="setLiquid" title="Switch between full and fixed width"><span>SetPageWidth</span></a>
+ </div>
+ </div>
+<!-- /page -->
+
+</div>
+</div>
+<!-- /page wrappers -->
+
+
+<script type="text/javascript" src="Reset%20clock%20fuse%20bits%20on%20AVR%20%7C%20LogikDevelopment_files/form.js"></script>
+<script type="text/javascript" src="Reset%20clock%20fuse%20bits%20on%20AVR%20%7C%20LogikDevelopment_files/shCore.js"></script>
+<script type="text/javascript" src="Reset%20clock%20fuse%20bits%20on%20AVR%20%7C%20LogikDevelopment_files/shBrushBash.js"></script>
+<script type="text/javascript">
+	(function(){
+		var corecss = document.createElement('link');
+		var themecss = document.createElement('link');
+		var corecssurl = "http://www.logikdev.com/wp-content/plugins/syntaxhighlighter/syntaxhighlighter2/styles/shCore.css?ver=2.1.364";
+		if ( corecss.setAttribute ) {
+				corecss.setAttribute( "rel", "stylesheet" );
+				corecss.setAttribute( "type", "text/css" );
+				corecss.setAttribute( "href", corecssurl );
+		} else {
+				corecss.rel = "stylesheet";
+				corecss.href = corecssurl;
+		}
+		document.getElementsByTagName("head")[0].insertBefore( corecss, document.getElementById("syntaxhighlighteranchor") );
+		var themecssurl = "http://www.logikdev.com/wp-content/plugins/syntaxhighlighter/syntaxhighlighter2/styles/shThemeDefault.css?ver=2.1.364";
+		if ( themecss.setAttribute ) {
+				themecss.setAttribute( "rel", "stylesheet" );
+				themecss.setAttribute( "type", "text/css" );
+				themecss.setAttribute( "href", themecssurl );
+		} else {
+				themecss.rel = "stylesheet";
+				themecss.href = themecssurl;
+		}
+		//document.getElementById("syntaxhighlighteranchor").appendChild(themecss);
+		document.getElementsByTagName("head")[0].insertBefore( themecss, document.getElementById("syntaxhighlighteranchor") );
+	})();
+	SyntaxHighlighter.config.clipboardSwf = 'http://www.logikdev.com/wp-content/plugins/syntaxhighlighter/syntaxhighlighter2/scripts/clipboard.swf';
+	SyntaxHighlighter.config.strings.expandSource = 'show source';
+	SyntaxHighlighter.config.strings.viewSource = 'view source';
+	SyntaxHighlighter.config.strings.copyToClipboard = 'copy to clipboard';
+	SyntaxHighlighter.config.strings.copyToClipboardConfirmation = 'The code is in your clipboard now';
+	SyntaxHighlighter.config.strings.print = 'print';
+	SyntaxHighlighter.config.strings.help = '?';
+	SyntaxHighlighter.config.strings.alert = 'SyntaxHighlighter\n\n';
+	SyntaxHighlighter.config.strings.noBrush = 'Can\'t find brush for: ';
+	SyntaxHighlighter.config.strings.brushNotHtmlScript = 'Brush wasn\'t configured for html-script option: ';
+	SyntaxHighlighter.defaults['auto-links'] = false;
+	SyntaxHighlighter.defaults['pad-line-numbers'] = true;
+	SyntaxHighlighter.all();
+</script>
+<script type="text/javascript" src="Reset%20clock%20fuse%20bits%20on%20AVR%20%7C%20LogikDevelopment_files/comment-reply.js"></script>
+<script type="text/javascript" src="Reset%20clock%20fuse%20bits%20on%20AVR%20%7C%20LogikDevelopment_files/jquery.js"></script>
+<script type="text/javascript">
+/* <![CDATA[ */
+var _wpcf7 = {"loaderUrl":"http:\/\/www.logikdev.com\/wp-content\/plugins\/contact-form-7\/images\/ajax-loader.gif","sending":"Sending ..."};
+/* ]]> */
+</script>
+<script type="text/javascript" src="Reset%20clock%20fuse%20bits%20on%20AVR%20%7C%20LogikDevelopment_files/scripts.js"></script>
+<script type="text/javascript" id="slb_context">/* <![CDATA[ */if ( !!window.jQuery ) {(function($){$(document).ready(function(){if ( !!window.SLB ) { {$.extend(SLB, {"context":["public","user_guest"]});} }})})(jQuery);}/* ]]> */</script>
+
+</body></html>

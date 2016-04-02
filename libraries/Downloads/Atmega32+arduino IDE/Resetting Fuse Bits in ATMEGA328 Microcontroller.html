@@ -1,0 +1,887 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:fb="http://www.facebook.com/2008/fbml" dir="ltr" id="vbulletin_html" lang="en"><head> <link rel="canonical" href="http://www.edaboard.com/thread260690.html"> <meta http-equiv="Content-Type" content="text/html; charset=windows-1252"> <meta id="e_vb_meta_bburl" name="vb_meta_bburl" content="http://www.edaboard.com"> <meta name="generator" content="vBulletin 4.2.2"> <meta http-equiv="X-UA-Compatible" content="IE=9"> <link rel="Shortcut Icon" href="http://www.edaboard.com/favicon.ico" type="image/x-icon"> <meta property="fb:app_id" content="120141238037730"> <meta property="og:site_name" content="Forum for Electronics"> <meta property="og:description" content="Hi, I'm new to this forum but I have been following it for a while and received good advices :). Now I need help, since I think I messed up fuse bits :"> <meta property="og:url" content="http://www.edaboard.com/thread260690.html"> <meta property="og:type" content="article"> <script src="Resetting%20Fuse%20Bits%20in%20ATMEGA328%20Microcontroller_files/lidar.js" async="" type="text/javascript"></script><script src="Resetting%20Fuse%20Bits%20in%20ATMEGA328%20Microcontroller_files/ca-pub-5741694739418833.js" type="text/javascript" async=""></script><script src="Resetting%20Fuse%20Bits%20in%20ATMEGA328%20Microcontroller_files/lidar.js" async="" type="text/javascript"></script><script src="Resetting%20Fuse%20Bits%20in%20ATMEGA328%20Microcontroller_files/analytics.js" async=""></script><script type="text/javascript" src="Resetting%20Fuse%20Bits%20in%20ATMEGA328%20Microcontroller_files/yuiloader-dom-event.js"></script> <script type="text/javascript"> <!--
+	if (typeof YAHOO === 'undefined') // Load ALL YUI Local
+	{
+		document.write('<script type="text/javascript" src="clientscript/yui/yuiloader-dom-event/yuiloader-dom-event.js?v=422"><\/script>');
+		document.write('<script type="text/javascript" src="clientscript/yui/connection/connection-min.js?v=422"><\/script>');
+		var yuipath = 'clientscript/yui';
+		var yuicombopath = '';
+		var remoteyui = false;
+	}
+	else	// Load Rest of YUI remotely (where possible)
+	{
+		var yuipath = 'http://ajax.googleapis.com/ajax/libs/yui/2.9.0/build';
+		var yuicombopath = '';
+		var remoteyui = true;
+		if (!yuicombopath)
+		{
+			document.write('<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/yui/2.9.0/build/connection/connection-min.js?v=422"><\/script>');
+		}
+	}
+	var SESSIONURL = "";
+	var SECURITYTOKEN = "guest";
+	var IMGDIR_MISC = "images/misc";
+	var IMGDIR_BUTTON = "images/buttons";
+	var vb_disable_ajax = parseInt("0", 10);
+	var SIMPLEVERSION = "422";
+	var BBURL = "http://www.edaboard.com";
+	var LOGGEDIN = 0 > 0 ? true : false;
+	var THIS_SCRIPT = "showthread";
+	var RELPATH = "showthread.php?t=260690";
+	var PATHS = {
+		forum : "",
+		cms   : "",
+		blog  : ""
+	};
+	var AJAXBASEURL = "http://www.edaboard.com/";
+// --> </script><script type="text/javascript" src="Resetting%20Fuse%20Bits%20in%20ATMEGA328%20Microcontroller_files/connection-min.js"></script> <script type="text/javascript" src="Resetting%20Fuse%20Bits%20in%20ATMEGA328%20Microcontroller_files/vbulletin-core.js"></script> <script type="text/javascript" src="Resetting%20Fuse%20Bits%20in%20ATMEGA328%20Microcontroller_files/syntax.js"></script> <link rel="stylesheet" type="text/css" href="Resetting%20Fuse%20Bits%20in%20ATMEGA328%20Microcontroller_files/syntax.css"><script type="text/javascript" src="Resetting%20Fuse%20Bits%20in%20ATMEGA328%20Microcontroller_files/vlatex.js"></script> <script type="text/javascript"> <!--
+  var vlatex_popup_caption = 'Formula source code:';
+  var vlatex_popup_close = 'Close';
+  --> </script> <link rel="alternate" type="application/rss+xml" title="Forum for Electronics RSS Feed" href="http://www.edaboard.com/external.php?type=RSS2"> <link rel="alternate" type="application/rss+xml" title="Forum for Electronics - Microcontrollers - RSS Feed" href="http://www.edaboard.com/external.php?type=RSS2&amp;forumids=31"> <link rel="stylesheet" type="text/css" href="Resetting%20Fuse%20Bits%20in%20ATMEGA328%20Microcontroller_files/main-rollup.css"> <link rel="stylesheet" type="text/css" href="Resetting%20Fuse%20Bits%20in%20ATMEGA328%20Microcontroller_files/sidebar.css"><link rel="stylesheet" type="text/css" href="Resetting%20Fuse%20Bits%20in%20ATMEGA328%20Microcontroller_files/widgets.css"><link rel="stylesheet" type="text/css" href="Resetting%20Fuse%20Bits%20in%20ATMEGA328%20Microcontroller_files/forumhome.css"> <!--[if lt IE 8]> <link rel="stylesheet" type="text/css" href="clientscript/vbulletin_css/style00006l/popupmenu-ie.css?d=1393360228" /> <link rel="stylesheet" type="text/css" href="clientscript/vbulletin_css/style00006l/vbulletin-ie.css?d=1393360228" /> <link rel="stylesheet" type="text/css" href="clientscript/vbulletin_css/style00006l/vbulletin-chrome-ie.css?d=1393360228" /> <link rel="stylesheet" type="text/css" href="clientscript/vbulletin_css/style00006l/vbulletin-formcontrols-ie.css?d=1393360228" /> <link rel="stylesheet" type="text/css" href="clientscript/vbulletin_css/style00006l/editor-ie.css?d=1393360228" /> <![endif]--> <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-6450648-1', 'edaboard.com');
+  ga('require', 'displayfeatures');  
+  ga('send', 'pageview');
+
+</script> <script type="text/javascript" src="Resetting%20Fuse%20Bits%20in%20ATMEGA328%20Microcontroller_files/helpfulanswers.js"></script> <meta name="keywords" content="Resetting,Fuse,Bits,ATMEGA328,Microcontroller,clock, source, external, thing, simplest, fuse, reprogram, mainvoid, ddrc|=, working, work, atmega328, completely, dead, microcontroller, provide, expects, chip, connect, bits, reprogrammed, resetting, communicate, fine"> <meta name="description" content="Hi, I'm new to this forum but I have been following it for a while and received good advices :). Now I need help, since I think I messed up fuse bits :"> <title> Resetting Fuse Bits in ATMEGA328 Microcontroller</title> <link rel="stylesheet" type="text/css" href="Resetting%20Fuse%20Bits%20in%20ATMEGA328%20Microcontroller_files/showthread-rollup.css"> <!--[if lt IE 8]><link rel="stylesheet" type="text/css" href="clientscript/vbulletin_css/style00006l/toolsmenu-ie.css?d=1393360228" /> <link rel="stylesheet" type="text/css" href="clientscript/vbulletin_css/style00006l/postlist-ie.css?d=1393360228" /> <link rel="stylesheet" type="text/css" href="clientscript/vbulletin_css/style00006l/showthread-ie.css?d=1393360228" /> <link rel="stylesheet" type="text/css" href="clientscript/vbulletin_css/style00006l/postbit-ie.css?d=1393360228" /> <link rel="stylesheet" type="text/css" href="clientscript/vbulletin_css/style00006l/poll-ie.css?d=1393360228" /><![endif]--> <link rel="stylesheet" type="text/css" href="Resetting%20Fuse%20Bits%20in%20ATMEGA328%20Microcontroller_files/additional.css"> <link rel="stylesheet" type="text/css" href="Resetting%20Fuse%20Bits%20in%20ATMEGA328%20Microcontroller_files/pod_vlatex.css"> <link rel="stylesheet" type="text/css" href="Resetting%20Fuse%20Bits%20in%20ATMEGA328%20Microcontroller_files/tagcloud.css"> <script type="text/javascript" src="Resetting%20Fuse%20Bits%20in%20ATMEGA328%20Microcontroller_files/animation-min.js"></script> <script type="text/javascript">
+      var sidebar_align = 'left';
+      var content_container_margin = parseInt('345px');
+      var sidebar_width = parseInt('325px');
+     </script> <script type="text/javascript" src="Resetting%20Fuse%20Bits%20in%20ATMEGA328%20Microcontroller_files/vbulletin-sidebar.js"></script> 
+<script type="text/javascript">
+//<![CDATA[
+
+function vbseo_cache_check()
+{
+if(document.cookie.indexOf('vbseo_loggedin=yes')>0 && 
+document.cookie.indexOf('vbseo_redirect=yes')<0)
+{
+document.cookie = 'vbseo_redirect=yes; path=/';
+document.location.reload(true);
+}
+}
+setTimeout('vbseo_cache_check()', 5); 
+
+//]]>
+</script>
+<script src="Resetting%20Fuse%20Bits%20in%20ATMEGA328%20Microcontroller_files/roundtrip.js" type="text/javascript" async="true"></script><script src="Resetting%20Fuse%20Bits%20in%20ATMEGA328%20Microcontroller_files/SLD62WUEQVGMFKFQ4GL5PT" type="text/javascript" async="true"></script><div style="width: 1px; height: 1px; display: inline;"><img style="border-style:none;" alt="" src="Resetting%20Fuse%20Bits%20in%20ATMEGA328%20Microcontroller_files/out_007.gif" height="1" width="1">
+<img style="border-style:none;" alt="" src="Resetting%20Fuse%20Bits%20in%20ATMEGA328%20Microcontroller_files/out.gif" height="1" width="1">
+<img style="border-style:none;" alt="" src="Resetting%20Fuse%20Bits%20in%20ATMEGA328%20Microcontroller_files/out_006.gif" height="1" width="1">
+<img style="border-style:none;" alt="" src="Resetting%20Fuse%20Bits%20in%20ATMEGA328%20Microcontroller_files/out_004.gif" height="1" width="1">
+<img style="border-style:none;" alt="" src="Resetting%20Fuse%20Bits%20in%20ATMEGA328%20Microcontroller_files/out_005.gif" height="1" width="1">
+<img style="border-style:none;" alt="" src="Resetting%20Fuse%20Bits%20in%20ATMEGA328%20Microcontroller_files/out_003.gif" height="1" width="1">
+<img alt="" style="display:none" src="Resetting%20Fuse%20Bits%20in%20ATMEGA328%20Microcontroller_files/tr.gif" height="1" width="1"><img style="border-style:none;" alt="" src="Resetting%20Fuse%20Bits%20in%20ATMEGA328%20Microcontroller_files/a.gif" height="1" width="1">
+<img style="border-style:none;" alt="" src="Resetting%20Fuse%20Bits%20in%20ATMEGA328%20Microcontroller_files/out_002.gif" height="1" width="1">
+<img src="Resetting%20Fuse%20Bits%20in%20ATMEGA328%20Microcontroller_files/seg.gif" height="1" width="1">
+</div></head> <body> <div class="above_body">  <div id="header" class="floatcontainer doc_header"> <div><a name="top" href="http://www.edaboard.com/forum.php" class="logo-image"><img title="Forum for Electronics - Powered by vBulletin" src="Resetting%20Fuse%20Bits%20in%20ATMEGA328%20Microcontroller_files/vbulletin4_logo_black.png" alt="Forum for Electronics - Powered by vBulletin"></a></div> <div id="toplinks" class="toplinks"> <ul class="nouser"> <li><a rel="nofollow" style="color: white;" href="http://www.edaboard.com/register.php?do=requestemail">Resend activation?</a> </li> <li><a rel="nofollow" style="color: white;" href="http://www.edaboard.com/login.php?do=lostpw">Lost password?</a></li> <li><a style="color: white;" href="http://www.edaboard.com/register.php" rel="nofollow">Register</a></li> <li> <script type="text/javascript" src="Resetting%20Fuse%20Bits%20in%20ATMEGA328%20Microcontroller_files/vbulletin_md5.js"></script> <form id="navbar_loginform" action="/login.php?do=login" method="post" onsubmit="md5hash(vb_login_password, vb_login_md5password, vb_login_md5password_utf, 0)"> <fieldset id="logindetails" class="logindetails"> <div> <div> <input class="textbox default-value" name="vb_login_username" id="navbar_username" size="10" accesskey="u" tabindex="101" value="User Name" type="text"> <input style="display: none;" class="textbox" tabindex="102" name="vb_login_password" id="navbar_password" size="10" type="password"> <input class="textbox default-value" tabindex="102" name="vb_login_password_hint" id="navbar_password_hint" size="10" value="Password" style="display: inline;" type="text"> <input class="loginbutton" tabindex="104" value="Log in" title="Enter your username and password in the boxes provided to login, or click the 'register' button to create a profile for yourself." accesskey="s" type="submit"> </div> </div> </fieldset> <div id="remember" class="remember remember_links"> <label for="cb_cookieuser_navbar"><input name="cookieuser" value="1" id="cb_cookieuser_navbar" class="cb_cookieuser_navbar" accesskey="c" tabindex="103" type="checkbox"> Remember Me?</label> </div> <input name="s" value="" type="hidden"> <input name="securitytoken" value="guest" type="hidden"> <input name="do" value="login" type="hidden"> <input name="vb_login_md5password" type="hidden"> <input name="vb_login_md5password_utf" type="hidden"> </form> <script type="text/javascript">
+			YAHOO.util.Dom.setStyle('navbar_password_hint', "display", "inline");
+			YAHOO.util.Dom.setStyle('navbar_password', "display", "none");
+			vB_XHTML_Ready.subscribe(function()
+			{
+			//
+				YAHOO.util.Event.on('navbar_username', "focus", navbar_username_focus);
+				YAHOO.util.Event.on('navbar_username', "blur", navbar_username_blur);
+				YAHOO.util.Event.on('navbar_password_hint', "focus", navbar_password_hint);
+				YAHOO.util.Event.on('navbar_password', "blur", navbar_password);
+			});
+			
+			function navbar_username_focus(e)
+			{
+			//
+				var textbox = YAHOO.util.Event.getTarget(e);
+				if (textbox.value == 'User Name')
+				{
+				//
+					textbox.value='';
+					textbox.style.color='#000000';
+				}
+			}
+
+			function navbar_username_blur(e)
+			{
+			//
+				var textbox = YAHOO.util.Event.getTarget(e);
+				if (textbox.value == '')
+				{
+				//
+					textbox.value='User Name';
+					textbox.style.color='#777777';
+				}
+			}
+			
+			function navbar_password_hint(e)
+			{
+			//
+				var textbox = YAHOO.util.Event.getTarget(e);
+				
+				YAHOO.util.Dom.setStyle('navbar_password_hint', "display", "none");
+				YAHOO.util.Dom.setStyle('navbar_password', "display", "inline");
+				YAHOO.util.Dom.get('navbar_password').focus();
+			}
+
+			function navbar_password(e)
+			{
+			//
+				var textbox = YAHOO.util.Event.getTarget(e);
+				
+				if (textbox.value == '')
+				{
+					YAHOO.util.Dom.setStyle('navbar_password_hint', "display", "inline");
+					YAHOO.util.Dom.setStyle('navbar_password', "display", "none");
+				}
+			}
+			</script> </li> <li id="fb_headerbox" class="hidden"> <a id="fb_loginbtn" href="#"><img title="The Facebook Platform" src="Resetting%20Fuse%20Bits%20in%20ATMEGA328%20Microcontroller_files/facebook_login.gif" alt="The Facebook Platform"></a> </li> </ul> </div> <div class="ad_global_header"> </div> <hr> </div> <div id="navbar" class="navbar"> <ul id="navtabs" class="navtabs floatcontainer"> <li class="selected" id="vbtab_forum"> <a class="navtab" href="http://www.edaboard.com/forum.php" rel="nofollow">Forum</a> </li> <ul class="floatcontainer"> <li id="vbflink_bbmenu"><a href="http://www.edaboard.com/search.php?do=getnew&amp;contenttype=vBForum_Post" rel="nofollow">New Posts</a></li> <li id="vbflink_newposts"><a href="http://www.edaboard.com/search.php?do=process&amp;search_type=1&amp;contenttype=vBForum_Post&amp;replyless=1&amp;replylimit=0" rel="nofollow">Unanswered Posts</a></li> <li id="vbflink_faq"><a href="http://www.edaboard.com/faq.php" rel="nofollow">FAQ</a></li> <li class="popupmenu" id="vbmenu_actions"> <a id="yui-gen1" href="javascript://" class="popupctrl" rel="nofollow">Forum Actions</a> <ul id="yui-gen0" class="popupbody"> <li id="vbalink_mfr"><a href="http://www.edaboard.com/forumdisplay.php?do=markread&amp;markreadhash=guest" rel="nofollow">Mark Forums Read</a></li> </ul> </li> <li class="popupmenu" id="vbmenu_community"> <a id="yui-gen3" href="javascript://" class="popupctrl" rel="nofollow">Community</a> <ul id="yui-gen2" class="popupbody"> <li id="vbclink_groups"><a href="http://www.edaboard.com/groups.html" rel="nofollow">Groups</a></li> <li id="rpl_link_cm"><a href="http://www.edaboard.com/misc.php?do=reported" rel="nofollow">Reported Items</a></li> <li id="link_odg4_458"><a href="http://www.edaboard.com/calendar.php" rel="nofollow">Calendar</a></li> <li id="link_odg4_695"><a href="http://www.edaboard.com/linkus.php" rel="nofollow">Link to Us</a></li> </ul> </li> <li class="popupmenu" id="vbmenu_qlinks"> <a id="yui-gen5" href="javascript://" class="popupctrl" rel="nofollow">Quick Links</a> <ul id="yui-gen4" class="popupbody"> <li id="vbqlink_posts"><a href="http://www.edaboard.com/search.php?do=getdaily&amp;contenttype=vBForum_Post">Today's Posts</a></li> <li id="vbqlink_leaders"><a href="http://www.edaboard.com/showgroups.php" rel="nofollow">View Site Leaders</a></li> </ul> </li> </ul> <li id="tab_odg4_342"> <a class="navtab" href="http://www.edaboard.com/activity.php" rel="nofollow">Activity Stream</a> </li> <li id="vbtab_whatsnew"> <a class="navtab" href="http://www.edaboard.com/search.php" rel="nofollow">Search</a> </li> <li id="tab_odg4_347"> <a class="navtab" href="http://www.edaboard.com/faq.php" rel="nofollow">Help</a> </li> <li id="tab_odg4_862"> <a class="navtab" href="http://www.edaboard.com/misc.php?do=vsarules" rel="nofollow">Rules</a> </li> <li id="tab_odg4_591"> <a class="navtab" href="http://www.edaboard.com/groups.html" rel="nofollow">Groups</a> </li> <li id="tab_odg4_513"> <a class="navtab" href="http://www.edaboard.com/albums.html" rel="nofollow">Albums</a> </li> <li id="vbtab_blog"> <a class="navtab" href="http://www.edaboard.com/blogs.html" rel="nofollow">Blogs</a> </li> <li id="tab_odg4_599"> <a class="navtab" href="http://www.edaboard.com/search.php?do=getnew&amp;contenttype=vBForum_Post" rel="nofollow">What's New?</a> </li> </ul> <div id="globalsearch" class="globalsearch"> <form action="/search.php?do=process" method="post" id="navbar_search" class="navbar_search"> <input name="securitytoken" value="guest" type="hidden"> <input name="do" value="process" type="hidden"> <span class="textboxcontainer"><span><input name="query" class="textbox" tabindex="99" type="text"></span></span> <span class="buttoncontainer"><span><input class="searchbutton" src="Resetting%20Fuse%20Bits%20in%20ATMEGA328%20Microcontroller_files/search.png" name="submit" onclick="document.getElementById('navbar_search').submit;" tabindex="100" type="image"></span></span> </form> <ul class="navbar_advanced_search"> <li><a href="http://www.edaboard.com/search.php" accesskey="4">Advanced Search</a></li> </ul> </div> </div> </div> <div class="body_wrapper"> <div id="breadcrumb" class="breadcrumb"> <ul class="floatcontainer"> <li class="navbithome"><a href="http://www.edaboard.com/forum.php" accesskey="1"><img title="Home" src="Resetting%20Fuse%20Bits%20in%20ATMEGA328%20Microcontroller_files/navbit-home.png" alt="Home"></a></li> <li class="navbit"><a href="http://www.edaboard.com/forum.php">Forum</a></li> <li class="navbit"><a href="http://www.edaboard.com/forum.php#digital-design-programming">Digital Design and Programming</a></li> <li class="navbit"><a href="http://www.edaboard.com/forum31.html">Microcontrollers</a></li> <li class="navbit lastnavbit"><span> Resetting Fuse Bits in ATMEGA328 Microcontroller</span></li> </ul> <hr> </div>   <div id="content_container" class="contentright"> <div id="content"> <script type="text/javascript" language="JavaScript">
+  aj_server = 'http://ads.designworldonline.com/servlet/ajrotator/'; aj_tagver = '1.0';
+  aj_zone = 'designw'; aj_adspot = '1420344'; aj_page = '0'; aj_dim ='195519'; aj_ch = ''; aj_ct = ''; aj_kw = 'FORUM31';
+  aj_pv = true; aj_click = '';
+</script><script type="text/javascript" language="JavaScript" src="Resetting%20Fuse%20Bits%20in%20ATMEGA328%20Microcontroller_files/ajtg.js"></script><script type="text/javascript" src="Resetting%20Fuse%20Bits%20in%20ATMEGA328%20Microcontroller_files/vj.js"></script><script language="JavaScript1.1" src="Resetting%20Fuse%20Bits%20in%20ATMEGA328%20Microcontroller_files/a_002">
+</script><div class="GoogleActiveViewClass" id="DfaVisibilityIdentifier_1532571725734021630"><a target="_blank" href="http://adclick.g.doubleclick.net/pcs/click?xai=AKAOjsuXdR076KCx0e4VlzdAkHOrjTfQhg33ZZ8viopM_KAyXEewzeIvzH_drP0hZWC9F8Xf9a9Z4rWu0KlsZUWoKY5pfGX_YELaLAo&amp;sig=Cg0ArKJSzDexCT4sCLLW&amp;adurl=http://ads.designworldonline.com/servlet/ajrotator/1420344/0/cj/V124974EF7AJ-573J8050L1924291671765E700175FDD00172F18QL195519QQL1486950G1G7W7forum310G0Q0CCA4FA9000001010000G042/http://www.ti.com/hpa-pa-dac-dac8760-bs-pf-en"><img title="Advertisement" src="Resetting%20Fuse%20Bits%20in%20ATMEGA328%20Microcontroller_files/HPA_PA_DAC_DAC8760_728x90.gif" alt="Advertisement" border="0" height="90" width="728"></a></div>
+<noscript>
+<A HREF="http://ads.designworldonline.com/servlet/ajrotator/1420344/0/cj/V124974EF7AJ-573J8050L1924291671765E700175FDD00172F18QL195519QQL1486950G1G7W7forum310G0Q0CCA4FA9000001010000G042/http://ad.doubleclick.net/jump/N5744.1785852.EDABOARD.COM/B7196217.109095147;sz=728x90;ord=148695?">
+<IMG SRC="http://ad.doubleclick.net/ad/N5744.1785852.EDABOARD.COM/B7196217.109095147;sz=728x90;ord=148695?" BORDER=0 WIDTH=728 HEIGHT=90 ALT="Advertisement"></A>
+</noscript>
+---	
+<style>
+
+
+#interContainer{
+position: absolute;
+width: 660px; /*Width of interstitial box*/
+left: 0;
+top: 0;
+padding: 15px;
+padding-top: 0;
+background-color: #d0e47e;
+border: 1px solid black;
+visibility: hidden;
+z-index: 600;
+}
+
+#interContainer .headerbar{ /*CSS for header bar of interstitial box*/
+color: gray;
+padding: 5px 0;
+text-align: right;
+}
+
+#interContainer .headerbar a{ /*CSS for header bar links of interstitial box*/
+font-size: 120%;
+text-decoration: none;
+}
+
+
+#interContent{ /*CSS for div that holds the content to show*/
+border: 1px solid gray;
+
+background-color: white;
+}
+
+#interVeil{ /*CSS for background veil that covers entire page while interstitial box is visible*/
+position: absolute;
+background: black url(/interstitial/blackdot.gif);
+right: 0;
+width: 10px;
+top: 0;
+z-index: 599;
+visibility: hidden;
+filter:progid:DXImageTransform.Microsoft.alpha(opacity=80);
+opacity: 0.8;
+}
+
+
+#interContainer{
+position: absolute;
+width: 660px; /*Width of interstitial box*/
+left: 0;
+top: 0;
+padding: 15px;
+padding-top: 0;
+background-color: #d0e47e;
+border: 1px solid black;
+visibility: hidden;
+z-index: 600;
+}
+
+#interContainer .headerbar{ /*CSS for header bar of interstitial box*/
+color: gray;
+padding: 5px 0;
+text-align: right;
+}
+
+#interContainer .headerbar a{ /*CSS for header bar links of interstitial box*/
+font-size: 120%;
+text-decoration: none;
+}
+
+
+#interContent{ /*CSS for div that holds the content to show*/
+border: 1px solid gray;
+
+background-color: white;
+}
+
+#interVeil{ /*CSS for background veil that covers entire page while interstitial box is visible*/
+position: absolute;
+background: black url(/interstitial/blackdot.gif);
+right: 0;
+width: 10px;
+top: 0;
+z-index: 599;
+visibility: hidden;
+filter:progid:DXImageTransform.Microsoft.alpha(opacity=80);
+opacity: 0.8;
+}
+
+/*This is the container for the entire widget*/
+.widgetwrapper	{ 
+	font-family:Arial, Helvetica, sans-serif;  
+	width: 280px; 
+	padding: 5px;
+	background-color: #fff;
+}
+ 
+</style> <script src="Resetting%20Fuse%20Bits%20in%20ATMEGA328%20Microcontroller_files/interstitial.js" type="text/javascript"></script> <div id="above_postlist" class="above_postlist"> <a href="http://www.edaboard.com/newthread.php?do=newthread&amp;f=31" rel="nofollow" class="newcontent_textcontrol" id="newthreadlink_top"><span>+</span> Post New Thread</a> <div id="pagination_top" class="pagination_top"> <div id="postpagestats_above" class="postpagestats">
+				Results 1 to 17 of 17
+			</div> </div> </div> <div id="pagetitle" class="pagetitle"> <h1> <span class="threadtitle"><a href="http://www.edaboard.com/thread260690.html" title="Reload this Page">Resetting Fuse Bits in ATMEGA328 Microcontroller</a></span> </h1> </div> <div id="thread_controls" class="thread_controls toolsmenu"> <div> <ul id="postlist_popups" class="postlist_popups popupgroup"> <li class="popupmenu" id="linkbacktools"> <h6><a id="yui-gen7" class="popupctrl" href="javascript://">LinkBack</a><a name="goto_linkback"></a></h6> <ul id="yui-gen6" class="popupbody"> <li><a href="http://www.edaboard.com/thread260690.html" onclick="prompt('Use the following URL when referencing this thread from another forum or blog.','http://www.edaboard.com/thread260690.html');return false;"><img title="LinkBack URL" class="inlineimg" src="Resetting%20Fuse%20Bits%20in%20ATMEGA328%20Microcontroller_files/linkback_url.gif" alt="LinkBack URL"> LinkBack URL</a></li> <li><a rel="nofollow" href="http://www.edaboard.com/misc.php?do=linkbacks"><img title="About LinkBacks" class="inlineimg" src="Resetting%20Fuse%20Bits%20in%20ATMEGA328%20Microcontroller_files/linkback_about.gif" alt="About LinkBacks"> About LinkBacks</a></li> <li>&nbsp;</li> <li>Bookmark &amp; Share</li> <li><a rel="nofollow" href="http://digg.com/submit?phase=2&amp;url=http%3A%2F%2Fwww.edaboard.com%2Fthread260690.html&amp;title=Resetting+Fuse+Bits+in+ATMEGA328+Microcontroller" target="_blank">Digg this Thread!</a></li><li><a rel="nofollow" href="http://del.icio.us/post?url=http%3A%2F%2Fwww.edaboard.com%2Fthread260690.html&amp;title=Resetting+Fuse+Bits+in+ATMEGA328+Microcontroller" target="_blank">Add Thread to del.icio.us</a></li><li><a rel="nofollow" href="http://technorati.com/faves/?add=http%3A%2F%2Fwww.edaboard.com%2Fthread260690.html" target="_blank">Bookmark in Technorati</a></li><li><a rel="nofollow" href="http://twitter.com/home?status=Resetting+Fuse+Bits+in+ATMEGA328+Microcontroller%20http%3A%2F%2Fwww.edaboard.com%2Fthread260690.html" target="_blank">Tweet this thread</a></li> </ul> </li> <li class="popupmenu" id="threadtools"> <h6><a id="yui-gen9" class="popupctrl" href="javascript://">Thread Tools</a></h6> <ul id="yui-gen8" class="popupbody"> <li><a href="http://www.edaboard.com/printthread260690.html" accesskey="3" rel="nofollow">Show Printable Version</a></li> <li><a href="http://www.edaboard.com/dt.php?t=260690" rel="nofollow">Download This Thread</a></li> <li> <a href="http://www.edaboard.com/subscription.php?do=addsubscription&amp;t=260690" rel="nofollow">Subscribe to this Thread…</a> </li> </ul> </li> <li class="popupmenu searchthread menusearch" id="searchthread"> <h6><a id="yui-gen11" class="popupctrl" href="javascript://">Search Thread</a></h6> <form action="/search.php" method="post"> <ul id="yui-gen10" class="popupbody"> <li> <input name="query" class="searchbox" value="Search..." tabindex="13" type="text"> <input class="button" value="Search" tabindex="14" type="submit"> </li> <li class="formsubmit" id="popupsearch"> <div class="submitoptions">&nbsp;</div> <div class="advancedsearchlink"><a rel="nofollow" href="http://www.edaboard.com/search.php?search_type=1&amp;searchthreadid=260690&amp;contenttype=vBForum_Post">Advanced Search</a></div> </li> </ul> <input name="s" value="" type="hidden"> <input name="securitytoken" value="guest" type="hidden"> <input name="do" value="process" type="hidden"> <input name="searchthreadid" value="260690" type="hidden"> <input name="search_type" value="1" type="hidden"> <input name="contenttype" value="vBForum_Post" type="hidden"> </form> </li> </ul> </div> </div> <div id="postlist" class="postlist restrain"> <ol id="posts" class="posts" start="1"> <li class="postbitlegacy postbitim postcontainer old" id="post_1114820">  <div class="posthead"> <span class="postdate old"> <span class="date">25th July 2012,&nbsp;<span class="time">11:08</span></span> </span> <span class="nodecontrols"> <a name="post1114820" href="http://www.edaboard.com/thread260690.html#post1114820" class="postcounter">#1</a><a id="postcount1114820" name="1"></a> </span> </div> <div class="postdetails"> <div class="userinfo"> <div class="username_container"> <div id="yui-gen12" class="popupmenu memberaction"> <a class="username offline "><strong><!-- google_ad_section_start(weight=ignore) -->Bish00<!-- google_ad_section_end --></strong></a> </div> <img title="Bish00 is offline" class="inlineimg onlinestatus" src="Resetting%20Fuse%20Bits%20in%20ATMEGA328%20Microcontroller_files/user-offline.png" alt="Bish00 is offline" border="0"> </div> <span class="usertitle">
+				Newbie level 4
+			</span> <span class="rank"><img src="Resetting%20Fuse%20Bits%20in%20ATMEGA328%20Microcontroller_files/blevel1.gif" alt="" border=""></span> <div style="width:102px; height:4px;"></div> <div title="Points: 96, Level: 1" style="width:102px; height:11px; margin-bottom:2px; background-image:url(http://www.edaboard.com/xperience/progress/blue_faded.png);"> <div title="Points: 96, Level: 1" style="width:1px; height:11px; margin-bottom:2px; background-image:url(http://www.edaboard.com/xperience/progress/blue_left.png); display:inline; float:left;"></div> <div title="Points: 96, Level: 1" style="width:1px; height:11px; margin-bottom:2px; background-image:url(http://www.edaboard.com/xperience/progress/blue_right.png); display:inline; float:right;"></div> <img title="Points: 96, Level: 1" alt="Points: 96, Level: 1" src="Resetting%20Fuse%20Bits%20in%20ATMEGA328%20Microcontroller_files/blue.png" align="left" height="11" width="1"> </div> <hr> <dl class="userinfo_extra"> <dt>Join Date</dt> <dd>Jul 2012</dd> <dt>Posts</dt> <dd>7</dd> <dt>Helped</dt> <dd>0 / 0</dd> <dt>Points</dt> <dd>96</dd><dt>Level</dt> <dd>1</dd> </dl> <div class="imlinks"> </div> </div> <div class="postbody"> <div class="postrow"> <h2 class="title icon"> <!-- google_ad_section_start -->Resetting Fuse Bits in ATMEGA328 Microcontroller<!-- google_ad_section_end --> </h2> <div class="content"> <div id="post_message_1114820"> <blockquote class="postcontent restore "> <!-- google_ad_section_start -->Hi,<br> <br>
+I'm new to this forum but I have been following it for a while and 
+received good advices :). Now I need help, since I think I messed up 
+fuse bits :D. So here's my problem:<br> <br>
+I have ATMEGA328-PU microcontroller and I use WinAVR and AVRDude to 
+change fuse bits. Before I did fuse bits change, the default values were
+ following: lfuse: 0x62, hfuse: 0xd9, efuse:0xff. What I did was that I 
+changed fuse bits to following settings: lfuse: 0x60, hfuse: 0xd9, 
+efuse:0xff. Now I get famous error "initialization failed rc=-1". I use 
+usbtiny and I have tried to find solution for this problem from 
+ladyada.net but no solutions. They tell there that just check your 
+connections, well I have tried to check and they are correct.<br> <br>
+Then I used other microcontroller but exactly the same model and reading
+ fuse bits and everything else is working. However I didn't to try to 
+write fuse bits with this new microcontroller, but the thing is that it 
+worked and that other didn't worked. Then I saw in this forum solution 
+where I have to put oscillator of 4 Mhz, not crystal oscillator, erase 
+the chip and reprogram fuse bits. This didn't help either. Any solution 
+for this?<!-- google_ad_section_end --> </blockquote> </div> </div> </div> <div class="cleardiv"></div> </div> </div> <div class="postfoot">  <div class="textcontrols floatcontainer"> <span class="postcontrols"> <img style="display:none" id="progress_1114820" src="Resetting%20Fuse%20Bits%20in%20ATMEGA328%20Microcontroller_files/progress.gif" alt=""> <a id="qrwq_1114820" class="newreply" href="http://www.edaboard.com/newreply.php?do=newreply&amp;p=1114820" rel="nofollow" title="Reply With Quote"><img title="Reply With Quote" id="quoteimg_1114820" src="Resetting%20Fuse%20Bits%20in%20ATMEGA328%20Microcontroller_files/clear.gif" alt="Reply With Quote">  Reply With Quote</a> </span> <span class="postlinking"> </span>  </div> </div> <hr> </li> <ul> <li class="postbitlegacy postbitim postcontainer" id="post_1114820">  <div class="posthead">&nbsp;&nbsp;<img title="Alt" src="Resetting%20Fuse%20Bits%20in%20ATMEGA328%20Microcontroller_files/post_old.png" alt="Alt" border="0"><span class="date">25th July 2012,&nbsp;<span class="time">11:08</span></span></div> <div class="postdetails"> <div class="userinfo"> <div class="username_container"> <br> <img src="Resetting%20Fuse%20Bits%20in%20ATMEGA328%20Microcontroller_files/18.jpg" alt="advertising" title="advertising" height="97px" width="64px"> <dl class="userinfo_extra"> </dl> </div> </div> <div class="postbody"> <br>
+								 &nbsp;&nbsp;
+<script type="text/javascript" language="JavaScript">
+
+  aj_server = 'http://ads.designworldonline.com/servlet/ajrotator/'; aj_tagver = '1.0';
+
+  aj_zone = 'designw'; aj_adspot = '1508359'; aj_page = '0'; aj_dim ='195519'; aj_ch = ''; aj_ct = ''; aj_kw = 'FORUM31A, digital_design_and_programming';
+
+  aj_pv = true; aj_click = '';
+
+</script><script type="text/javascript" language="JavaScript" src="Resetting%20Fuse%20Bits%20in%20ATMEGA328%20Microcontroller_files/ajtg.js"></script><script type="text/javascript" src="Resetting%20Fuse%20Bits%20in%20ATMEGA328%20Microcontroller_files/vj_004.js"></script><script type="text/javascript"><!--
+google_ad_client = "ca-pub-5741694739418833";
+/* 728 x 90 In Posts */
+google_ad_slot = "5263081508";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+</script>
+<script type="text/javascript" src="Resetting%20Fuse%20Bits%20in%20ATMEGA328%20Microcontroller_files/show_ads.js">
+</script><ins id="aswift_0_expand" style="display:inline-table;border:none;height:90px;margin:0;padding:0;position:relative;visibility:visible;width:728px;background-color:transparent"><ins id="aswift_0_anchor" style="display:block;border:none;height:90px;margin:0;padding:0;position:relative;visibility:visible;width:728px;background-color:transparent"><iframe marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no" allowfullscreen="true" onload="var i=this.id,s=window.google_iframe_oncopy,H=s&amp;&amp;s.handlers,h=H&amp;&amp;H[i],w=this.contentWindow,d;try{d=w.document}catch(e){}if(h&amp;&amp;d&amp;&amp;(!d.body||!d.body.firstChild)){if(h.call){setTimeout(h,0)}else if(h.match){try{h=s.upd(h,i)}catch(e){}w.location.replace(h)}}" id="aswift_0" name="aswift_0" style="left:0;position:absolute;top:0;" frameborder="0" height="90" width="728"></iframe></ins></ins> <div class="cleardiv"></div> </div> </div> <div class="postfoot"> <div class="textcontrols floatcontainer"> <span class="postcontrols">&nbsp;</span> </div> </div> <hr> </li> </ul> <li class="postbitlegacy postbitim postcontainer old" id="post_1114824">  <div class="posthead"> <span class="postdate old"> <span class="date">25th July 2012,&nbsp;<span class="time">11:24</span></span> </span> <span class="nodecontrols"> <a name="post1114824" href="http://www.edaboard.com/thread260690.html#post1114824" class="postcounter">#2</a><a id="postcount1114824" name="2"></a> </span> </div> <div class="postdetails"> <div class="userinfo"> <div class="username_container"> <div id="yui-gen13" class="popupmenu memberaction"> <a class="username offline "><strong><!-- google_ad_section_start(weight=ignore) --><span style="color: blue;">alexan_e</span><!-- google_ad_section_end --></strong></a> </div> <img title="alexan_e is offline" class="inlineimg onlinestatus" src="Resetting%20Fuse%20Bits%20in%20ATMEGA328%20Microcontroller_files/user-offline.png" alt="alexan_e is offline" border="0"> </div> <span class="usertitle">
+				Super Moderator
+			</span> <span class="rank"><img src="Resetting%20Fuse%20Bits%20in%20ATMEGA328%20Microcontroller_files/hlevel4.gif" alt="" border=""></span> <div style="width:102px; height:4px;"></div> <div title="Points: 36,726, Level: 46" style="width:102px; height:11px; margin-bottom:2px; background-image:url(http://www.edaboard.com/xperience/progress/blue_faded.png);"> <div title="Points: 36,726, Level: 46" style="width:1px; height:11px; margin-bottom:2px; background-image:url(http://www.edaboard.com/xperience/progress/blue_left.png); display:inline; float:left;"></div> <div title="Points: 36,726, Level: 46" style="width:1px; height:11px; margin-bottom:2px; background-image:url(http://www.edaboard.com/xperience/progress/blue_right.png); display:inline; float:right;"></div> <img title="Points: 36,726, Level: 46" alt="Points: 36,726, Level: 46" src="Resetting%20Fuse%20Bits%20in%20ATMEGA328%20Microcontroller_files/blue.png" align="left" height="11" width="46"> </div> <span class="usertitle">
+Achievements:<br> <img style="vertical-align: middle;" src="Resetting%20Fuse%20Bits%20in%20ATMEGA328%20Microcontroller_files/pictures_16.png" alt="Created Album pictures" title="Created Album pictures" border="0" height="16" width="16"><img style="vertical-align: middle;" src="Resetting%20Fuse%20Bits%20in%20ATMEGA328%20Microcontroller_files/news_16.png" alt="Created Blog entry" title="Created Blog entry" border="0" height="16" width="16"><img style="vertical-align: middle;" src="Resetting%20Fuse%20Bits%20in%20ATMEGA328%20Microcontroller_files/calendar_newred_7_16.png" alt="7 years registered" title="7 years registered" border="0" height="16" width="16"> </span> <a class="postuseravatar" title="alexan_e is offline"> <img src="Resetting%20Fuse%20Bits%20in%20ATMEGA328%20Microcontroller_files/avatar160930_31.gif" alt="alexan_e's Avatar" title="alexan_e's Avatar"> </a> <hr> <dl class="userinfo_extra"> <dt>Join Date</dt> <dd>Mar 2008</dd> <dt>Location</dt> <dd>Greece</dd> <dt>Posts</dt> <dd>11,308</dd> <dt>Helped</dt> <dd>2036 / 2036</dd> <dt>Points</dt> <dd>36,726</dd><dt>Level</dt> <dd>46</dd><dt>Blog Entries</dt><dd><a href="http://www.edaboard.com/blog160930.html">6</a></dd> </dl> <div class="imlinks"> </div> </div> <div class="postbody"> <div class="postrow has_after_content"> <h2 class="title icon"> <!-- google_ad_section_start -->Re: Resetting Fuse Bits in ATMEGA328 Microcontroller<!-- google_ad_section_end --> </h2> <div class="content"> <div id="post_message_1114824"> <blockquote class="postcontent restore "> <!-- google_ad_section_start -->You can use this calculator <a href="http://www.engbedded.com/fusecalc" target="_blank" rel="nofollow">http://www.engbedded.com/fusecalc</a><br> <br>
+You have currently set your mcu to external clock so you need to connect
+ an external clock source in the XTAL1 pin to reprogram it.<br>
+You can use another avr set to toggle a pin on/off as a clock or a crystal oscillator or even a 555 should do.<br> <br> <font color="silver">- - - Updated - - -</font><br> <br>
+Consider using AVR burn-o-mat front end in the future to avoid similar mistakes in the fuse settings<br>
+http://avr8-burn-o-mat.aaabbb.de/<!-- google_ad_section_end --> </blockquote> </div> </div> </div> <div class="after_content"> <blockquote class="signature restore"><div class="signaturecontainer"><!-- google_ad_section_start(weight=ignore) --><font size="2"><font color="#A52A2A"><b>Please
+ don't make requests for help in private using PM. Create a thread in 
+the forum so that other members can benefit from the posted answers.</b></font></font><br> <br> <b><font color="#008000"><a href="http://www.catb.org/%7Eesr/faqs/smart-questions.html" target="_blank" rel="nofollow">Consider reading this before posting : How To Ask Questions The Smart Way</a></font></b><!-- google_ad_section_end --></div></blockquote> </div> <div id="helpfulanswers_box_1114824" style="font-size: 11px; text-align:left; padding-left: 10px;"> <br><hr style="color:$stylevar[tborder_bgcolor]" size="1"> </div> <div class="cleardiv"></div> </div> </div> <div class="postfoot">  <div class="textcontrols floatcontainer"> <span class="postcontrols"> <img style="display:none" id="progress_1114824" src="Resetting%20Fuse%20Bits%20in%20ATMEGA328%20Microcontroller_files/progress.gif" alt=""> <a id="qrwq_1114824" class="newreply" href="http://www.edaboard.com/newreply.php?do=newreply&amp;p=1114824" rel="nofollow" title="Reply With Quote"><img title="Reply With Quote" id="quoteimg_1114824" src="Resetting%20Fuse%20Bits%20in%20ATMEGA328%20Microcontroller_files/clear.gif" alt="Reply With Quote">  Reply With Quote</a> </span> <span class="postlinking"> </span>  </div> </div> <hr> </li> <li class="postbitlegacy postbitim postcontainer old" id="post_1114837">  <div class="posthead"> <span class="postdate old"> <span class="date">25th July 2012,&nbsp;<span class="time">11:40</span></span> </span> <span class="nodecontrols"> <a name="post1114837" href="http://www.edaboard.com/thread260690.html#post1114837" class="postcounter">#3</a><a id="postcount1114837" name="3"></a> </span> </div> <div class="postdetails"> <div class="userinfo"> <div class="username_container"> <div id="yui-gen14" class="popupmenu memberaction"> <a class="username offline "><strong><!-- google_ad_section_start(weight=ignore) -->Bish00<!-- google_ad_section_end --></strong></a> </div> <img title="Bish00 is offline" class="inlineimg onlinestatus" src="Resetting%20Fuse%20Bits%20in%20ATMEGA328%20Microcontroller_files/user-offline.png" alt="Bish00 is offline" border="0"> </div> <span class="usertitle">
+				Newbie level 4
+			</span> <span class="rank"><img src="Resetting%20Fuse%20Bits%20in%20ATMEGA328%20Microcontroller_files/blevel1.gif" alt="" border=""></span> <div style="width:102px; height:4px;"></div> <div title="Points: 96, Level: 1" style="width:102px; height:11px; margin-bottom:2px; background-image:url(http://www.edaboard.com/xperience/progress/blue_faded.png);"> <div title="Points: 96, Level: 1" style="width:1px; height:11px; margin-bottom:2px; background-image:url(http://www.edaboard.com/xperience/progress/blue_left.png); display:inline; float:left;"></div> <div title="Points: 96, Level: 1" style="width:1px; height:11px; margin-bottom:2px; background-image:url(http://www.edaboard.com/xperience/progress/blue_right.png); display:inline; float:right;"></div> <img title="Points: 96, Level: 1" alt="Points: 96, Level: 1" src="Resetting%20Fuse%20Bits%20in%20ATMEGA328%20Microcontroller_files/blue.png" align="left" height="11" width="1"> </div> <hr> <dl class="userinfo_extra"> <dt>Join Date</dt> <dd>Jul 2012</dd> <dt>Posts</dt> <dd>7</dd> <dt>Helped</dt> <dd>0 / 0</dd> <dt>Points</dt> <dd>96</dd><dt>Level</dt> <dd>1</dd> </dl> <div class="imlinks"> </div> </div> <div class="postbody"> <div class="postrow"> <h2 class="title icon"> <!-- google_ad_section_start -->Re: Resetting Fuse Bits in ATMEGA328 Microcontroller<!-- google_ad_section_end --> </h2> <div class="content"> <div id="post_message_1114837"> <blockquote class="postcontent restore "> <!-- google_ad_section_start -->I
+ can't even reprogram it because I get "initialization failed rc=-1" 
+error. This chip must be somehow erased and there's a way. Does AVR 
+burn-o-mat front end supports atmega328P?<!-- google_ad_section_end --> </blockquote> </div> </div> </div> <div id="helpfulanswers_box_1114837" style="font-size: 11px; text-align:left; padding-left: 10px;"> <br><hr style="color:$stylevar[tborder_bgcolor]" size="1"> </div> <div class="cleardiv"></div> </div> </div> <div class="postfoot">  <div class="textcontrols floatcontainer"> <span class="postcontrols"> <img style="display:none" id="progress_1114837" src="Resetting%20Fuse%20Bits%20in%20ATMEGA328%20Microcontroller_files/progress.gif" alt=""> <a id="qrwq_1114837" class="newreply" href="http://www.edaboard.com/newreply.php?do=newreply&amp;p=1114837" rel="nofollow" title="Reply With Quote"><img title="Reply With Quote" id="quoteimg_1114837" src="Resetting%20Fuse%20Bits%20in%20ATMEGA328%20Microcontroller_files/clear.gif" alt="Reply With Quote">  Reply With Quote</a> </span> <span class="postlinking"> </span>  </div> </div> <hr> </li> <li class="postbitlegacy postbitim postcontainer old" id="post_1114856">  <div class="posthead"> <span class="postdate old"> <span class="date">25th July 2012,&nbsp;<span class="time">12:07</span></span> </span> <span class="nodecontrols"> <a name="post1114856" href="http://www.edaboard.com/thread260690.html#post1114856" class="postcounter">#4</a><a id="postcount1114856" name="4"></a> </span> </div> <div class="postdetails"> <div class="userinfo"> <div class="username_container"> <div id="yui-gen15" class="popupmenu memberaction"> <a class="username offline "><strong><!-- google_ad_section_start(weight=ignore) --><span style="color: blue;">alexan_e</span><!-- google_ad_section_end --></strong></a> </div> <img title="alexan_e is offline" class="inlineimg onlinestatus" src="Resetting%20Fuse%20Bits%20in%20ATMEGA328%20Microcontroller_files/user-offline.png" alt="alexan_e is offline" border="0"> </div> <span class="usertitle">
+				Super Moderator
+			</span> <span class="rank"><img src="Resetting%20Fuse%20Bits%20in%20ATMEGA328%20Microcontroller_files/hlevel4.gif" alt="" border=""></span> <div style="width:102px; height:4px;"></div> <div title="Points: 36,726, Level: 46" style="width:102px; height:11px; margin-bottom:2px; background-image:url(http://www.edaboard.com/xperience/progress/blue_faded.png);"> <div title="Points: 36,726, Level: 46" style="width:1px; height:11px; margin-bottom:2px; background-image:url(http://www.edaboard.com/xperience/progress/blue_left.png); display:inline; float:left;"></div> <div title="Points: 36,726, Level: 46" style="width:1px; height:11px; margin-bottom:2px; background-image:url(http://www.edaboard.com/xperience/progress/blue_right.png); display:inline; float:right;"></div> <img title="Points: 36,726, Level: 46" alt="Points: 36,726, Level: 46" src="Resetting%20Fuse%20Bits%20in%20ATMEGA328%20Microcontroller_files/blue.png" align="left" height="11" width="46"> </div> <span class="usertitle">
+Achievements:<br> <img style="vertical-align: middle;" src="Resetting%20Fuse%20Bits%20in%20ATMEGA328%20Microcontroller_files/pictures_16.png" alt="Created Album pictures" title="Created Album pictures" border="0" height="16" width="16"><img style="vertical-align: middle;" src="Resetting%20Fuse%20Bits%20in%20ATMEGA328%20Microcontroller_files/news_16.png" alt="Created Blog entry" title="Created Blog entry" border="0" height="16" width="16"><img style="vertical-align: middle;" src="Resetting%20Fuse%20Bits%20in%20ATMEGA328%20Microcontroller_files/calendar_newred_7_16.png" alt="7 years registered" title="7 years registered" border="0" height="16" width="16"> </span> <a class="postuseravatar" title="alexan_e is offline"> <img src="Resetting%20Fuse%20Bits%20in%20ATMEGA328%20Microcontroller_files/avatar160930_31.gif" alt="alexan_e's Avatar" title="alexan_e's Avatar"> </a> <hr> <dl class="userinfo_extra"> <dt>Join Date</dt> <dd>Mar 2008</dd> <dt>Location</dt> <dd>Greece</dd> <dt>Posts</dt> <dd>11,308</dd> <dt>Helped</dt> <dd>2036 / 2036</dd> <dt>Points</dt> <dd>36,726</dd><dt>Level</dt> <dd>46</dd><dt>Blog Entries</dt><dd><a href="http://www.edaboard.com/blog160930.html">6</a></dd> </dl> <div class="imlinks"> </div> </div> <div class="postbody"> <div class="postrow has_after_content"> <h2 class="title icon"> <!-- google_ad_section_start -->Re: Resetting Fuse Bits in ATMEGA328 Microcontroller<!-- google_ad_section_end --> </h2> <div class="content"> <div id="post_message_1114856"> <blockquote class="postcontent restore "> <!-- google_ad_section_start -->You
+ chip expects an external clock source, unless you provide it it is 
+completely dead so it can't communicate or be reprogrammed.<br>
+Connect an external clock source and it will work fine and you will be able to reprogram it.<br> <br>
+The simplest thing you can do is use a pin of the working AVR<br> <br> <div class="bbcode_container"> <div class="bbcode_description">Code:</div> <pre class="bbcode_code" style="height:120px;">int main(void){
+DDRC|= (1&lt;&lt;5); // set PC5 as output
+
+while(1){
+PORTC ^= (1&lt;&lt;5); // toggle the pin
+
+}
+}</pre> </div>Now connect that pin to XTAL1 of the other avr with the wrong fuse settings<!-- google_ad_section_end --> </blockquote> </div> </div> </div> <div class="after_content"> <blockquote class="signature restore"><div class="signaturecontainer"><!-- google_ad_section_start(weight=ignore) --><font size="2"><font color="#A52A2A"><b>Please
+ don't make requests for help in private using PM. Create a thread in 
+the forum so that other members can benefit from the posted answers.</b></font></font><br> <br> <b><font color="#008000"><a href="http://www.catb.org/%7Eesr/faqs/smart-questions.html" target="_blank" rel="nofollow">Consider reading this before posting : How To Ask Questions The Smart Way</a></font></b><!-- google_ad_section_end --></div></blockquote> </div> <div id="helpfulanswers_box_1114856" style="font-size: 11px; text-align:left; padding-left: 10px;"> <br><hr style="color:$stylevar[tborder_bgcolor]" size="1"> </div> <div class="cleardiv"></div> </div> </div> <div class="postfoot">  <div class="textcontrols floatcontainer"> <span class="postcontrols"> <img style="display:none" id="progress_1114856" src="Resetting%20Fuse%20Bits%20in%20ATMEGA328%20Microcontroller_files/progress.gif" alt=""> <a id="qrwq_1114856" class="newreply" href="http://www.edaboard.com/newreply.php?do=newreply&amp;p=1114856" rel="nofollow" title="Reply With Quote"><img title="Reply With Quote" id="quoteimg_1114856" src="Resetting%20Fuse%20Bits%20in%20ATMEGA328%20Microcontroller_files/clear.gif" alt="Reply With Quote">  Reply With Quote</a> </span> <span class="postlinking"> </span>  </div> </div> <hr> </li> <li class="postbitlegacy postbitim postcontainer old" id="post_1114876">  <div class="posthead"> <span class="postdate old"> <span class="date">25th July 2012,&nbsp;<span class="time">12:43</span></span> </span> <span class="nodecontrols"> <a name="post1114876" href="http://www.edaboard.com/thread260690.html#post1114876" class="postcounter">#5</a><a id="postcount1114876" name="5"></a> </span> </div> <div class="postdetails"> <div class="userinfo"> <div class="username_container"> <div id="yui-gen16" class="popupmenu memberaction"> <a class="username offline "><strong><!-- google_ad_section_start(weight=ignore) -->Bish00<!-- google_ad_section_end --></strong></a> </div> <img title="Bish00 is offline" class="inlineimg onlinestatus" src="Resetting%20Fuse%20Bits%20in%20ATMEGA328%20Microcontroller_files/user-offline.png" alt="Bish00 is offline" border="0"> </div> <span class="usertitle">
+				Newbie level 4
+			</span> <span class="rank"><img src="Resetting%20Fuse%20Bits%20in%20ATMEGA328%20Microcontroller_files/blevel1.gif" alt="" border=""></span> <div style="width:102px; height:4px;"></div> <div title="Points: 96, Level: 1" style="width:102px; height:11px; margin-bottom:2px; background-image:url(http://www.edaboard.com/xperience/progress/blue_faded.png);"> <div title="Points: 96, Level: 1" style="width:1px; height:11px; margin-bottom:2px; background-image:url(http://www.edaboard.com/xperience/progress/blue_left.png); display:inline; float:left;"></div> <div title="Points: 96, Level: 1" style="width:1px; height:11px; margin-bottom:2px; background-image:url(http://www.edaboard.com/xperience/progress/blue_right.png); display:inline; float:right;"></div> <img title="Points: 96, Level: 1" alt="Points: 96, Level: 1" src="Resetting%20Fuse%20Bits%20in%20ATMEGA328%20Microcontroller_files/blue.png" align="left" height="11" width="1"> </div> <hr> <dl class="userinfo_extra"> <dt>Join Date</dt> <dd>Jul 2012</dd> <dt>Posts</dt> <dd>7</dd> <dt>Helped</dt> <dd>0 / 0</dd> <dt>Points</dt> <dd>96</dd><dt>Level</dt> <dd>1</dd> </dl> <div class="imlinks"> </div> </div> <div class="postbody"> <div class="postrow"> <h2 class="title icon"> <!-- google_ad_section_start -->Re: Resetting Fuse Bits in ATMEGA328 Microcontroller<!-- google_ad_section_end --> </h2> <div class="content"> <div id="post_message_1114876"> <blockquote class="postcontent restore "> <!-- google_ad_section_start --><div class="bbcode_container"> <div class="bbcode_quote"> <div class="quote_container"> <div class="bbcode_quote_container"></div> <div class="bbcode_postedby"> <img title="Quote" src="Resetting%20Fuse%20Bits%20in%20ATMEGA328%20Microcontroller_files/quote_icon.png" alt="Quote"> Originally Posted by <strong>alexan_e</strong> <a href="http://www.edaboard.com/thread260690.html#post1114856" rel="nofollow"><img title="View Post" class="inlineimg" src="Resetting%20Fuse%20Bits%20in%20ATMEGA328%20Microcontroller_files/viewpost-right.png" alt="View Post"></a> </div> <div class="message">You
+ chip expects an external clock source, unless you provide it it is 
+completely dead so it can't communicate or be reprogrammed.<br>
+Connect an external clock source and it will work fine and you will be able to reprogram it.<br> <br>
+The simplest thing you can do is use a pin of the working AVR<br> <br> <div class="bbcode_container"> <div class="bbcode_description">Code:</div> <pre class="bbcode_code" style="height:120px;">int main(void){
+DDRC|= (1&lt;&lt;5); // set PC5 as output
+
+while(1){
+PORTC ^= (1&lt;&lt;5); // toggle the pin
+
+}
+}</pre> </div>Now connect that pin to XTAL1 of the other avr with the wrong fuse settings</div> </div> </div> </div>I just want to make sure that is this external clock source <a href="http://www.partco.biz/verkkokauppa/product_info.php?cPath=2075_12_2051_1655&amp;products_id=6180&amp;language=en" target="_blank" rel="nofollow">http://www.partco.biz/verkkokauppa/p...80&amp;language=en</a>, I use that particualr oscillator for XTAL1. Is it proper part or no?<!-- google_ad_section_end --> </blockquote> </div> </div> </div> <div id="helpfulanswers_box_1114876" style="font-size: 11px; text-align:left; padding-left: 10px;"> <br><hr style="color:$stylevar[tborder_bgcolor]" size="1"> </div> <div class="cleardiv"></div> </div> </div> <div class="postfoot">  <div class="textcontrols floatcontainer"> <span class="postcontrols"> <img style="display:none" id="progress_1114876" src="Resetting%20Fuse%20Bits%20in%20ATMEGA328%20Microcontroller_files/progress.gif" alt=""> <a id="qrwq_1114876" class="newreply" href="http://www.edaboard.com/newreply.php?do=newreply&amp;p=1114876" rel="nofollow" title="Reply With Quote"><img title="Reply With Quote" id="quoteimg_1114876" src="Resetting%20Fuse%20Bits%20in%20ATMEGA328%20Microcontroller_files/clear.gif" alt="Reply With Quote">  Reply With Quote</a> </span> <span class="postlinking"> </span>  </div> </div> <hr> </li> <li class="postbitlegacy postbitim postcontainer old" id="post_1114889">  <div class="posthead"> <span class="postdate old"> <span class="date">25th July 2012,&nbsp;<span class="time">13:05</span></span> </span> <span class="nodecontrols"> <a name="post1114889" href="http://www.edaboard.com/thread260690.html#post1114889" class="postcounter">#6</a><a id="postcount1114889" name="6"></a> </span> </div> <div class="postdetails"> <div class="userinfo"> <div class="username_container"> <div id="yui-gen17" class="popupmenu memberaction"> <a class="username offline "><strong><!-- google_ad_section_start(weight=ignore) --><span style="color: blue;">alexan_e</span><!-- google_ad_section_end --></strong></a> </div> <img title="alexan_e is offline" class="inlineimg onlinestatus" src="Resetting%20Fuse%20Bits%20in%20ATMEGA328%20Microcontroller_files/user-offline.png" alt="alexan_e is offline" border="0"> </div> <span class="usertitle">
+				Super Moderator
+			</span> <span class="rank"><img src="Resetting%20Fuse%20Bits%20in%20ATMEGA328%20Microcontroller_files/hlevel4.gif" alt="" border=""></span> <div style="width:102px; height:4px;"></div> <div title="Points: 36,726, Level: 46" style="width:102px; height:11px; margin-bottom:2px; background-image:url(http://www.edaboard.com/xperience/progress/blue_faded.png);"> <div title="Points: 36,726, Level: 46" style="width:1px; height:11px; margin-bottom:2px; background-image:url(http://www.edaboard.com/xperience/progress/blue_left.png); display:inline; float:left;"></div> <div title="Points: 36,726, Level: 46" style="width:1px; height:11px; margin-bottom:2px; background-image:url(http://www.edaboard.com/xperience/progress/blue_right.png); display:inline; float:right;"></div> <img title="Points: 36,726, Level: 46" alt="Points: 36,726, Level: 46" src="Resetting%20Fuse%20Bits%20in%20ATMEGA328%20Microcontroller_files/blue.png" align="left" height="11" width="46"> </div> <span class="usertitle">
+Achievements:<br> <img style="vertical-align: middle;" src="Resetting%20Fuse%20Bits%20in%20ATMEGA328%20Microcontroller_files/pictures_16.png" alt="Created Album pictures" title="Created Album pictures" border="0" height="16" width="16"><img style="vertical-align: middle;" src="Resetting%20Fuse%20Bits%20in%20ATMEGA328%20Microcontroller_files/news_16.png" alt="Created Blog entry" title="Created Blog entry" border="0" height="16" width="16"><img style="vertical-align: middle;" src="Resetting%20Fuse%20Bits%20in%20ATMEGA328%20Microcontroller_files/calendar_newred_7_16.png" alt="7 years registered" title="7 years registered" border="0" height="16" width="16"> </span> <a class="postuseravatar" title="alexan_e is offline"> <img src="Resetting%20Fuse%20Bits%20in%20ATMEGA328%20Microcontroller_files/avatar160930_31.gif" alt="alexan_e's Avatar" title="alexan_e's Avatar"> </a> <hr> <dl class="userinfo_extra"> <dt>Join Date</dt> <dd>Mar 2008</dd> <dt>Location</dt> <dd>Greece</dd> <dt>Posts</dt> <dd>11,308</dd> <dt>Helped</dt> <dd>2036 / 2036</dd> <dt>Points</dt> <dd>36,726</dd><dt>Level</dt> <dd>46</dd><dt>Blog Entries</dt><dd><a href="http://www.edaboard.com/blog160930.html">6</a></dd> </dl> <div class="imlinks"> </div> </div> <div class="postbody"> <div class="postrow has_after_content"> <h2 class="title icon"> <!-- google_ad_section_start -->Re: Resetting Fuse Bits in ATMEGA328 Microcontroller<!-- google_ad_section_end --> </h2> <div class="content"> <div id="post_message_1114889"> <blockquote class="postcontent restore "> <!-- google_ad_section_start -->Yes
+ this is an external oscillator and will work fine but I don't think 
+there is a reason for you to spend so much , just use another avr or 
+even a 555 oscillator<!-- google_ad_section_end --> </blockquote> </div> </div> </div> <div class="after_content"> <blockquote class="signature restore"><div class="signaturecontainer"><!-- google_ad_section_start(weight=ignore) --><font size="2"><font color="#A52A2A"><b>Please
+ don't make requests for help in private using PM. Create a thread in 
+the forum so that other members can benefit from the posted answers.</b></font></font><br> <br> <b><font color="#008000"><a href="http://www.catb.org/%7Eesr/faqs/smart-questions.html" target="_blank" rel="nofollow">Consider reading this before posting : How To Ask Questions The Smart Way</a></font></b><!-- google_ad_section_end --></div></blockquote> </div> <div id="helpfulanswers_box_1114889" style="font-size: 11px; text-align:left; padding-left: 10px;"> <br><hr style="color:$stylevar[tborder_bgcolor]" size="1"> </div> <div class="cleardiv"></div> </div> </div> <div class="postfoot">  <div class="textcontrols floatcontainer"> <span class="postcontrols"> <img style="display:none" id="progress_1114889" src="Resetting%20Fuse%20Bits%20in%20ATMEGA328%20Microcontroller_files/progress.gif" alt=""> <a id="qrwq_1114889" class="newreply" href="http://www.edaboard.com/newreply.php?do=newreply&amp;p=1114889" rel="nofollow" title="Reply With Quote"><img title="Reply With Quote" id="quoteimg_1114889" src="Resetting%20Fuse%20Bits%20in%20ATMEGA328%20Microcontroller_files/clear.gif" alt="Reply With Quote">  Reply With Quote</a> </span> <span class="postlinking"> </span>  </div> </div> <hr> </li> <li class="postbitlegacy postbitim postcontainer old" id="post_1115052">  <div class="posthead"> <span class="postdate old"> <span class="date">25th July 2012,&nbsp;<span class="time">17:16</span></span> </span> <span class="nodecontrols"> <a name="post1115052" href="http://www.edaboard.com/thread260690.html#post1115052" class="postcounter">#7</a><a id="postcount1115052" name="7"></a> </span> </div> <div class="postdetails"> <div class="userinfo"> <div class="username_container"> <div id="yui-gen18" class="popupmenu memberaction"> <a class="username offline "><strong><!-- google_ad_section_start(weight=ignore) -->Bish00<!-- google_ad_section_end --></strong></a> </div> <img title="Bish00 is offline" class="inlineimg onlinestatus" src="Resetting%20Fuse%20Bits%20in%20ATMEGA328%20Microcontroller_files/user-offline.png" alt="Bish00 is offline" border="0"> </div> <span class="usertitle">
+				Newbie level 4
+			</span> <span class="rank"><img src="Resetting%20Fuse%20Bits%20in%20ATMEGA328%20Microcontroller_files/blevel1.gif" alt="" border=""></span> <div style="width:102px; height:4px;"></div> <div title="Points: 96, Level: 1" style="width:102px; height:11px; margin-bottom:2px; background-image:url(http://www.edaboard.com/xperience/progress/blue_faded.png);"> <div title="Points: 96, Level: 1" style="width:1px; height:11px; margin-bottom:2px; background-image:url(http://www.edaboard.com/xperience/progress/blue_left.png); display:inline; float:left;"></div> <div title="Points: 96, Level: 1" style="width:1px; height:11px; margin-bottom:2px; background-image:url(http://www.edaboard.com/xperience/progress/blue_right.png); display:inline; float:right;"></div> <img title="Points: 96, Level: 1" alt="Points: 96, Level: 1" src="Resetting%20Fuse%20Bits%20in%20ATMEGA328%20Microcontroller_files/blue.png" align="left" height="11" width="1"> </div> <hr> <dl class="userinfo_extra"> <dt>Join Date</dt> <dd>Jul 2012</dd> <dt>Posts</dt> <dd>7</dd> <dt>Helped</dt> <dd>0 / 0</dd> <dt>Points</dt> <dd>96</dd><dt>Level</dt> <dd>1</dd> </dl> <div class="imlinks"> </div> </div> <div class="postbody"> <div class="postrow"> <h2 class="title icon"> <!-- google_ad_section_start -->Re: Resetting Fuse Bits in ATMEGA328 Microcontroller<!-- google_ad_section_end --> </h2> <div class="content"> <div id="post_message_1115052"> <blockquote class="postcontent restore "> <!-- google_ad_section_start --><div class="bbcode_container"> <div class="bbcode_quote"> <div class="quote_container"> <div class="bbcode_quote_container"></div> <div class="bbcode_postedby"> <img title="Quote" src="Resetting%20Fuse%20Bits%20in%20ATMEGA328%20Microcontroller_files/quote_icon.png" alt="Quote"> Originally Posted by <strong>alexan_e</strong> <a href="http://www.edaboard.com/thread260690.html#post1114889" rel="nofollow"><img title="View Post" class="inlineimg" src="Resetting%20Fuse%20Bits%20in%20ATMEGA328%20Microcontroller_files/viewpost-right.png" alt="View Post"></a> </div> <div class="message">Yes
+ this is an external oscillator and will work fine but I don't think 
+there is a reason for you to spend so much , just use another avr or 
+even a 555 oscillator</div> </div> </div> </div>I tried to run that program, but still same problem. I think the chip might be dead. :(<!-- google_ad_section_end --> </blockquote> </div> </div> </div> <div id="helpfulanswers_box_1115052" style="font-size: 11px; text-align:left; padding-left: 10px;"> <br><hr style="color:$stylevar[tborder_bgcolor]" size="1"> </div> <div class="cleardiv"></div> </div> </div> <div class="postfoot">  <div class="textcontrols floatcontainer"> <span class="postcontrols"> <img style="display:none" id="progress_1115052" src="Resetting%20Fuse%20Bits%20in%20ATMEGA328%20Microcontroller_files/progress.gif" alt=""> <a id="qrwq_1115052" class="newreply" href="http://www.edaboard.com/newreply.php?do=newreply&amp;p=1115052" rel="nofollow" title="Reply With Quote"><img title="Reply With Quote" id="quoteimg_1115052" src="Resetting%20Fuse%20Bits%20in%20ATMEGA328%20Microcontroller_files/clear.gif" alt="Reply With Quote">  Reply With Quote</a> </span> <span class="postlinking"> </span>  </div> </div> <hr> </li> <li class="postbitlegacy postbitim postcontainer old" id="post_1115060">  <div class="posthead"> <span class="postdate old"> <span class="date">25th July 2012,&nbsp;<span class="time">17:26</span></span> </span> <span class="nodecontrols"> <a name="post1115060" href="http://www.edaboard.com/thread260690.html#post1115060" class="postcounter">#8</a><a id="postcount1115060" name="8"></a> </span> </div> <div class="postdetails"> <div class="userinfo"> <div class="username_container"> <div id="yui-gen19" class="popupmenu memberaction"> <a class="username offline "><strong><!-- google_ad_section_start(weight=ignore) --><span style="color: blue;">alexan_e</span><!-- google_ad_section_end --></strong></a> </div> <img title="alexan_e is offline" class="inlineimg onlinestatus" src="Resetting%20Fuse%20Bits%20in%20ATMEGA328%20Microcontroller_files/user-offline.png" alt="alexan_e is offline" border="0"> </div> <span class="usertitle">
+				Super Moderator
+			</span> <span class="rank"><img src="Resetting%20Fuse%20Bits%20in%20ATMEGA328%20Microcontroller_files/hlevel4.gif" alt="" border=""></span> <div style="width:102px; height:4px;"></div> <div title="Points: 36,726, Level: 46" style="width:102px; height:11px; margin-bottom:2px; background-image:url(http://www.edaboard.com/xperience/progress/blue_faded.png);"> <div title="Points: 36,726, Level: 46" style="width:1px; height:11px; margin-bottom:2px; background-image:url(http://www.edaboard.com/xperience/progress/blue_left.png); display:inline; float:left;"></div> <div title="Points: 36,726, Level: 46" style="width:1px; height:11px; margin-bottom:2px; background-image:url(http://www.edaboard.com/xperience/progress/blue_right.png); display:inline; float:right;"></div> <img title="Points: 36,726, Level: 46" alt="Points: 36,726, Level: 46" src="Resetting%20Fuse%20Bits%20in%20ATMEGA328%20Microcontroller_files/blue.png" align="left" height="11" width="46"> </div> <span class="usertitle">
+Achievements:<br> <img style="vertical-align: middle;" src="Resetting%20Fuse%20Bits%20in%20ATMEGA328%20Microcontroller_files/pictures_16.png" alt="Created Album pictures" title="Created Album pictures" border="0" height="16" width="16"><img style="vertical-align: middle;" src="Resetting%20Fuse%20Bits%20in%20ATMEGA328%20Microcontroller_files/news_16.png" alt="Created Blog entry" title="Created Blog entry" border="0" height="16" width="16"><img style="vertical-align: middle;" src="Resetting%20Fuse%20Bits%20in%20ATMEGA328%20Microcontroller_files/calendar_newred_7_16.png" alt="7 years registered" title="7 years registered" border="0" height="16" width="16"> </span> <a class="postuseravatar" title="alexan_e is offline"> <img src="Resetting%20Fuse%20Bits%20in%20ATMEGA328%20Microcontroller_files/avatar160930_31.gif" alt="alexan_e's Avatar" title="alexan_e's Avatar"> </a> <hr> <dl class="userinfo_extra"> <dt>Join Date</dt> <dd>Mar 2008</dd> <dt>Location</dt> <dd>Greece</dd> <dt>Posts</dt> <dd>11,308</dd> <dt>Helped</dt> <dd>2036 / 2036</dd> <dt>Points</dt> <dd>36,726</dd><dt>Level</dt> <dd>46</dd><dt>Blog Entries</dt><dd><a href="http://www.edaboard.com/blog160930.html">6</a></dd> </dl> <div class="imlinks"> </div> </div> <div class="postbody"> <div class="postrow has_after_content"> <h2 class="title icon"> <!-- google_ad_section_start -->Re: Resetting Fuse Bits in ATMEGA328 Microcontroller<!-- google_ad_section_end --> </h2> <div class="content"> <div id="post_message_1115060"> <blockquote class="postcontent restore "> <!-- google_ad_section_start -->What clock source did you connect to it?<!-- google_ad_section_end --> </blockquote> </div> </div> </div> <div class="after_content"> <blockquote class="signature restore"><div class="signaturecontainer"><!-- google_ad_section_start(weight=ignore) --><font size="2"><font color="#A52A2A"><b>Please
+ don't make requests for help in private using PM. Create a thread in 
+the forum so that other members can benefit from the posted answers.</b></font></font><br> <br> <b><font color="#008000"><a href="http://www.catb.org/%7Eesr/faqs/smart-questions.html" target="_blank" rel="nofollow">Consider reading this before posting : How To Ask Questions The Smart Way</a></font></b><!-- google_ad_section_end --></div></blockquote> </div> <div id="helpfulanswers_box_1115060" style="font-size: 11px; text-align:left; padding-left: 10px;"> <br><hr style="color:$stylevar[tborder_bgcolor]" size="1"> </div> <div class="cleardiv"></div> </div> </div> <div class="postfoot">  <div class="textcontrols floatcontainer"> <span class="postcontrols"> <img style="display:none" id="progress_1115060" src="Resetting%20Fuse%20Bits%20in%20ATMEGA328%20Microcontroller_files/progress.gif" alt=""> <a id="qrwq_1115060" class="newreply" href="http://www.edaboard.com/newreply.php?do=newreply&amp;p=1115060" rel="nofollow" title="Reply With Quote"><img title="Reply With Quote" id="quoteimg_1115060" src="Resetting%20Fuse%20Bits%20in%20ATMEGA328%20Microcontroller_files/clear.gif" alt="Reply With Quote">  Reply With Quote</a> </span> <span class="postlinking"> </span>  </div> </div> <hr> </li> <ul> <li class="postbitlegacy postbitim postcontainer" id="post_1115060">  <div class="posthead">&nbsp;&nbsp;<img title="Alt" src="Resetting%20Fuse%20Bits%20in%20ATMEGA328%20Microcontroller_files/post_old.png" alt="Alt" border="0"><span class="date">25th July 2012,&nbsp;<span class="time">17:26</span></span></div> <div class="postdetails"> <div class="userinfo"> <div class="username_container"> <br> <img src="Resetting%20Fuse%20Bits%20in%20ATMEGA328%20Microcontroller_files/18.jpg" alt="advertising" title="advertising" height="97px" width="64px"> <dl class="userinfo_extra"> </dl> </div> </div> <div class="postbody"> <br>
+								 &nbsp;&nbsp;
+<script type="text/javascript" language="JavaScript">
+
+  aj_server = 'http://ads.designworldonline.com/servlet/ajrotator/'; aj_tagver = '1.0';
+
+  aj_zone = 'designw'; aj_adspot = '1508360'; aj_page = '0'; aj_dim ='195519'; aj_ch = ''; aj_ct = ''; aj_kw = 'FORUM31B, digital_design_and_programming';
+
+  aj_pv = true; aj_click = '';
+
+</script><script type="text/javascript" language="JavaScript" src="Resetting%20Fuse%20Bits%20in%20ATMEGA328%20Microcontroller_files/ajtg.js"></script><script type="text/javascript" src="Resetting%20Fuse%20Bits%20in%20ATMEGA328%20Microcontroller_files/vj_002.js"></script><script type="text/javascript"><!--
+google_ad_client = "ca-pub-5741694739418833";
+/* 728 x 90 In Posts */
+google_ad_slot = "5263081508";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+</script>
+<script type="text/javascript" src="Resetting%20Fuse%20Bits%20in%20ATMEGA328%20Microcontroller_files/show_ads.js">
+</script><ins id="aswift_1_expand" style="display:inline-table;border:none;height:90px;margin:0;padding:0;position:relative;visibility:visible;width:728px;background-color:transparent"><ins id="aswift_1_anchor" style="display:block;border:none;height:90px;margin:0;padding:0;position:relative;visibility:visible;width:728px;background-color:transparent"><iframe marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no" allowfullscreen="true" onload="var i=this.id,s=window.google_iframe_oncopy,H=s&amp;&amp;s.handlers,h=H&amp;&amp;H[i],w=this.contentWindow,d;try{d=w.document}catch(e){}if(h&amp;&amp;d&amp;&amp;(!d.body||!d.body.firstChild)){if(h.call){setTimeout(h,0)}else if(h.match){try{h=s.upd(h,i)}catch(e){}w.location.replace(h)}}" id="aswift_1" name="aswift_1" style="left:0;position:absolute;top:0;" frameborder="0" height="90" width="728"></iframe></ins></ins> <!--
+[[[Array]]] 
+
+xyzzy --> <div class="cleardiv"></div> </div> </div> <div class="postfoot"> <div class="textcontrols floatcontainer"> <span class="postcontrols">&nbsp;</span> </div> </div> <hr> </li> </ul> <li class="postbitlegacy postbitim postcontainer old" id="post_1115102">  <div class="posthead"> <span class="postdate old"> <span class="date">25th July 2012,&nbsp;<span class="time">19:28</span></span> </span> <span class="nodecontrols"> <a name="post1115102" href="http://www.edaboard.com/thread260690.html#post1115102" class="postcounter">#9</a><a id="postcount1115102" name="9"></a> </span> </div> <div class="postdetails"> <div class="userinfo"> <div class="username_container"> <div id="yui-gen20" class="popupmenu memberaction"> <a class="username offline "><strong><!-- google_ad_section_start(weight=ignore) -->Bish00<!-- google_ad_section_end --></strong></a> </div> <img title="Bish00 is offline" class="inlineimg onlinestatus" src="Resetting%20Fuse%20Bits%20in%20ATMEGA328%20Microcontroller_files/user-offline.png" alt="Bish00 is offline" border="0"> </div> <span class="usertitle">
+				Newbie level 4
+			</span> <span class="rank"><img src="Resetting%20Fuse%20Bits%20in%20ATMEGA328%20Microcontroller_files/blevel1.gif" alt="" border=""></span> <div style="width:102px; height:4px;"></div> <div title="Points: 96, Level: 1" style="width:102px; height:11px; margin-bottom:2px; background-image:url(http://www.edaboard.com/xperience/progress/blue_faded.png);"> <div title="Points: 96, Level: 1" style="width:1px; height:11px; margin-bottom:2px; background-image:url(http://www.edaboard.com/xperience/progress/blue_left.png); display:inline; float:left;"></div> <div title="Points: 96, Level: 1" style="width:1px; height:11px; margin-bottom:2px; background-image:url(http://www.edaboard.com/xperience/progress/blue_right.png); display:inline; float:right;"></div> <img title="Points: 96, Level: 1" alt="Points: 96, Level: 1" src="Resetting%20Fuse%20Bits%20in%20ATMEGA328%20Microcontroller_files/blue.png" align="left" height="11" width="1"> </div> <hr> <dl class="userinfo_extra"> <dt>Join Date</dt> <dd>Jul 2012</dd> <dt>Posts</dt> <dd>7</dd> <dt>Helped</dt> <dd>0 / 0</dd> <dt>Points</dt> <dd>96</dd><dt>Level</dt> <dd>1</dd> </dl> <div class="imlinks"> </div> </div> <div class="postbody"> <div class="postrow"> <h2 class="title icon"> <!-- google_ad_section_start -->Re: Resetting Fuse Bits in ATMEGA328 Microcontroller<!-- google_ad_section_end --> </h2> <div class="content"> <div id="post_message_1115102"> <blockquote class="postcontent restore "> <!-- google_ad_section_start -->I connected that particular oscillator to XTAL1 (PIN 1), GND to GND, PWR to PWR and one pin was not connected.<!-- google_ad_section_end --> </blockquote> </div> </div> </div> <div id="helpfulanswers_box_1115102" style="font-size: 11px; text-align:left; padding-left: 10px;"> <br><hr style="color:$stylevar[tborder_bgcolor]" size="1"> </div> <div class="cleardiv"></div> </div> </div> <div class="postfoot">  <div class="textcontrols floatcontainer"> <span class="postcontrols"> <img style="display:none" id="progress_1115102" src="Resetting%20Fuse%20Bits%20in%20ATMEGA328%20Microcontroller_files/progress.gif" alt=""> <a id="qrwq_1115102" class="newreply" href="http://www.edaboard.com/newreply.php?do=newreply&amp;p=1115102" rel="nofollow" title="Reply With Quote"><img title="Reply With Quote" id="quoteimg_1115102" src="Resetting%20Fuse%20Bits%20in%20ATMEGA328%20Microcontroller_files/clear.gif" alt="Reply With Quote">  Reply With Quote</a> </span> <span class="postlinking"> </span>  </div> </div> <hr> </li> <li class="postbitlegacy postbitim postcontainer old" id="post_1115107">  <div class="posthead"> <span class="postdate old"> <span class="date">25th July 2012,&nbsp;<span class="time">19:55</span></span> </span> <span class="nodecontrols"> <a name="post1115107" href="http://www.edaboard.com/thread260690.html#post1115107" class="postcounter">#10</a><a id="postcount1115107" name="10"></a> </span> </div> <div class="postdetails"> <div class="userinfo"> <div class="username_container"> <div id="yui-gen21" class="popupmenu memberaction"> <a class="username offline "><strong><!-- google_ad_section_start(weight=ignore) --><span style="color: blue;">alexan_e</span><!-- google_ad_section_end --></strong></a> </div> <img title="alexan_e is offline" class="inlineimg onlinestatus" src="Resetting%20Fuse%20Bits%20in%20ATMEGA328%20Microcontroller_files/user-offline.png" alt="alexan_e is offline" border="0"> </div> <span class="usertitle">
+				Super Moderator
+			</span> <span class="rank"><img src="Resetting%20Fuse%20Bits%20in%20ATMEGA328%20Microcontroller_files/hlevel4.gif" alt="" border=""></span> <div style="width:102px; height:4px;"></div> <div title="Points: 36,726, Level: 46" style="width:102px; height:11px; margin-bottom:2px; background-image:url(http://www.edaboard.com/xperience/progress/blue_faded.png);"> <div title="Points: 36,726, Level: 46" style="width:1px; height:11px; margin-bottom:2px; background-image:url(http://www.edaboard.com/xperience/progress/blue_left.png); display:inline; float:left;"></div> <div title="Points: 36,726, Level: 46" style="width:1px; height:11px; margin-bottom:2px; background-image:url(http://www.edaboard.com/xperience/progress/blue_right.png); display:inline; float:right;"></div> <img title="Points: 36,726, Level: 46" alt="Points: 36,726, Level: 46" src="Resetting%20Fuse%20Bits%20in%20ATMEGA328%20Microcontroller_files/blue.png" align="left" height="11" width="46"> </div> <span class="usertitle">
+Achievements:<br> <img style="vertical-align: middle;" src="Resetting%20Fuse%20Bits%20in%20ATMEGA328%20Microcontroller_files/pictures_16.png" alt="Created Album pictures" title="Created Album pictures" border="0" height="16" width="16"><img style="vertical-align: middle;" src="Resetting%20Fuse%20Bits%20in%20ATMEGA328%20Microcontroller_files/news_16.png" alt="Created Blog entry" title="Created Blog entry" border="0" height="16" width="16"><img style="vertical-align: middle;" src="Resetting%20Fuse%20Bits%20in%20ATMEGA328%20Microcontroller_files/calendar_newred_7_16.png" alt="7 years registered" title="7 years registered" border="0" height="16" width="16"> </span> <a class="postuseravatar" title="alexan_e is offline"> <img src="Resetting%20Fuse%20Bits%20in%20ATMEGA328%20Microcontroller_files/avatar160930_31.gif" alt="alexan_e's Avatar" title="alexan_e's Avatar"> </a> <hr> <dl class="userinfo_extra"> <dt>Join Date</dt> <dd>Mar 2008</dd> <dt>Location</dt> <dd>Greece</dd> <dt>Posts</dt> <dd>11,308</dd> <dt>Helped</dt> <dd>2036 / 2036</dd> <dt>Points</dt> <dd>36,726</dd><dt>Level</dt> <dd>46</dd><dt>Blog Entries</dt><dd><a href="http://www.edaboard.com/blog160930.html">6</a></dd> </dl> <div class="imlinks"> </div> </div> <div class="postbody"> <div class="postrow has_after_content"> <h2 class="title icon"> <!-- google_ad_section_start -->Re: Resetting Fuse Bits in ATMEGA328 Microcontroller<!-- google_ad_section_end --> </h2> <div class="content"> <div id="post_message_1115107"> <blockquote class="postcontent restore "> <!-- google_ad_section_start -->Did you check if your oscillator gives output?<br>
+You should measure about 2.5v DC in the XTAL1 pin.<br> <br> <font color="silver">- - - Updated - - -</font><br> <br>
+What is the frequency of the oscillator you have used?<!-- google_ad_section_end --> </blockquote> </div> </div> </div> <div class="after_content"> <blockquote class="signature restore"><div class="signaturecontainer"><!-- google_ad_section_start(weight=ignore) --><font size="2"><font color="#A52A2A"><b>Please
+ don't make requests for help in private using PM. Create a thread in 
+the forum so that other members can benefit from the posted answers.</b></font></font><br> <br> <b><font color="#008000"><a href="http://www.catb.org/%7Eesr/faqs/smart-questions.html" target="_blank" rel="nofollow">Consider reading this before posting : How To Ask Questions The Smart Way</a></font></b><!-- google_ad_section_end --></div></blockquote> </div> <div id="helpfulanswers_box_1115107" style="font-size: 11px; text-align:left; padding-left: 10px;"> <br><hr style="color:$stylevar[tborder_bgcolor]" size="1"> </div> <div class="cleardiv"></div> </div> </div> <div class="postfoot">  <div class="textcontrols floatcontainer"> <span class="postcontrols"> <img style="display:none" id="progress_1115107" src="Resetting%20Fuse%20Bits%20in%20ATMEGA328%20Microcontroller_files/progress.gif" alt=""> <a id="qrwq_1115107" class="newreply" href="http://www.edaboard.com/newreply.php?do=newreply&amp;p=1115107" rel="nofollow" title="Reply With Quote"><img title="Reply With Quote" id="quoteimg_1115107" src="Resetting%20Fuse%20Bits%20in%20ATMEGA328%20Microcontroller_files/clear.gif" alt="Reply With Quote">  Reply With Quote</a> </span> <span class="postlinking"> </span>  </div> </div> <hr> </li> <li class="postbitlegacy postbitim postcontainer old" id="post_1115441">  <div class="posthead"> <span class="postdate old"> <span class="date">26th July 2012,&nbsp;<span class="time">13:04</span></span> </span> <span class="nodecontrols"> <a name="post1115441" href="http://www.edaboard.com/thread260690.html#post1115441" class="postcounter">#11</a><a id="postcount1115441" name="11"></a> </span> </div> <div class="postdetails"> <div class="userinfo"> <div class="username_container"> <div id="yui-gen22" class="popupmenu memberaction"> <a class="username offline "><strong><!-- google_ad_section_start(weight=ignore) -->Bish00<!-- google_ad_section_end --></strong></a> </div> <img title="Bish00 is offline" class="inlineimg onlinestatus" src="Resetting%20Fuse%20Bits%20in%20ATMEGA328%20Microcontroller_files/user-offline.png" alt="Bish00 is offline" border="0"> </div> <span class="usertitle">
+				Newbie level 4
+			</span> <span class="rank"><img src="Resetting%20Fuse%20Bits%20in%20ATMEGA328%20Microcontroller_files/blevel1.gif" alt="" border=""></span> <div style="width:102px; height:4px;"></div> <div title="Points: 96, Level: 1" style="width:102px; height:11px; margin-bottom:2px; background-image:url(http://www.edaboard.com/xperience/progress/blue_faded.png);"> <div title="Points: 96, Level: 1" style="width:1px; height:11px; margin-bottom:2px; background-image:url(http://www.edaboard.com/xperience/progress/blue_left.png); display:inline; float:left;"></div> <div title="Points: 96, Level: 1" style="width:1px; height:11px; margin-bottom:2px; background-image:url(http://www.edaboard.com/xperience/progress/blue_right.png); display:inline; float:right;"></div> <img title="Points: 96, Level: 1" alt="Points: 96, Level: 1" src="Resetting%20Fuse%20Bits%20in%20ATMEGA328%20Microcontroller_files/blue.png" align="left" height="11" width="1"> </div> <hr> <dl class="userinfo_extra"> <dt>Join Date</dt> <dd>Jul 2012</dd> <dt>Posts</dt> <dd>7</dd> <dt>Helped</dt> <dd>0 / 0</dd> <dt>Points</dt> <dd>96</dd><dt>Level</dt> <dd>1</dd> </dl> <div class="imlinks"> </div> </div> <div class="postbody"> <div class="postrow"> <h2 class="title icon"> <!-- google_ad_section_start -->Re: Resetting Fuse Bits in ATMEGA328 Microcontroller<!-- google_ad_section_end --> </h2> <div class="content"> <div id="post_message_1115441"> <blockquote class="postcontent restore "> <!-- google_ad_section_start --><div class="bbcode_container"> <div class="bbcode_quote"> <div class="quote_container"> <div class="bbcode_quote_container"></div> <div class="bbcode_postedby"> <img title="Quote" src="Resetting%20Fuse%20Bits%20in%20ATMEGA328%20Microcontroller_files/quote_icon.png" alt="Quote"> Originally Posted by <strong>alexan_e</strong> <a href="http://www.edaboard.com/thread260690.html#post1115107" rel="nofollow"><img title="View Post" class="inlineimg" src="Resetting%20Fuse%20Bits%20in%20ATMEGA328%20Microcontroller_files/viewpost-right.png" alt="View Post"></a> </div> <div class="message">Did you check if your oscillator gives output?<br>
+You should measure about 2.5v DC in the XTAL1 pin.<br> <br> <font color="silver">- - - Updated - - -</font><br> <br>
+What is the frequency of the oscillator you have used?</div> </div> </div> </div>Yes
+ I tested my oscillator and it works. I connected it properly and for 
+clock signal I connected to resistor of 200Ohm and from that to LED and 
+it lighten up very fine, so oscillator works. I think the chip is dead, 
+because when I did fuse bits reprogramming it asked me some question 
+that do you want to return settings or no or something like that and I 
+answered yes, and it took so long time and nothing happened so I closed 
+cmd and I think I screwd up with that thing. Maybe that was the thing 
+that caused to chip to work inappropriate or doesn't get connection.<!-- google_ad_section_end --> </blockquote> </div> </div> </div> <div id="helpfulanswers_box_1115441" style="font-size: 11px; text-align:left; padding-left: 10px;"> <br><hr style="color:$stylevar[tborder_bgcolor]" size="1"> </div> <div class="cleardiv"></div> </div> </div> <div class="postfoot">  <div class="textcontrols floatcontainer"> <span class="postcontrols"> <img style="display:none" id="progress_1115441" src="Resetting%20Fuse%20Bits%20in%20ATMEGA328%20Microcontroller_files/progress.gif" alt=""> <a id="qrwq_1115441" class="newreply" href="http://www.edaboard.com/newreply.php?do=newreply&amp;p=1115441" rel="nofollow" title="Reply With Quote"><img title="Reply With Quote" id="quoteimg_1115441" src="Resetting%20Fuse%20Bits%20in%20ATMEGA328%20Microcontroller_files/clear.gif" alt="Reply With Quote">  Reply With Quote</a> </span> <span class="postlinking"> </span>  </div> </div> <hr> </li> <li class="postbitlegacy postbitim postcontainer old" id="post_1115443">  <div class="posthead"> <span class="postdate old"> <span class="date">26th July 2012,&nbsp;<span class="time">13:07</span></span> </span> <span class="nodecontrols"> <a name="post1115443" href="http://www.edaboard.com/thread260690.html#post1115443" class="postcounter">#12</a><a id="postcount1115443" name="12"></a> </span> </div> <div class="postdetails"> <div class="userinfo"> <div class="username_container"> <div id="yui-gen23" class="popupmenu memberaction"> <a class="username offline "><strong><!-- google_ad_section_start(weight=ignore) --><span style="color: blue;">alexan_e</span><!-- google_ad_section_end --></strong></a> </div> <img title="alexan_e is offline" class="inlineimg onlinestatus" src="Resetting%20Fuse%20Bits%20in%20ATMEGA328%20Microcontroller_files/user-offline.png" alt="alexan_e is offline" border="0"> </div> <span class="usertitle">
+				Super Moderator
+			</span> <span class="rank"><img src="Resetting%20Fuse%20Bits%20in%20ATMEGA328%20Microcontroller_files/hlevel4.gif" alt="" border=""></span> <div style="width:102px; height:4px;"></div> <div title="Points: 36,726, Level: 46" style="width:102px; height:11px; margin-bottom:2px; background-image:url(http://www.edaboard.com/xperience/progress/blue_faded.png);"> <div title="Points: 36,726, Level: 46" style="width:1px; height:11px; margin-bottom:2px; background-image:url(http://www.edaboard.com/xperience/progress/blue_left.png); display:inline; float:left;"></div> <div title="Points: 36,726, Level: 46" style="width:1px; height:11px; margin-bottom:2px; background-image:url(http://www.edaboard.com/xperience/progress/blue_right.png); display:inline; float:right;"></div> <img title="Points: 36,726, Level: 46" alt="Points: 36,726, Level: 46" src="Resetting%20Fuse%20Bits%20in%20ATMEGA328%20Microcontroller_files/blue.png" align="left" height="11" width="46"> </div> <span class="usertitle">
+Achievements:<br> <img style="vertical-align: middle;" src="Resetting%20Fuse%20Bits%20in%20ATMEGA328%20Microcontroller_files/pictures_16.png" alt="Created Album pictures" title="Created Album pictures" border="0" height="16" width="16"><img style="vertical-align: middle;" src="Resetting%20Fuse%20Bits%20in%20ATMEGA328%20Microcontroller_files/news_16.png" alt="Created Blog entry" title="Created Blog entry" border="0" height="16" width="16"><img style="vertical-align: middle;" src="Resetting%20Fuse%20Bits%20in%20ATMEGA328%20Microcontroller_files/calendar_newred_7_16.png" alt="7 years registered" title="7 years registered" border="0" height="16" width="16"> </span> <a class="postuseravatar" title="alexan_e is offline"> <img src="Resetting%20Fuse%20Bits%20in%20ATMEGA328%20Microcontroller_files/avatar160930_31.gif" alt="alexan_e's Avatar" title="alexan_e's Avatar"> </a> <hr> <dl class="userinfo_extra"> <dt>Join Date</dt> <dd>Mar 2008</dd> <dt>Location</dt> <dd>Greece</dd> <dt>Posts</dt> <dd>11,308</dd> <dt>Helped</dt> <dd>2036 / 2036</dd> <dt>Points</dt> <dd>36,726</dd><dt>Level</dt> <dd>46</dd><dt>Blog Entries</dt><dd><a href="http://www.edaboard.com/blog160930.html">6</a></dd> </dl> <div class="imlinks"> </div> </div> <div class="postbody"> <div class="postrow has_after_content"> <h2 class="title icon"> <!-- google_ad_section_start -->Re: Resetting Fuse Bits in ATMEGA328 Microcontroller<!-- google_ad_section_end --> </h2> <div class="content"> <div id="post_message_1115443"> <blockquote class="postcontent restore "> <!-- google_ad_section_start -->There is no way to kill the chip unless you provide voltages higher than the specs.<br> <br>
+What is the frequency of your crystal oscillator?<br>
+Which programmer hardware do you have?<!-- google_ad_section_end --> </blockquote> </div> </div> </div> <div class="after_content"> <blockquote class="signature restore"><div class="signaturecontainer"><!-- google_ad_section_start(weight=ignore) --><font size="2"><font color="#A52A2A"><b>Please
+ don't make requests for help in private using PM. Create a thread in 
+the forum so that other members can benefit from the posted answers.</b></font></font><br> <br> <b><font color="#008000"><a href="http://www.catb.org/%7Eesr/faqs/smart-questions.html" target="_blank" rel="nofollow">Consider reading this before posting : How To Ask Questions The Smart Way</a></font></b><!-- google_ad_section_end --></div></blockquote> </div> <div id="helpfulanswers_box_1115443" style="font-size: 11px; text-align:left; padding-left: 10px;"> <br><hr style="color:$stylevar[tborder_bgcolor]" size="1"> </div> <div class="cleardiv"></div> </div> </div> <div class="postfoot">  <div class="textcontrols floatcontainer"> <span class="postcontrols"> <img style="display:none" id="progress_1115443" src="Resetting%20Fuse%20Bits%20in%20ATMEGA328%20Microcontroller_files/progress.gif" alt=""> <a id="qrwq_1115443" class="newreply" href="http://www.edaboard.com/newreply.php?do=newreply&amp;p=1115443" rel="nofollow" title="Reply With Quote"><img title="Reply With Quote" id="quoteimg_1115443" src="Resetting%20Fuse%20Bits%20in%20ATMEGA328%20Microcontroller_files/clear.gif" alt="Reply With Quote">  Reply With Quote</a> </span> <span class="postlinking"> </span>  </div> </div> <hr> </li> <li class="postbitlegacy postbitim postcontainer old" id="post_1115448">  <div class="posthead"> <span class="postdate old"> <span class="date">26th July 2012,&nbsp;<span class="time">13:09</span></span> </span> <span class="nodecontrols"> <a name="post1115448" href="http://www.edaboard.com/thread260690.html#post1115448" class="postcounter">#13</a><a id="postcount1115448" name="13"></a> </span> </div> <div class="postdetails"> <div class="userinfo"> <div class="username_container"> <div id="yui-gen24" class="popupmenu memberaction"> <a class="username offline "><strong><!-- google_ad_section_start(weight=ignore) -->Bish00<!-- google_ad_section_end --></strong></a> </div> <img title="Bish00 is offline" class="inlineimg onlinestatus" src="Resetting%20Fuse%20Bits%20in%20ATMEGA328%20Microcontroller_files/user-offline.png" alt="Bish00 is offline" border="0"> </div> <span class="usertitle">
+				Newbie level 4
+			</span> <span class="rank"><img src="Resetting%20Fuse%20Bits%20in%20ATMEGA328%20Microcontroller_files/blevel1.gif" alt="" border=""></span> <div style="width:102px; height:4px;"></div> <div title="Points: 96, Level: 1" style="width:102px; height:11px; margin-bottom:2px; background-image:url(http://www.edaboard.com/xperience/progress/blue_faded.png);"> <div title="Points: 96, Level: 1" style="width:1px; height:11px; margin-bottom:2px; background-image:url(http://www.edaboard.com/xperience/progress/blue_left.png); display:inline; float:left;"></div> <div title="Points: 96, Level: 1" style="width:1px; height:11px; margin-bottom:2px; background-image:url(http://www.edaboard.com/xperience/progress/blue_right.png); display:inline; float:right;"></div> <img title="Points: 96, Level: 1" alt="Points: 96, Level: 1" src="Resetting%20Fuse%20Bits%20in%20ATMEGA328%20Microcontroller_files/blue.png" align="left" height="11" width="1"> </div> <hr> <dl class="userinfo_extra"> <dt>Join Date</dt> <dd>Jul 2012</dd> <dt>Posts</dt> <dd>7</dd> <dt>Helped</dt> <dd>0 / 0</dd> <dt>Points</dt> <dd>96</dd><dt>Level</dt> <dd>1</dd> </dl> <div class="imlinks"> </div> </div> <div class="postbody"> <div class="postrow"> <h2 class="title icon"> <!-- google_ad_section_start -->Re: Resetting Fuse Bits in ATMEGA328 Microcontroller<!-- google_ad_section_end --> </h2> <div class="content"> <div id="post_message_1115448"> <blockquote class="postcontent restore "> <!-- google_ad_section_start --><div class="bbcode_container"> <div class="bbcode_quote"> <div class="quote_container"> <div class="bbcode_quote_container"></div> <div class="bbcode_postedby"> <img title="Quote" src="Resetting%20Fuse%20Bits%20in%20ATMEGA328%20Microcontroller_files/quote_icon.png" alt="Quote"> Originally Posted by <strong>alexan_e</strong> <a href="http://www.edaboard.com/thread260690.html#post1115443" rel="nofollow"><img title="View Post" class="inlineimg" src="Resetting%20Fuse%20Bits%20in%20ATMEGA328%20Microcontroller_files/viewpost-right.png" alt="View Post"></a> </div> <div class="message">There is no way to kill the chip unless you provide voltages higher than the specs.<br> <br>
+What is the frequency of your crystal oscillator?<br>
+Which programmer hardware do you have?</div> </div> </div> </div>The cyrstal oscillator uses 1.0 Mhz and programmer hardware I use is USBTiny.<!-- google_ad_section_end --> </blockquote> </div> </div> </div> <div id="helpfulanswers_box_1115448" style="font-size: 11px; text-align:left; padding-left: 10px;"> <br><hr style="color:$stylevar[tborder_bgcolor]" size="1"> </div> <div class="cleardiv"></div> </div> </div> <div class="postfoot">  <div class="textcontrols floatcontainer"> <span class="postcontrols"> <img style="display:none" id="progress_1115448" src="Resetting%20Fuse%20Bits%20in%20ATMEGA328%20Microcontroller_files/progress.gif" alt=""> <a id="qrwq_1115448" class="newreply" href="http://www.edaboard.com/newreply.php?do=newreply&amp;p=1115448" rel="nofollow" title="Reply With Quote"><img title="Reply With Quote" id="quoteimg_1115448" src="Resetting%20Fuse%20Bits%20in%20ATMEGA328%20Microcontroller_files/clear.gif" alt="Reply With Quote">  Reply With Quote</a> </span> <span class="postlinking"> </span>  </div> </div> <hr> </li> <li class="postbitlegacy postbitim postcontainer old" id="post_1199350">  <div class="posthead"> <span class="postdate old"> <span class="date">12th February 2013,&nbsp;<span class="time">17:33</span></span> </span> <span class="nodecontrols"> <a name="post1199350" href="http://www.edaboard.com/thread260690.html#post1199350" class="postcounter">#14</a><a id="postcount1199350" name="14"></a> </span> </div> <div class="postdetails"> <div class="userinfo"> <div class="username_container"> <div id="yui-gen25" class="popupmenu memberaction"> <a class="username offline "><strong><!-- google_ad_section_start(weight=ignore) -->alro<!-- google_ad_section_end --></strong></a> </div> <img title="alro is offline" class="inlineimg onlinestatus" src="Resetting%20Fuse%20Bits%20in%20ATMEGA328%20Microcontroller_files/user-offline.png" alt="alro is offline" border="0"> </div> <span class="usertitle">
+				Newbie level 2
+			</span> <span class="rank"><img src="Resetting%20Fuse%20Bits%20in%20ATMEGA328%20Microcontroller_files/alevel2.gif" alt="" border=""></span> <div style="width:102px; height:4px;"></div> <div title="Points: 16, Level: 1" style="width:102px; height:11px; margin-bottom:2px; background-image:url(http://www.edaboard.com/xperience/progress/blue_faded.png);"> <div title="Points: 16, Level: 1" style="width:1px; height:11px; margin-bottom:2px; background-image:url(http://www.edaboard.com/xperience/progress/blue_left.png); display:inline; float:left;"></div> <div title="Points: 16, Level: 1" style="width:1px; height:11px; margin-bottom:2px; background-image:url(http://www.edaboard.com/xperience/progress/blue_right.png); display:inline; float:right;"></div> <img title="Points: 16, Level: 1" alt="Points: 16, Level: 1" src="Resetting%20Fuse%20Bits%20in%20ATMEGA328%20Microcontroller_files/blue.png" align="left" height="11" width="1"> </div> <hr> <dl class="userinfo_extra"> <dt>Join Date</dt> <dd>Feb 2013</dd> <dt>Posts</dt> <dd>2</dd> <dt>Helped</dt> <dd>0 / 0</dd> <dt>Points</dt> <dd>16</dd><dt>Level</dt> <dd>1</dd> </dl> <div class="imlinks"> </div> </div> <div class="postbody"> <div class="postrow"> <h2 class="title icon"> <!-- google_ad_section_start -->Re: Resetting Fuse Bits in ATMEGA328 Microcontroller<!-- google_ad_section_end --> </h2> <div class="content"> <div id="post_message_1199350"> <blockquote class="postcontent restore "> <!-- google_ad_section_start -->Hi, I can use this technique with my ATMEGA 2560?<br> <br>
+Thanks.<!-- google_ad_section_end --> </blockquote> </div> </div> </div> <div id="helpfulanswers_box_1199350" style="font-size: 11px; text-align:left; padding-left: 10px;"> <br><hr style="color:$stylevar[tborder_bgcolor]" size="1"> </div> <div class="cleardiv"></div> </div> </div> <div class="postfoot">  <div class="textcontrols floatcontainer"> <span class="postcontrols"> <img style="display:none" id="progress_1199350" src="Resetting%20Fuse%20Bits%20in%20ATMEGA328%20Microcontroller_files/progress.gif" alt=""> <a id="qrwq_1199350" class="newreply" href="http://www.edaboard.com/newreply.php?do=newreply&amp;p=1199350" rel="nofollow" title="Reply With Quote"><img title="Reply With Quote" id="quoteimg_1199350" src="Resetting%20Fuse%20Bits%20in%20ATMEGA328%20Microcontroller_files/clear.gif" alt="Reply With Quote">  Reply With Quote</a> </span> <span class="postlinking"> </span>  </div> </div> <hr> </li> <li class="postbitlegacy postbitim postcontainer old" id="post_1199356">  <div class="posthead"> <span class="postdate old"> <span class="date">12th February 2013,&nbsp;<span class="time">17:49</span></span> </span> <span class="nodecontrols"> <a name="post1199356" href="http://www.edaboard.com/thread260690.html#post1199356" class="postcounter">#15</a><a id="postcount1199356" name="15"></a> </span> </div> <div class="postdetails"> <div class="userinfo"> <div class="username_container"> <div id="yui-gen26" class="popupmenu memberaction"> <a class="username offline "><strong><!-- google_ad_section_start(weight=ignore) --><span style="color: blue;">alexan_e</span><!-- google_ad_section_end --></strong></a> </div> <img title="alexan_e is offline" class="inlineimg onlinestatus" src="Resetting%20Fuse%20Bits%20in%20ATMEGA328%20Microcontroller_files/user-offline.png" alt="alexan_e is offline" border="0"> </div> <span class="usertitle">
+				Super Moderator
+			</span> <span class="rank"><img src="Resetting%20Fuse%20Bits%20in%20ATMEGA328%20Microcontroller_files/hlevel4.gif" alt="" border=""></span> <div style="width:102px; height:4px;"></div> <div title="Points: 36,726, Level: 46" style="width:102px; height:11px; margin-bottom:2px; background-image:url(http://www.edaboard.com/xperience/progress/blue_faded.png);"> <div title="Points: 36,726, Level: 46" style="width:1px; height:11px; margin-bottom:2px; background-image:url(http://www.edaboard.com/xperience/progress/blue_left.png); display:inline; float:left;"></div> <div title="Points: 36,726, Level: 46" style="width:1px; height:11px; margin-bottom:2px; background-image:url(http://www.edaboard.com/xperience/progress/blue_right.png); display:inline; float:right;"></div> <img title="Points: 36,726, Level: 46" alt="Points: 36,726, Level: 46" src="Resetting%20Fuse%20Bits%20in%20ATMEGA328%20Microcontroller_files/blue.png" align="left" height="11" width="46"> </div> <span class="usertitle">
+Achievements:<br> <img style="vertical-align: middle;" src="Resetting%20Fuse%20Bits%20in%20ATMEGA328%20Microcontroller_files/pictures_16.png" alt="Created Album pictures" title="Created Album pictures" border="0" height="16" width="16"><img style="vertical-align: middle;" src="Resetting%20Fuse%20Bits%20in%20ATMEGA328%20Microcontroller_files/news_16.png" alt="Created Blog entry" title="Created Blog entry" border="0" height="16" width="16"><img style="vertical-align: middle;" src="Resetting%20Fuse%20Bits%20in%20ATMEGA328%20Microcontroller_files/calendar_newred_7_16.png" alt="7 years registered" title="7 years registered" border="0" height="16" width="16"> </span> <a class="postuseravatar" title="alexan_e is offline"> <img src="Resetting%20Fuse%20Bits%20in%20ATMEGA328%20Microcontroller_files/avatar160930_31.gif" alt="alexan_e's Avatar" title="alexan_e's Avatar"> </a> <hr> <dl class="userinfo_extra"> <dt>Join Date</dt> <dd>Mar 2008</dd> <dt>Location</dt> <dd>Greece</dd> <dt>Posts</dt> <dd>11,308</dd> <dt>Helped</dt> <dd>2036 / 2036</dd> <dt>Points</dt> <dd>36,726</dd><dt>Level</dt> <dd>46</dd><dt>Blog Entries</dt><dd><a href="http://www.edaboard.com/blog160930.html">6</a></dd> </dl> <div class="imlinks"> </div> </div> <div class="postbody"> <div class="postrow has_after_content"> <h2 class="title icon"> <!-- google_ad_section_start -->Re: Resetting Fuse Bits in ATMEGA328 Microcontroller<!-- google_ad_section_end --> </h2> <div class="content"> <div id="post_message_1199356"> <blockquote class="postcontent restore "> <!-- google_ad_section_start -->In you mean applying an external clock to XTAL1 then yes.<!-- google_ad_section_end --> </blockquote> </div> </div> </div> <div class="after_content"> <blockquote class="signature restore"><div class="signaturecontainer"><!-- google_ad_section_start(weight=ignore) --><font size="2"><font color="#A52A2A"><b>Please
+ don't make requests for help in private using PM. Create a thread in 
+the forum so that other members can benefit from the posted answers.</b></font></font><br> <br> <b><font color="#008000"><a href="http://www.catb.org/%7Eesr/faqs/smart-questions.html" target="_blank" rel="nofollow">Consider reading this before posting : How To Ask Questions The Smart Way</a></font></b><!-- google_ad_section_end --></div></blockquote> </div> <div id="helpfulanswers_box_1199356" style="font-size: 11px; text-align:left; padding-left: 10px;"> <br><hr style="color:$stylevar[tborder_bgcolor]" size="1"> </div> <div class="cleardiv"></div> </div> </div> <div class="postfoot">  <div class="textcontrols floatcontainer"> <span class="postcontrols"> <img style="display:none" id="progress_1199356" src="Resetting%20Fuse%20Bits%20in%20ATMEGA328%20Microcontroller_files/progress.gif" alt=""> <a id="qrwq_1199356" class="newreply" href="http://www.edaboard.com/newreply.php?do=newreply&amp;p=1199356" rel="nofollow" title="Reply With Quote"><img title="Reply With Quote" id="quoteimg_1199356" src="Resetting%20Fuse%20Bits%20in%20ATMEGA328%20Microcontroller_files/clear.gif" alt="Reply With Quote">  Reply With Quote</a> </span> <span class="postlinking"> </span>  </div> </div> <hr> </li> <li class="postbitlegacy postbitim postcontainer old" id="post_1199406">  <div class="posthead"> <span class="postdate old"> <span class="date">12th February 2013,&nbsp;<span class="time">20:16</span></span> </span> <span class="nodecontrols"> <a name="post1199406" href="http://www.edaboard.com/thread260690.html#post1199406" class="postcounter">#16</a><a id="postcount1199406" name="16"></a> </span> </div> <div class="postdetails"> <div class="userinfo"> <div class="username_container"> <div id="yui-gen27" class="popupmenu memberaction"> <a class="username offline "><strong><!-- google_ad_section_start(weight=ignore) -->alro<!-- google_ad_section_end --></strong></a> </div> <img title="alro is offline" class="inlineimg onlinestatus" src="Resetting%20Fuse%20Bits%20in%20ATMEGA328%20Microcontroller_files/user-offline.png" alt="alro is offline" border="0"> </div> <span class="usertitle">
+				Newbie level 2
+			</span> <span class="rank"><img src="Resetting%20Fuse%20Bits%20in%20ATMEGA328%20Microcontroller_files/alevel2.gif" alt="" border=""></span> <div style="width:102px; height:4px;"></div> <div title="Points: 16, Level: 1" style="width:102px; height:11px; margin-bottom:2px; background-image:url(http://www.edaboard.com/xperience/progress/blue_faded.png);"> <div title="Points: 16, Level: 1" style="width:1px; height:11px; margin-bottom:2px; background-image:url(http://www.edaboard.com/xperience/progress/blue_left.png); display:inline; float:left;"></div> <div title="Points: 16, Level: 1" style="width:1px; height:11px; margin-bottom:2px; background-image:url(http://www.edaboard.com/xperience/progress/blue_right.png); display:inline; float:right;"></div> <img title="Points: 16, Level: 1" alt="Points: 16, Level: 1" src="Resetting%20Fuse%20Bits%20in%20ATMEGA328%20Microcontroller_files/blue.png" align="left" height="11" width="1"> </div> <hr> <dl class="userinfo_extra"> <dt>Join Date</dt> <dd>Feb 2013</dd> <dt>Posts</dt> <dd>2</dd> <dt>Helped</dt> <dd>0 / 0</dd> <dt>Points</dt> <dd>16</dd><dt>Level</dt> <dd>1</dd> </dl> <div class="imlinks"> </div> </div> <div class="postbody"> <div class="postrow"> <h2 class="title icon"> <!-- google_ad_section_start -->Re: Resetting Fuse Bits in ATMEGA328 Microcontroller<!-- google_ad_section_end --> </h2> <div class="content"> <div id="post_message_1199406"> <blockquote class="postcontent restore "> <!-- google_ad_section_start -->Thanks, I use this diagram?<br> <br>
+Sorry for my english.<br> <br>
+Thanks.<br> <br> <a href="http://www.edaboard.com/attachments/86918d1360700159-averia-mega.jpg" title="Name:  Averia Mega.jpg
+Views: 11
+Size:  13.4 KB">Averia Mega.jpg</a><!-- google_ad_section_end --> </blockquote> </div> </div> </div> <div id="helpfulanswers_box_1199406" style="font-size: 11px; text-align:left; padding-left: 10px;"> <br><hr style="color:$stylevar[tborder_bgcolor]" size="1"> </div> <div class="cleardiv"></div> </div> </div> <div class="postfoot">  <div class="textcontrols floatcontainer"> <span class="postcontrols"> <img style="display:none" id="progress_1199406" src="Resetting%20Fuse%20Bits%20in%20ATMEGA328%20Microcontroller_files/progress.gif" alt=""> <a id="qrwq_1199406" class="newreply" href="http://www.edaboard.com/newreply.php?do=newreply&amp;p=1199406" rel="nofollow" title="Reply With Quote"><img title="Reply With Quote" id="quoteimg_1199406" src="Resetting%20Fuse%20Bits%20in%20ATMEGA328%20Microcontroller_files/clear.gif" alt="Reply With Quote">  Reply With Quote</a> </span> <span class="postlinking"> </span>  </div> </div> <hr> </li> <li class="postbitlegacy postbitim postcontainer old" id="post_1199422">  <div class="posthead"> <span class="postdate old"> <span class="date">12th February 2013,&nbsp;<span class="time">20:58</span></span> </span> <span class="nodecontrols"> <a name="post1199422" href="http://www.edaboard.com/thread260690.html#post1199422" class="postcounter">#17</a><a id="postcount1199422" name="17"></a> </span> </div> <div class="postdetails"> <div class="userinfo"> <div class="username_container"> <div id="yui-gen28" class="popupmenu memberaction"> <a class="username offline "><strong><!-- google_ad_section_start(weight=ignore) --><span style="color: blue;">alexan_e</span><!-- google_ad_section_end --></strong></a> </div> <img title="alexan_e is offline" class="inlineimg onlinestatus" src="Resetting%20Fuse%20Bits%20in%20ATMEGA328%20Microcontroller_files/user-offline.png" alt="alexan_e is offline" border="0"> </div> <span class="usertitle">
+				Super Moderator
+			</span> <span class="rank"><img src="Resetting%20Fuse%20Bits%20in%20ATMEGA328%20Microcontroller_files/hlevel4.gif" alt="" border=""></span> <div style="width:102px; height:4px;"></div> <div title="Points: 36,726, Level: 46" style="width:102px; height:11px; margin-bottom:2px; background-image:url(http://www.edaboard.com/xperience/progress/blue_faded.png);"> <div title="Points: 36,726, Level: 46" style="width:1px; height:11px; margin-bottom:2px; background-image:url(http://www.edaboard.com/xperience/progress/blue_left.png); display:inline; float:left;"></div> <div title="Points: 36,726, Level: 46" style="width:1px; height:11px; margin-bottom:2px; background-image:url(http://www.edaboard.com/xperience/progress/blue_right.png); display:inline; float:right;"></div> <img title="Points: 36,726, Level: 46" alt="Points: 36,726, Level: 46" src="Resetting%20Fuse%20Bits%20in%20ATMEGA328%20Microcontroller_files/blue.png" align="left" height="11" width="46"> </div> <span class="usertitle">
+Achievements:<br> <img style="vertical-align: middle;" src="Resetting%20Fuse%20Bits%20in%20ATMEGA328%20Microcontroller_files/pictures_16.png" alt="Created Album pictures" title="Created Album pictures" border="0" height="16" width="16"><img style="vertical-align: middle;" src="Resetting%20Fuse%20Bits%20in%20ATMEGA328%20Microcontroller_files/news_16.png" alt="Created Blog entry" title="Created Blog entry" border="0" height="16" width="16"><img style="vertical-align: middle;" src="Resetting%20Fuse%20Bits%20in%20ATMEGA328%20Microcontroller_files/calendar_newred_7_16.png" alt="7 years registered" title="7 years registered" border="0" height="16" width="16"> </span> <a class="postuseravatar" title="alexan_e is offline"> <img src="Resetting%20Fuse%20Bits%20in%20ATMEGA328%20Microcontroller_files/avatar160930_31.gif" alt="alexan_e's Avatar" title="alexan_e's Avatar"> </a> <hr> <dl class="userinfo_extra"> <dt>Join Date</dt> <dd>Mar 2008</dd> <dt>Location</dt> <dd>Greece</dd> <dt>Posts</dt> <dd>11,308</dd> <dt>Helped</dt> <dd>2036 / 2036</dd> <dt>Points</dt> <dd>36,726</dd><dt>Level</dt> <dd>46</dd><dt>Blog Entries</dt><dd><a href="http://www.edaboard.com/blog160930.html">6</a></dd> </dl> <div class="imlinks"> </div> </div> <div class="postbody"> <div class="postrow has_after_content"> <h2 class="title icon"> <!-- google_ad_section_start -->Re: Resetting Fuse Bits in ATMEGA328 Microcontroller<!-- google_ad_section_end --> </h2> <div class="content"> <div id="post_message_1199422"> <blockquote class="postcontent restore "> <!-- google_ad_section_start -->Yes , that is correct when you have set the clock to use an external crystal.<br>
+If you set the fuses to a wrong setting then disconnect the crystal and 
+the capacitors and connect an external clock to XTAL1 in order to 
+reprogram the fuses of the mcu to a correct value.<!-- google_ad_section_end --> </blockquote> </div> </div> </div> <div class="after_content"> <blockquote class="signature restore"><div class="signaturecontainer"><!-- google_ad_section_start(weight=ignore) --><font size="2"><font color="#A52A2A"><b>Please
+ don't make requests for help in private using PM. Create a thread in 
+the forum so that other members can benefit from the posted answers.</b></font></font><br> <br> <b><font color="#008000"><a href="http://www.catb.org/%7Eesr/faqs/smart-questions.html" target="_blank" rel="nofollow">Consider reading this before posting : How To Ask Questions The Smart Way</a></font></b><!-- google_ad_section_end --></div></blockquote> </div> <div id="helpfulanswers_box_1199422" style="font-size: 11px; text-align:left; padding-left: 10px;"> <br><hr style="color:$stylevar[tborder_bgcolor]" size="1"> </div> <div class="cleardiv"></div> </div> </div> <div class="postfoot">  <div class="textcontrols floatcontainer"> <span class="postcontrols"> <img style="display:none" id="progress_1199422" src="Resetting%20Fuse%20Bits%20in%20ATMEGA328%20Microcontroller_files/progress.gif" alt=""> <a id="qrwq_1199422" class="newreply" href="http://www.edaboard.com/newreply.php?do=newreply&amp;p=1199422" rel="nofollow" title="Reply With Quote"><img title="Reply With Quote" id="quoteimg_1199422" src="Resetting%20Fuse%20Bits%20in%20ATMEGA328%20Microcontroller_files/clear.gif" alt="Reply With Quote">  Reply With Quote</a> </span> <span class="postlinking"> </span>  </div> </div> <hr> </li> </ol> <div class="separator"></div> <div class="postlistfoot"> </div> </div> <div id="below_postlist" class="noinlinemod below_postlist"> <a href="http://www.edaboard.com/newthread.php?do=newthread&amp;f=31" rel="nofollow" class="newcontent_textcontrol" id="newthreadlink_top"><span>+</span> Post New Thread</a> <div id="pagination_bottom" class="pagination_bottom">
+
+
+ Please login
+
+
+	
+		
+	</div> </div>  <div class="navlinks"> <strong>«</strong> <a href="http://www.edaboard.com/thread279619.html">Connecting gsm and gps modules to arduino</a>
+			|
+			<a href="http://www.edaboard.com/thread280085.html">ARM CORTEX M3 : Web client application [REQUEST]</a> <strong>»</strong> </div>  <div id="thread_info" class="thread_info block"> <div id="similar_threads"> <h4 class="threadinfohead blockhead">Similar Threads</h4> <div id="similar_threads_list" class="thread_info_block blockbody formcontrols"> <ol class="similar_threads"> <li class="floatcontainer"> <div class="titleblock" style="margin-bottom: -10px;"> <h6 style="font-size: 11px; font-weight: normal;"><a href="http://www.edaboard.com/thread257948.html" title="hii .  
+i write a wrong fuse bit for my atmega8 . 
+and i can't programming it via  my usb asp programmer . 
+and in data sheet i find an parralel ...">Resetting fuse bit in ATmega8</a> (5)</h6> </div> </li> <li class="floatcontainer"> <div class="titleblock" style="margin-bottom: -10px;"> <h6 style="font-size: 11px; font-weight: normal;"><a href="http://www.edaboard.com/thread232326.html" title="HI..................................................................................................................... 
+ 
+I use ATMEGA16A...">AVR ATMEGA16 FUSE BITs</a> (3)</h6> </div> </li> <li class="floatcontainer"> <div class="titleblock" style="margin-bottom: -10px;"> <h6 style="font-size: 11px; font-weight: normal;"><a href="http://www.edaboard.com/thread229871.html" title="Hi, need me help. 
+I make programmer for AVR microcontrollers, with ATmega8.But I'm not sure whether I correctly set fuse bits. I am read datasheet...">Fuse bits for ATmega8</a> (6)</h6> </div> </li> <li class="floatcontainer"> <div class="titleblock" style="margin-bottom: -10px;"> <h6 style="font-size: 11px; font-weight: normal;"><a href="http://www.edaboard.com/thread188045.html" title="hi experts  
+is there any software to calculate atmega fuse bits for different parameters if yes pls post here otherwise i want list for external...">atmega fuse bits list</a> (4)</h6> </div> </li> <li class="floatcontainer"> <div class="titleblock" style="margin-bottom: -10px;"> <h6 style="font-size: 11px; font-weight: normal;"><a href="http://www.edaboard.com/thread119169.html" title="In avr microcontroller if i m using crystal oscillator above 8 MHz then i hv to set its fuse bits how can i do it??">how to set fuse bits in AVR microcontroller???</a> (1)</h6> </div> </li> </ol> <br> </div> </div> <div class="options_block_container"> </div> </div> </div> </div> <div id="sidebar_container" class="sidebarleft" style="padding-top:0px !important; "> <a id="sidebar_button_link" href="#"> <img id="sidebar_button" src="Resetting%20Fuse%20Bits%20in%20ATMEGA328%20Microcontroller_files/tab-collapsed-left.png" alt=""> </a> <ul id="sidebar"> <li> <div class="block smaller"> <div class="blocksubhead"> <a class="collapse" id="collapse_block_html_17" href="http://www.edaboard.com/thread260690.html#top"><img alt="" src="Resetting%20Fuse%20Bits%20in%20ATMEGA328%20Microcontroller_files/collapse_40b.png" id="collapseimg_html_17"></a> <span class="blocktitle">Welcome to EDABoard.com</span> </div> <div class="widget_content blockbody floatcontainer"> <div id="block_html_17" class="blockrow" style="padding:3px;"> <div style="width:300;align:center"> <script type="text/javascript" language="JavaScript">
+  aj_server = 'http://ads.designworldonline.com/servlet/ajrotator/'; aj_tagver = '1.0';
+  aj_zone = 'designw'; aj_adspot = '1409741'; aj_page = '0'; aj_dim ='195515'; aj_ch = ''; aj_ct = ''; aj_kw = 'forum31';
+  aj_pv = true; aj_click = '';
+</script><script type="text/javascript" language="JavaScript" src="Resetting%20Fuse%20Bits%20in%20ATMEGA328%20Microcontroller_files/ajtg.js"></script><script type="text/javascript" src="Resetting%20Fuse%20Bits%20in%20ATMEGA328%20Microcontroller_files/vj_005.js"></script><script language="JavaScript1.1" src="Resetting%20Fuse%20Bits%20in%20ATMEGA328%20Microcontroller_files/a_003">
+</script><div class="GoogleActiveViewClass" id="DfaVisibilityIdentifier_501645621754326628"><!-- Copyright 2014 DoubleClick, a division of Google Inc. All rights reserved. -->
+<!-- Code auto-generated on Thu Oct 02 07:13:51 PDT 2014 -->
+<script src="Resetting%20Fuse%20Bits%20in%20ATMEGA328%20Microcontroller_files/flashwrite_1_2.js"></script>
+<object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" id="DCF282292431" height="250" width="300"><param name="movie" value="http://s0.2mdn.net/2211385/HPA_PA_AMP_REF2025_300x250.swf"><param name="flashvars" value="moviePath=http://s0.2mdn.net/2211385/&amp;moviepath=http://s0.2mdn.net/2211385/&amp;clickTag=http%3A//adclick.g.doubleclick.net/pcs/click%3Fxai%3DAKAOjssf0t8fD05o9tem7FcDKxAgMRJ_vd2VYZRWS-rVHSZBRfAWS2RgPJ9t5KczNPqo_46KcYmiTl9JufptUPzZ5Qeju1wRK-_uWPU%26sig%3DCg0ArKJSzETUenqplxHzEAE%26adurl%3Dhttp%3A//ads.designworldonline.com/servlet/ajrotator/1409741/0/cj/V126863FFD6J-573J8050L1924291671765E700175FDC00172F18QL195515QQL5104260G1G7W7forum310G0Q0CCA4FAE000001010000G036/http%3A//www.ti.com/hpa-pa-opamp-ref2025-bs-pf-en"><param name="quality" value="high"><param name="wmode" value="opaque"><param name="base" value="http://s0.2mdn.net/2211385"><param name="AllowScriptAccess" value="always"><embed src="Resetting%20Fuse%20Bits%20in%20ATMEGA328%20Microcontroller_files/HPA_PA_AMP_REF2025_300x250.swf" flashvars="moviePath=http://s0.2mdn.net/2211385/&amp;moviepath=http://s0.2mdn.net/2211385/&amp;clickTag=http%3A//adclick.g.doubleclick.net/pcs/click%3Fxai%3DAKAOjssf0t8fD05o9tem7FcDKxAgMRJ_vd2VYZRWS-rVHSZBRfAWS2RgPJ9t5KczNPqo_46KcYmiTl9JufptUPzZ5Qeju1wRK-_uWPU%26sig%3DCg0ArKJSzETUenqplxHzEAE%26adurl%3Dhttp%3A//ads.designworldonline.com/servlet/ajrotator/1409741/0/cj/V126863FFD6J-573J8050L1924291671765E700175FDC00172F18QL195515QQL5104260G1G7W7forum310G0Q0CCA4FAE000001010000G036/http%3A//www.ti.com/hpa-pa-opamp-ref2025-bs-pf-en" type="application/x-shockwave-flash" quality="high" swliveconnect="true" wmode="opaque" name="DCF282292431" base="http://s0.2mdn.net/2211385" allowscriptaccess="always" height="250" width="300"></object>
+<noscript><a target="_blank" href="http://adclick.g.doubleclick.net/pcs/click?xai=AKAOjssf0t8fD05o9tem7FcDKxAgMRJ_vd2VYZRWS-rVHSZBRfAWS2RgPJ9t5KczNPqo_46KcYmiTl9JufptUPzZ5Qeju1wRK-_uWPU&sig=Cg0ArKJSzETUenqplxHzEAE&adurl=http://ads.designworldonline.com/servlet/ajrotator/1409741/0/cj/V126863FFD6J-573J8050L1924291671765E700175FDC00172F18QL195515QQL5104260G1G7W7forum310G0Q0CCA4FAE000001010000G036/http://www.ti.com/hpa-pa-opamp-ref2025-bs-pf-en"><img src="http://s0.2mdn.net/2211385/HPA_PA_AMP_REF2025_300x250.gif" width="300" height="250" border="0" alt="Advertisement" galleryimg="no"></a></noscript>
+
+</div>
+<noscript>
+<A HREF="http://ads.designworldonline.com/servlet/ajrotator/1409741/0/cj/V126863FFD6J-573J8050L1924291671765E700175FDC00172F18QL195515QQL5104260G1G7W7forum310G0Q0CCA4FAE000001010000G036/http://ad.doubleclick.net/jump/N5744.1785852.EDABOARD.COM/B7196217.109095037;sz=300x250;ord=510426?">
+<IMG SRC="http://ad.doubleclick.net/ad/N5744.1785852.EDABOARD.COM/B7196217.109095037;sz=300x250;ord=510426?" BORDER=0 WIDTH=300 HEIGHT=250 ALT="Advertisement"></A>
+</noscript> </div> </div> </div> </div> <div class="underblock"></div> </li> <li> <div class="block smaller"> <div class="blocksubhead"> <a class="collapse" id="collapse_block_html_22" href="http://www.edaboard.com/thread260690.html#top"><img alt="" src="Resetting%20Fuse%20Bits%20in%20ATMEGA328%20Microcontroller_files/collapse_40b.png" id="collapseimg_html_22"></a> <span class="blocktitle">EDA Resources</span> </div> <div class="widget_content blockbody floatcontainer"> <div id="block_html_22" class="blockrow" style="padding:3px;"> <iframe noresize="" scrolling="No" marginheight="0" marginwidth="0" src="Resetting%20Fuse%20Bits%20in%20ATMEGA328%20Microcontroller_files/vh.html" frameborder="0" height="50" width="300">&lt;script
+ language=JavaScript 
+src="http://ads.designworldonline.com/servlet/ajrotator/1466256/0/vj?z=designw&amp;dim=1466255&amp;kw=&amp;click=&amp;abr=$scriptiniframe"&gt;&lt;/script&gt;&lt;noscript&gt;&lt;a
+ 
+href="http://ads.designworldonline.com/servlet/ajrotator/1466256/0/cc?z=designw"&gt;&lt;img
+ 
+src="http://ads.designworldonline.com/servlet/ajrotator/1466256/0/vc?z=designw&amp;dim=1466255&amp;kw=&amp;click=&amp;abr=$imginiframe"
+ width="300" height="50" border="0"&gt;&lt;/a&gt;&lt;/noscript&gt;</iframe> <br> </div> </div> </div> <div class="underblock"></div> </li> <li> <div class="block smaller"> <div class="blocksubhead"> <a class="collapse" id="collapse_block_newthreads_7" href="http://www.edaboard.com/thread260690.html#top"><img alt="" src="Resetting%20Fuse%20Bits%20in%20ATMEGA328%20Microcontroller_files/collapse_40b.png" id="collapseimg_newthreads_7"></a> <img src="Resetting%20Fuse%20Bits%20in%20ATMEGA328%20Microcontroller_files/widget-forum.png" alt=""> <span class="blocktitle">Threads Without Replies</span> </div> <div id="block_newthreads_7" class="blockbody floatcontainer"> <ul class="blockrow"> <li class="noavatarcontent floatcontainer" style="text-align: center;"> <a rel="nofollow" href="http://www.edaboard.com/search.php?do=process&amp;search_type=1&amp;contenttype=vBForum_Post&amp;replyless=1&amp;replylimit=0">[ Unanswered Posts ]</a> </li> <li class="noavatarcontent floatcontainer"> <div class="smallavatartext"> <a href="http://www.edaboard.com/thread325743.html" class="title">High speed signals through long routing.</a> <br> <p style="font-size: 11px; margin-top: 3px; margin-bottom: 3px;">Hi all 
+ 
+I need to pass high speed clock through long layout routing and i want my dutycycle to be in minimum variation. 
+ 
+I am using buffers for this. But across the corners duty cycle varies...</p> <div class="meta"> <span class="left">Posted By <a rel="nofollow" href="http://www.edaboard.com/member459906.html">kenambo</a>.&nbsp;</span> <span>Today <span class="time">12:42</span></span> in <a href="http://www.edaboard.com/forum39.html">Analog IC Design and Layout</a> </div> </div> </li> <li class="noavatarcontent floatcontainer"> <div class="smallavatartext"> <a href="http://www.edaboard.com/thread325742.html" class="title">Reading From ADC atmega32</a> <br> <p style="font-size: 11px; margin-top: 3px; margin-bottom: 3px;">i
+ am using Atmega32 ADC to measure a 5V analog voltage. 
+i want to make an ADC conversation using ADMUX=0x40 (AVCC ref.) So I 
+used the below code and I attached the AREF pin(number pin=32)to VCC. 
+(I...</p> <div class="meta"> <span class="left">Posted By <a rel="nofollow" href="http://www.edaboard.com/member553772.html">Bluestar88</a>.&nbsp;</span> <span>Today <span class="time">12:37</span></span> in <a href="http://www.edaboard.com/forum31.html">Microcontrollers</a> </div> </div> </li> <li class="noavatarcontent floatcontainer"> <div class="smallavatartext"> <a href="http://www.edaboard.com/thread325741.html" class="title">Service pin on microcontroller?</a> <br> <p style="font-size: 11px; margin-top: 3px; margin-bottom: 3px;">Hi 
+What is a service pin used for. In the datasheet it says: 
+I/O (Built-In Configurable Pull up)           Service pin (active LOW). Alternates between input and output at a 76-Hz rate. 
+But I...</p> <div class="meta"> <span class="left">Posted By <a rel="nofollow" href="http://www.edaboard.com/member542505.html">bosskardo</a>.&nbsp;</span> <span>Today <span class="time">12:34</span></span> in <a href="http://www.edaboard.com/forum31.html">Microcontrollers</a> </div> </div> </li> <li class="noavatarcontent floatcontainer"> <div class="smallavatartext"> <a href="http://www.edaboard.com/thread325740.html" class="title">About buck boost converter in one circuit</a> <br> <p style="font-size: 11px; margin-top: 3px; margin-bottom: 3px;">Hello  
+please how can i design the buck-boost circuit  
+i have been designed as this circuit but the value of (l.r.c)  hard to get it  
+ 
+i just want the equation if u have  
+my project about the...</p> <div class="meta"> <span class="left">Posted By <a rel="nofollow" href="http://www.edaboard.com/member543291.html">Ahmed Kh</a>.&nbsp;</span> <span>Today <span class="time">12:25</span></span> in <a href="http://www.edaboard.com/forum38.html">Analog Circuit Design</a> </div> </div> </li> <li class="noavatarcontent floatcontainer"> <div class="smallavatartext"> <a href="http://www.edaboard.com/thread325737.html" class="title">gprs tcp not connected using sim900d</a> <br> <p style="font-size: 11px; margin-top: 3px; margin-bottom: 3px;">i
+ use all code from datasheet and also taken from net every command gives
+ right response as desired but i type 
+AT+CIPSTART="TCP","xxx.xxx.x.xx","xxxx"//ip and port 
+the response should be ok connect...</p> <div class="meta"> <span class="left">Posted By <a rel="nofollow" href="http://www.edaboard.com/member483425.html">engineer khan</a>.&nbsp;</span> <span>Today <span class="time">12:03</span></span> in <a href="http://www.edaboard.com/forum31.html">Microcontrollers</a> </div> </div> </li> </ul> </div> </div> <div class="underblock"></div> </li><li> <div class="block smaller"> <div class="blocksubhead"> <a class="collapse" id="collapse_block_html_16" href="http://www.edaboard.com/thread260690.html#top"><img alt="" src="Resetting%20Fuse%20Bits%20in%20ATMEGA328%20Microcontroller_files/collapse_40b.png" id="collapseimg_html_16"></a> <span class="blocktitle">Sponsor</span> </div> <div class="widget_content blockbody floatcontainer"> <div id="block_html_16" class="blockrow" style="padding:3px;"> <div style="width:300;align:center"> <script type="text/javascript" language="JavaScript">
+  aj_server = 'http://ads.designworldonline.com/servlet/ajrotator/'; aj_tagver = '1.0';
+  aj_zone = 'designw'; aj_adspot = '1432142'; aj_page = '0'; aj_dim ='195515'; aj_ch = ''; aj_ct = ''; aj_kw = '';
+  aj_pv = true; aj_click = '';
+</script><script type="text/javascript" language="JavaScript" src="Resetting%20Fuse%20Bits%20in%20ATMEGA328%20Microcontroller_files/ajtg.js"></script><script type="text/javascript" src="Resetting%20Fuse%20Bits%20in%20ATMEGA328%20Microcontroller_files/vj_006.js"></script><a href="http://ads.designworldonline.com/servlet/ajrotator/1432142/0/cj?ajkey=V12ACCD7988J-573J8050L1924291671765E700172ADA001653F0QL195515QQP0G00G0Q0CCA4FAF000001010000G02C" target="_blank"><img src="Resetting%20Fuse%20Bits%20in%20ATMEGA328%20Microcontroller_files/1409249166099_300x250.jpg" alt="" border="0" height="250" width="300"></a> </div> </div> </div> </div> <div class="underblock"></div> </li> <li> <div class="block smaller"> <div class="blocksubhead"> <a class="collapse" id="collapse_block_newthreads_8" href="http://www.edaboard.com/thread260690.html#top"><img alt="" src="Resetting%20Fuse%20Bits%20in%20ATMEGA328%20Microcontroller_files/collapse_40b.png" id="collapseimg_newthreads_8"></a> <img src="Resetting%20Fuse%20Bits%20in%20ATMEGA328%20Microcontroller_files/widget-forum.png" alt=""> <span class="blocktitle">New Replies</span> </div> <div class="widget_content blockbody floatcontainer"> <ul id="block_newthreads_8" class="blockrow"> <li style="margin-bottom: 3px;"> <div> <a href="http://www.edaboard.com/thread325736.html" class="title">SIM900A AT Commands to connect to TCP server over GPRS</a> (1)
+
+
+
+				</div> </li> <li style="margin-bottom: 3px;"> <div> <a href="http://www.edaboard.com/thread325112.html" class="title">Need help making or finding really simple circuit - huge noob</a> (9)
+
+
+
+				</div> </li> <li style="margin-bottom: 3px;"> <div> <a href="http://www.edaboard.com/thread325437.html" class="title">Choice of Hardware for SATA</a> (7)
+
+
+
+				</div> </li> <li style="margin-bottom: 3px;"> <div> <a href="http://www.edaboard.com/thread325681.html" class="title">Pic32mx795f512l Portf configuration :???:</a> (6)
+
+
+
+				</div> </li> <li style="margin-bottom: 3px;"> <div> <a href="http://www.edaboard.com/thread325682.html" class="title">How to find desired AC Voltage Source and Ground Symbol Using KiCAD</a> (2)
+
+
+
+				</div> </li> <li style="margin-bottom: 3px;"> <div> <a href="http://www.edaboard.com/thread325582.html" class="title">Review of First PCB Layout</a> (8)
+
+
+
+				</div> </li> <li style="margin-bottom: 3px;"> <div> <a href="http://www.edaboard.com/thread325726.html" class="title">How to measure SNR in XFDTD REMCOM?</a> (2)
+
+
+
+				</div> </li> <li style="margin-bottom: 3px;"> <div> <a href="http://www.edaboard.com/thread325639.html" class="title">Pierce oscilaltor level adjustment</a> (8)
+
+
+
+				</div> </li> <li style="margin-bottom: 3px;"> <div> <a href="http://www.edaboard.com/thread325372.html" class="title">SIM900A - Data base problem</a> (1)
+
+
+
+				</div> </li> <li style="margin-bottom: 3px;"> <div> <a href="http://www.edaboard.com/thread325677.html" class="title">current sensing through acs712-30a</a> (4)
+
+
+
+				</div> </li> <li style="margin-bottom: 3px;"> <div> <a href="http://www.edaboard.com/thread325727.html" class="title">REG:Layout Doubts as i am new to it.</a> (2)
+
+
+
+				</div> </li> <li style="margin-bottom: 3px;"> <div> <a href="http://www.edaboard.com/thread325712.html" class="title">TTL VS Cmos , advantages and disadvantages</a> (2)
+
+
+
+				</div> </li> <li style="margin-bottom: 3px;"> <div> <a href="http://www.edaboard.com/thread325728.html" class="title">Electric arc simulator</a> (1)
+
+
+
+				</div> </li> <li style="margin-bottom: 3px;"> <div> <a href="http://www.edaboard.com/thread325631.html" class="title">Analogue voltage detector</a> (9)
+
+
+
+				</div> </li> <li style="margin-bottom: 3px;"> <div> <a href="http://www.edaboard.com/thread325692.html" class="title">Need help in MplabX and pic24f</a> (4)
+
+
+
+				</div> </li> <li style="margin-bottom: 3px;"> <div> <a href="http://www.edaboard.com/thread325680.html" class="title">[PIC]Calculation Problem</a> (3)
+
+
+
+				</div> </li> <li style="margin-bottom: 3px;"> <div> <a href="http://www.edaboard.com/thread325618.html" class="title">capacitor frequency range</a> (13)
+
+
+
+				</div> </li> <li style="margin-bottom: 3px;"> <div> <a href="http://www.edaboard.com/thread325724.html" class="title">PIC18F4550 USB Frequency Counter Interrupt Problem</a> (3)
+
+
+
+				</div> </li> <li style="margin-bottom: 3px;"> <div> <a href="http://www.edaboard.com/thread325655.html" class="title">Electronic Low Level Trip, Aquarium Sump Pump</a> (5)
+
+
+
+				</div> </li> <li style="margin-bottom: 3px;"> <div> <a href="http://www.edaboard.com/thread325500.html" class="title">lm317 3-12 volt with optocoupler</a> (18)
+
+
+
+				</div> </li> <li style="margin-bottom: 3px;"> <div> <a href="http://www.edaboard.com/thread325716.html" class="title">Cadence DC operating points</a> (1)
+
+
+
+				</div> </li> <li style="margin-bottom: 3px;"> <div> <a href="http://www.edaboard.com/thread325671.html" class="title">high to low voltage CMOS level shifter circuit</a> (3)
+
+
+
+				</div> </li> <li style="margin-bottom: 3px;"> <div> <a href="http://www.edaboard.com/thread325700.html" class="title">n port in the spectre</a> (4)
+
+
+
+				</div> </li> <li style="margin-bottom: 3px;"> <div> <a href="http://www.edaboard.com/thread325384.html" class="title">question about nokia 3310 library</a> (1)
+
+
+
+				</div> </li> <li style="margin-bottom: 3px;"> <div> <a href="http://www.edaboard.com/thread325638.html" class="title">problem in sim900 and AT command</a> (4)
+
+
+
+				</div> </li> </ul> </div> </div> <div class="underblock"></div> </li> <li> <div class="block smaller"> <div class="blocksubhead"> <a class="collapse" id="collapse_block_html_20" href="http://www.edaboard.com/thread260690.html#top"><img alt="" src="Resetting%20Fuse%20Bits%20in%20ATMEGA328%20Microcontroller_files/collapse_40b.png" id="collapseimg_html_20"></a> <span class="blocktitle">EE News, Tips and Resources</span> </div> <div class="widget_content blockbody floatcontainer"> <div id="block_html_20" class="blockrow" style="padding:3px;"> <script type="text/javascript" src="Resetting%20Fuse%20Bits%20in%20ATMEGA328%20Microcontroller_files/jsapi"> 
+
+ 
+/***********************************************
+* gAjax RSS Feeds Displayer- (c) Dynamic Drive (www.dynamicdrive.com)
+* This notice MUST stay intact for legal use
+* Visit http://www.dynamicdrive.com/ for full source code
+***********************************************/
+
+</script> <style type="text/css"> .labelfield{ /*CSS for label field in general*/ color:brown; font-size: 90%; } .datefield{ /*CSS for date field in general*/ color:gray; font-size: 90%; } #example1 li{ /*CSS specific to demo 1*/ margin-bottom: 4px; } #example2 div{ /*CSS specific to demo 2*/ margin-bottom: 5px; } #example2 div a{ /*CSS specific to demo 2*/ text-decoration: none; } #example3 a{ /*CSS specific to demo 3*/ color: #D80101; text-decoration: none; font-weight: bold; } #example3 p{ /*CSS specific to demo 3*/ margin-bottom: 2px; } code{ /*CSS for insructions*/ color: red; } </style> <script>
+ 
+var gfeedfetcher_loading_image="http://www.edaboard.com/images/indicator.gif" 
+
+google.load("feeds", "1") 
+
+function gfeedfetcher(divid, divClass, linktarget){
+	this.linktarget=linktarget || "" 
+	this.feedlabels=[] 
+	this.feedurls=[]
+	this.feeds=[] 
+	this.feedsfetched=0 
+	this.feedlimit=5
+	this.showoptions="" 
+	this.outputtemplate="{title} {label} {date}<br />{description}" 
+	this.regexprules=[] 
+	this.sortstring="date" 
+	document.write('<div id="'+divid+'" class="'+divClass+'"></div>') 
+	this.feedcontainer=document.getElementById(divid)
+	this.containertag=["li", "<li>"] 
+	this.onfeedload=function(){}
+}
+
+
+gfeedfetcher.prototype.addFeed=function(label, url){
+	this.feedlabels[this.feedlabels.length]=label
+	this.feedurls[this.feedurls.length]=url
+}
+
+gfeedfetcher.prototype.filterfeed=function(feedlimit, sortstr){
+	this.feedlimit=feedlimit
+	if (typeof sortstr!="undefined")
+	this.sortstring=sortstr
+}
+
+gfeedfetcher.prototype.displayoptions=function(parts){
+	this.showoptions=parts 
+}
+
+gfeedfetcher.prototype.definetemplate=function(str){
+	this.outputtemplate=str
+}
+
+gfeedfetcher.prototype.addregexp=function(regliteral, replacewith, field){
+	this.regexprules.push([
+		regliteral,
+		replacewith,
+		field
+	])
+}
+
+gfeedfetcher.prototype.setentrycontainer=function(containertag, cssclass){  
+	this.containertag=[containertag.toLowerCase(), '<' + containertag.toLowerCase ()+ (cssclass? ' class="'+cssclass+'"' : '') + ' >']
+}
+
+gfeedfetcher.prototype.init=function(){
+	this.feedsfetched=0 
+	this.feeds=[] 
+	this.feedcontainer.innerHTML='<img src="'+gfeedfetcher_loading_image+'" /> Retrieving RSS feed(s)'
+	var displayer=this
+	for (var i=0; i<this.feedurls.length; i++){ 
+		var feedpointer=new google.feeds.Feed(this.feedurls[i]) 
+		var items_to_show=(this.feedlimit<=this.feedurls.length)? 1 : Math.floor(this.feedlimit/this.feedurls.length) 
+		if (this.feedlimit%this.feedurls.length>0 && this.feedlimit>this.feedurls.length && i==this.feedurls.length-1) 
+			items_to_show+=(this.feedlimit%this.feedurls.length) 
+		feedpointer.setNumEntries(items_to_show) 
+		feedpointer.load(function(label){
+			return function(r){
+				displayer._fetch_data_as_array(r, label)
+			}
+		}(this.feedlabels[i])) 
+	}
+}
+
+
+gfeedfetcher._formatdate=function(datestr, showoptions){
+	var itemdate=new Date(datestr)
+	var parseddate=(showoptions.indexOf("datetime")!=-1)? itemdate.toLocaleString() : (showoptions.indexOf("date")!=-1)? itemdate.toLocaleDateString() : (showoptions.indexOf("time")!=-1)? itemdate.toLocaleTimeString() : ""
+	return "<span class='datefield'>"+parseddate+"</span>\n"
+}
+
+gfeedfetcher._sortarray=function(arr, sortstr){
+	var sortstr=(sortstr=="label")? "ddlabel" : sortstr 
+	if (sortstr=="title" || sortstr=="ddlabel"){ 
+		arr.sort(function(a,b){
+		var fielda=a[sortstr].toLowerCase()
+		var fieldb=b[sortstr].toLowerCase()
+		return (fielda<fieldb)? -1 : (fielda>fieldb)? 1 : 0
+		})
+	}
+	else{ 
+		try{
+			arr.sort(function(a,b){return new Date(b.publishedDate)-new Date(a.publishedDate)})
+		}
+		catch(err){}
+	}
+}
+
+gfeedfetcher.prototype._fetch_data_as_array=function(result, ddlabel){	
+	var thisfeed=(!result.error)? result.feed.entries : "" 
+	if (thisfeed==""){ 
+		this._signaldownloadcomplete()
+		return
+	}
+	for (var i=0; i<thisfeed.length; i++){ 
+		result.feed.entries[i].ddlabel=ddlabel 
+	}
+	this.feeds=this.feeds.concat(thisfeed) 
+	this._signaldownloadcomplete() 
+}
+
+gfeedfetcher.prototype._signaldownloadcomplete=function(){
+	this.feedsfetched+=1
+	if (this.feedsfetched==this.feedurls.length){ 
+		this._displayresult(this.feeds) 
+		this.onfeedload()
+	}
+}
+
+
+gfeedfetcher.prototype._displayresult=function(feeds){
+	var rssoutput=(this.containertag[0]=="li")? "<ul>\n" : ""
+	gfeedfetcher._sortarray(feeds, this.sortstring)
+	var itemurl=[], itemtitle=[], itemlabel=[], itemdate=[], itemdescription=[]
+	for (var i=0; i<feeds.length; i++){
+		itemurl.push(feeds[i].link)
+		itemtitle.push('<span class="titlefield"><a href="' + feeds[i].link + '" target="' + this.linktarget + '">' + feeds[i].title + '</a></span>\n')
+		itemlabel.push(/label/i.test(this.showoptions)? '<span class="labelfield">'+this.feeds[i].ddlabel+'</span>\n' : "")
+		itemdate.push(gfeedfetcher._formatdate(feeds[i].publishedDate, this.showoptions))
+		var itemdescriptionsingle=/description/i.test(this.showoptions)? feeds[i].content : /snippet/i.test(this.showoptions)? feeds[i].contentSnippet  : ""
+		itemdescriptionsingle=(itemdescriptionsingle!="")? '<span class="descriptionfield">' + itemdescriptionsingle + '</span>\n' : ""
+		itemdescription.push(itemdescriptionsingle)
+	}
+ 	
+	var holder={urlfield: itemurl, titlefield: itemtitle, labelfield: itemlabel, datefield: itemdate, descriptionfield: itemdescription}
+	var regexprules=this.regexprules
+	for (var i=(this.regexprules && this.regexprules.length>0? this.regexprules.length-1 : -1); i>=0; i--){ 
+		if (regexprules[i][2]=="titlefield" || regexprules[i][2]=="labelfield" || regexprules[i][2]=="datefield" || regexprules[i][2]=="descriptionfield"){
+			var targetarray=holder[regexprules[i][2]] 
+			targetarray=targetarray.join('***delimiter***') 
+				.replace(regexprules[i][0], regexprules[i][1])
+				.split('***delimiter***') 
+			holder[regexprules[i][2]]=targetarray
+			regexprules.splice(i,1) 
+		}
+	}
+	for (var i=0; i<feeds.length; i++){ 
+		rssoutput+= this.containertag[1] + this.outputtemplate.replace(/({title})|({url})|({label})|({date})|({description})/ig, function(m){
+			if (m == "{title}")
+				return holder.titlefield[i]
+			else if (m == "{url}")
+				return holder.urlfield[i]
+			else if (m == "{label}")
+				return holder.labelfield[i]
+			else if (m == "{date}")
+				return holder.datefield[i]
+			else if (m == "{description}")
+				return holder.descriptionfield[i]
+		}) + "</" + this.containertag[0] + ">" + "\n\n"
+	}
+	rssoutput+=(this.containertag[0]=="li")? "</ul>" : ""
+	for (var i=0; i<this.regexprules.length; i++){ 
+		rssoutput=rssoutput.replace(this.regexprules[i][0], this.regexprules[i][1])
+	}
+	this.feedcontainer.innerHTML=rssoutput
+}
+</script><script src="Resetting%20Fuse%20Bits%20in%20ATMEGA328%20Microcontroller_files/a" type="text/javascript"></script><link href="Resetting%20Fuse%20Bits%20in%20ATMEGA328%20Microcontroller_files/defaulten.css" type="text/css" rel="stylesheet"><script src="Resetting%20Fuse%20Bits%20in%20ATMEGA328%20Microcontroller_files/defaulten.js" type="text/javascript"></script> <h3>&nbsp;</h3> <script type="text/javascript">
+
+var cssfeed=new gfeedfetcher("example1", "example1class", "")
+
+cssfeed.addFeed("CSS Drive", "http://feeds.feedburner.com/microcontrollertips/QRUM") 
+
+// RANDOM 31 | REAL 31
+
+cssfeed.displayoptions("date") 
+cssfeed.setentrycontainer("li") 
+cssfeed.filterfeed(10, "ddlabel") 
+cssfeed.init() 
+</script><div id="example1" class="example1class"><ul>
+<li><span class="titlefield"><a href="http://microcontrollertips.com/now-viewing-top-five-mcu-posts-edaboard/" target="">Now Viewing: Top Five MCU Posts on EDAboard.com</a></span>
+  <span class="datefield">27/10/2014</span>
+<br></li>
+
+<li><span class="titlefield"><a href="http://microcontrollertips.com/arcv2-processor-optimized-energy-efficient-linux-apps/" target="">ARCv2 processor optimized for energy efficient Linux apps</a></span>
+  <span class="datefield">15/10/2014</span>
+<br></li>
+
+<li><span class="titlefield"><a href="http://microcontrollertips.com/dev-kit-2d-3d-gestures/" target="">Dev. kit for 2D, 3D gestures</a></span>
+  <span class="datefield">14/10/2014</span>
+<br></li>
+
+<li><span class="titlefield"><a href="http://microcontrollertips.com/monitor-i2c-communications-rs232/" target="">How To Monitor I2C Communications Through RS232</a></span>
+  <span class="datefield">11/10/2014</span>
+<br></li>
+
+<li><span class="titlefield"><a href="http://microcontrollertips.com/arm-techcon-high-energy-around-low-power-iot/" target="">ARM TechCon: High Energy Around Low-Power IoT</a></span>
+  <span class="datefield">7/10/2014</span>
+<br></li>
+
+<li><span class="titlefield"><a href="http://microcontrollertips.com/mplab-harmony-supports-32-bit-pic-mcus/" target="">MPLAB® Harmony supports all 32-bit PIC® MCUs</a></span>
+  <span class="datefield">7/10/2014</span>
+<br></li>
+
+<li><span class="titlefield"><a href="http://microcontrollertips.com/nfv-works-64-bit-arm-processor/" target="">NFV works on 64-bit ARM processor</a></span>
+  <span class="datefield">2/10/2014</span>
+<br></li>
+
+<li><span class="titlefield"><a href="http://microcontrollertips.com/verification-platform-trims-arm-boot-time/" target="">Verification platform trims ARM boot-up time</a></span>
+  <span class="datefield">2/10/2014</span>
+<br></li>
+
+<li><span class="titlefield"><a href="http://microcontrollertips.com/arm-cortex-m0-based-lpc800-processors-target-sensor-based-iot-apps/" target="">ARM Cortex-M0+-based LPC800 processors target sensor-based IoT apps</a></span>
+  <span class="datefield">2/10/2014</span>
+<br></li>
+
+<li><span class="titlefield"><a href="http://microcontrollertips.com/micro-plc-industrial-control/" target="">Micro PLC for industrial control</a></span>
+  <span class="datefield">2/10/2014</span>
+<br></li>
+
+</ul></div> <br><br> </div> </div> </div> <div class="underblock"></div> </li> <li> <div class="block smaller"> <div class="blocksubhead"> <a class="collapse" id="collapse_block_html_10" href="http://www.edaboard.com/thread260690.html#top"><img alt="" src="Resetting%20Fuse%20Bits%20in%20ATMEGA328%20Microcontroller_files/collapse_40b.png" id="collapseimg_html_10"></a> <span class="blocktitle">Recently Updated Groups</span> </div> <div class="widget_content blockbody floatcontainer"> <div id="block_html_10" class="blockrow" style="padding:3px;"> <a href="http://www.edaboard.com/group443.html">Project</a>, <a href="http://www.edaboard.com/group283.html">Cmos Layout</a>, <a href="http://www.edaboard.com/group71.html">Embedded Systems</a>, <a href="http://www.edaboard.com/group222.html">VLSI &amp; DESIGN TECHNOLOGY</a>, <a href="http://www.edaboard.com/group240.html">Cadence Design Centre</a>, <a href="http://www.edaboard.com/group208.html">Hspice Users</a>, <a href="http://www.edaboard.com/group429.html">Hierarchical DFT Methodology</a>, <a href="http://www.edaboard.com/group4.html">ASIC designer</a>, <a href="http://www.edaboard.com/group428.html">Analog IC Design</a>, <a href="http://www.edaboard.com/group422.html">Digital Standard Cell Library</a> </div> </div> </div> <div class="underblock"></div> </li> <li> <div class="block smaller"> <div class="blocksubhead"> <a class="collapse" id="collapse_block_html_18" href="http://www.edaboard.com/thread260690.html#top"><img alt="" src="Resetting%20Fuse%20Bits%20in%20ATMEGA328%20Microcontroller_files/collapse_40b.png" id="collapseimg_html_18"></a> <span class="blocktitle">Sponsor</span> </div> <div class="widget_content blockbody floatcontainer"> <div id="block_html_18" class="blockrow" style="padding:3px;"> <div style="width:300;align:center"> <script type="text/javascript" language="JavaScript">
+  aj_server = 'http://ads.designworldonline.com/servlet/ajrotator/'; aj_tagver = '1.0';
+  aj_zone = 'designw'; aj_adspot = '1442574'; aj_page = '0'; aj_dim ='195515'; aj_ch = ''; aj_ct = ''; aj_kw = '';
+  aj_pv = true; aj_click = '';
+</script><script type="text/javascript" language="JavaScript" src="Resetting%20Fuse%20Bits%20in%20ATMEGA328%20Microcontroller_files/ajtg.js"></script><script type="text/javascript" src="Resetting%20Fuse%20Bits%20in%20ATMEGA328%20Microcontroller_files/vj_003.js"></script><a href="http://ads.designworldonline.com/servlet/ajrotator/1442574/0/cj?ajkey=V12B90FEB53J-573J8050L1924291671765E70016CCDC0016A598QL195515QQP0G00G0Q0CCA4FB3000001010000G010" target="_blank"><img src="Resetting%20Fuse%20Bits%20in%20ATMEGA328%20Microcontroller_files/1402585392124_pp82-300x250.jpg" alt="" border="0" height="250" width="300"></a> </div> </div> </div> </div> <div class="underblock"></div> </li> <li> <div class="block smaller"> <div class="blocksubhead"> <a class="collapse" id="collapse_block_html_5" href="http://www.edaboard.com/thread260690.html#top"><img alt="" src="Resetting%20Fuse%20Bits%20in%20ATMEGA328%20Microcontroller_files/collapse_40b.png" id="collapseimg_html_5"></a> <span class="blocktitle">Top Helped / Month</span> </div> <div class="widget_content blockbody floatcontainer"> <div id="block_html_5" class="blockrow" style="padding:3px;"> <a rel="nofollow" href="http://www.edaboard.com/member152255.html"><span>FvM</span></a> (96), <a rel="nofollow" href="http://www.edaboard.com/member134022.html"><span>SunnySkyguy</span></a> (84), <a rel="nofollow" href="http://www.edaboard.com/member519636.html"><span>Venkadesh_M</span></a> (65), <a rel="nofollow" href="http://www.edaboard.com/member508414.html"><span>milan.rajik</span></a> (51), <a rel="nofollow" href="http://www.edaboard.com/member235638.html"><span>betwixt</span></a> (40)
+		</div> </div> </div> <div class="underblock"></div> </li> <li> <div class="block smaller"> <div class="blocksubhead"> <a class="collapse" id="collapse_block_html_6" href="http://www.edaboard.com/thread260690.html#top"><img alt="" src="Resetting%20Fuse%20Bits%20in%20ATMEGA328%20Microcontroller_files/collapse_40b.png" id="collapseimg_html_6"></a> <span class="blocktitle">Top Posters</span> </div> <div class="widget_content blockbody floatcontainer"> <div id="block_html_6" class="blockrow" style="padding:3px;"> <a rel="nofollow" href="http://www.edaboard.com/member152255.html"><span>FvM</span></a> (27901), <a rel="nofollow" href="http://www.edaboard.com/member160930.html"><span>alexan_e</span></a> (11308), <a rel="nofollow" href="http://www.edaboard.com/member257767.html"><span>keith1200rs</span></a> (10883), <a rel="nofollow" href="http://www.edaboard.com/member302142.html"><span>bigdogguru</span></a> (8170), <a rel="nofollow" href="http://www.edaboard.com/member25939.html"><span>IanP</span></a> (7943)
+		</div> </div> </div> <div class="underblock"></div> </li> <li> <div class="block smaller"> <div class="blocksubhead"> <a class="collapse" id="collapse_block_html_3" href="http://www.edaboard.com/thread260690.html#top"><img alt="" src="Resetting%20Fuse%20Bits%20in%20ATMEGA328%20Microcontroller_files/collapse_40b.png" id="collapseimg_html_3"></a> <span class="blocktitle">Top Experience Points</span> </div> <div class="widget_content blockbody floatcontainer"> <div id="block_html_3" class="blockrow" style="padding:3px;"> <a rel="nofollow" href="http://www.edaboard.com/member152255.html"><span>FvM</span></a> (172055), <a rel="nofollow" href="http://www.edaboard.com/member25939.html"><span>IanP</span></a> (160151), <a rel="nofollow" href="http://www.edaboard.com/member302142.html"><span>bigdogguru</span></a> (57998), <a rel="nofollow" href="http://www.edaboard.com/member257767.html"><span>keith1200rs</span></a> (54832), <a rel="nofollow" href="http://www.edaboard.com/member357860.html"><span>tpetar</span></a> (54409)
+		</div> </div> </div> <div class="underblock"></div> </li> </ul> </div> <div style="clear: left"> </div> <div id="footer" class="floatcontainer footer"> <form action="/forum.php" method="get" id="footer_select" class="footer_select"> <select name="styleid" onchange="switch_id(this, 'style')"> <optgroup label="Quick Style Chooser"><option class="hidden"></option></optgroup> <optgroup label="&nbsp;Standard Styles"> <option value="6" class="" selected="selected">-- Edaboard Classic</option> </optgroup> <optgroup label="&nbsp;Mobile Styles"> <option value="13" class="">-- Default Mobile Style</option> </optgroup> </select> </form> <ul id="footer_links" class="footer_links"> <li><a href="http://www.edaboard.com/sendmessage.php" rel="nofollow" accesskey="9">Contact Us</a></li> <li><a href="http://www.edaboard.com/">Forum for Electronics</a></li> <li><a rel="nofollow" href="http://www.edaboard.com/misc.php?do=vsarules">Privacy Statement</a></li> <li><a rel="nofollow" href="http://www.edaboard.com/misc.php?do=vsarules">Terms of Service</a></li> <li><a href="http://www.edaboard.com/thread260690.html#top" onclick="document.location.hash='top'; return false;">Top</a></li> </ul> <script type="text/javascript"> <!--
+		// Main vBulletin Javascript Initialization
+		vBulletin_init();
+	//--> </script> </div> </div>  <div class="below_body"> <div id="footer_time" class="shade footer_time">All times are GMT +1. The time now is <span class="time">13:20</span>.</div> <div class="shade footer_copyright"> 
+	Powered by <a rel="nofollow" href="http://www.vbulletin.com/" id="vbulletinlink">vBulletin™</a><br>Copyright © 2010 vBulletin Solutions, Inc. All rights reserved. 
+	
+<br><!-- google_ad_section_start(weight=ignore) -->SEO by vBSEO ©2011, Crawlability, Inc.<!-- google_ad_section_end --> </div> <div id="footer_morecopyright" class="shade footer_morecopyright">   </div> <div id="fb-root"></div> <script type="text/javascript" src="Resetting%20Fuse%20Bits%20in%20ATMEGA328%20Microcontroller_files/vbulletin_facebook.html"></script> <script type="text/javascript"> <!--
+	loadFacebookAPI('en_US');
+	function fbAsyncInit()
+	{
+		vBfb = new vB_Facebook({
+			appid : "120141238037730",
+			connected : 0,
+			active : 0,
+			autoreg : 1,
+			feed_newthread : 1,
+			feed_postreply : 0,
+			feed_blogentry : 1,
+			feed_blogcomment : 0,
+			feed_newarticle : 0,
+			feed_articlecomment : 0
+		});
+	}
+// --> </script> </div> <script type="text/javascript">
+adroll_adv_id = "H6QSRTNYTVH7HE3332AG6H";
+adroll_pix_id = "SLD62WUEQVGMFKFQ4GL5PT";
+(function () {
+var oldonload = window.onload;
+window.onload = function(){
+   __adroll_loaded=true;
+   var scr = document.createElement("script");
+   var host = (("https:" == document.location.protocol) ? "https://s.adroll.com" : "http://a.adroll.com");
+   scr.setAttribute('async', 'true');
+   scr.type = "text/javascript";
+   scr.src = host + "/j/roundtrip.js";
+   ((document.getElementsByTagName('head') || [null])[0] ||
+    document.getElementsByTagName('script')[0].parentNode).appendChild(scr);
+   if(oldonload){oldonload()}};
+}());
+</script> <div id="footer_copyright" class="shade footer_copyright"></div> <script type="text/javascript">
+_gaq.push(['_setCustomVar', 1, 'Section', 'Microcontrollers',1]);
+</script> 
+<script type="text/javascript">
+var _tbdef = {user: 'edaboard'};
+(function(){
+var d = document;var tbjs = d.createElement('script'); tbjs.type = 'text/javascript'; tbjs.async = true;
+tbjs.src = 'http://tweetboard.com/tb.js'; 
+var tbel = d.getElementsByTagName('body')[0]; if(!tbel) tbel = d.getElementsByTagName('head')[0];
+tbel.appendChild(tbjs);
+})();
+</script><script src="Resetting%20Fuse%20Bits%20in%20ATMEGA328%20Microcontroller_files/tb.js" async="" type="text/javascript"></script>
+
+<script type="text/javascript">
+//<![CDATA[
+
+window.orig_onload = window.onload;
+window.onload = function() {
+var cpost=document.location.hash.substring(1);var cpost2='';if(cpost){ var ispost=cpost.substring(0,4)=='post';if(ispost)cpost2='post_'+cpost.substring(4);if((cobj = fetch_object(cpost))||(cobj = fetch_object(cpost2))){cobj.scrollIntoView(true);}else if(ispost){cpostno = cpost.substring(4,cpost.length);if(parseInt(cpostno)>0){location.replace('http://www.edaboard.com/showthread.php?p='+cpostno);};} }
+
+if(typeof window.orig_onload == "function") window.orig_onload();
+}
+
+//]]>
+</script>
+ </body></html>
